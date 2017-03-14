@@ -1,0 +1,25 @@
+{
+    "name": "lavalite/theme",
+    "description": "The lavalite theme",
+    "keywords": ["Theme", "Lavalite"],
+    "license": "MIT",
+    "homepage": "http://lavalite.org",
+    "authors": [
+        {
+            "name": "Renfos Technologies",
+            "email": "info@renfos.com"
+        },
+        {
+            "name": "George John",
+            "email": "george@renfos.com"
+        }
+    ],
+    "require": {
+        "litepie/theme": "~2.0"
+    },
+    "replace": {
+        "litepie/admin": "self.version",
+        "litepie/user": "self.version",
+        "litepie/public": "self.version"
+    }
+}

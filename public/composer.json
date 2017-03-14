@@ -1,0 +1,18 @@
+{
+    "name": "litepie/public",
+    "description": "Public theme for lavalite cms.",
+    "keywords": ["Lavalite", "Public", "Theme"],
+    "license": "MIT",
+    "type": "lavalite-theme",
+    "require": {
+        "composer/installers": "~1.0",
+        "litepie/theme": "~2.0"
+    },
+    "authors": [
+        {
+            "name": "Lavalite",
+            "email": "info@lavalite.org"
+        }
+    ],
+    "minimum-stability": "dev"
+}

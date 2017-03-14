@@ -1,0 +1,9 @@
+#
+# This will split up each Lavalite theme to its own github repo
+#
+
+./git-subsplit.sh init git@github.com:lavalite/theme.git
+./git-subsplit.sh publish admin:git@github.com:Litecms/Admin.git
+./git-subsplit.sh publish user:git@github.com:Litecms/User.git
+./git-subsplit.sh publish public:git@github.com:Litecms/Public.git
+rm -rf .subsplit/
