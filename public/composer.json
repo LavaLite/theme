@@ -5,13 +5,7 @@
     "license": "MIT",
     "type": "lavalite-theme",
     "require": {
-        "composer/installers": "~1.0",
         "litepie/theme": "~2.0"
-    },
-    "extra": {
-        "installer-paths": {
-            "public/theme/{$name}/": ["litecms/public"]
-        }
     },
     "authors": [
         {
