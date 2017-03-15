@@ -5,8 +5,8 @@
     "license": "MIT",
     "type": "lavalite-theme",
     "require": {
-        "composer/installers": "~1.0",
-        "litepie/theme": "~2.0"
+        "composer/installers": "1.0.*@dev",
+        "litepie/theme": "2.0.*"
     },
     "authors": [
         {
