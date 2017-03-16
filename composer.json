@@ -14,14 +14,6 @@
             "email": "george@renfos.com"
         }
     ],
-    "require": {
-        "litepie/theme": "~2.0"
-    },
-    "extra": {
-        "installer-paths": {
-            "public/{$name}": ["lavalite/theme"]
-        }
-    },
     "replace": {
         "litepie/admin": "self.version",
         "litepie/user": "self.version",
