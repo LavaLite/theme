@@ -4,6 +4,7 @@
     "keywords": ["Theme", "Lavalite"],
     "license": "MIT",
     "homepage": "http://lavalite.org",
+    "type": "lavalite-theme",
     "authors": [
         {
             "name": "Renfos Technologies",
