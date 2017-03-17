@@ -13,10 +13,5 @@
             "name": "George John",
             "email": "george@renfos.com"
         }
-    ],
-    "replace": {
-        "litepie/admin": "self.version",
-        "litepie/user": "self.version",
-        "litepie/public": "self.version"
-    }
+    ]
 }
