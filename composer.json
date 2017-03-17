@@ -13,5 +13,15 @@
             "name": "George John",
             "email": "george@renfos.com"
         }
-    ]
+    ],
+    "extra": {
+        "installer-paths": {
+            "public/{$name}": ["lavalite/theme"]
+        }
+    },
+    "replace": {
+        "litecms/admin": "self.version",
+        "litecms/user": "self.version",
+        "litecms/public": "self.version"
+    }
 }
