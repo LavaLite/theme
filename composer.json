@@ -15,6 +15,9 @@
             "email": "george@renfos.com"
         }
     ],
+    "require": {
+        "composer/installers": "dev-master"
+    },
     "extra": {
         "installer-paths": {
             "public/{$name}": ["lavalite/theme"]
