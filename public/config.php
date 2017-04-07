@@ -35,7 +35,7 @@ return [
         // you want inheriting.
         'before'             => function ($theme) {
             // You can remove this line anytime.
-            $theme->setTitle(config('app.name'));
+            //$theme->setTitle(config('app.name'));
 
             // Breadcrumb template.
             // $theme->breadcrumb()->setTemplate('
@@ -70,10 +70,10 @@ return [
         'beforeRenderLayout' => [
 
             'default' => function ($theme) {
-                //$theme->asset()->usepath()->add('default', 'css/default.css');
             },
 
             'public'  => function ($theme) {
+                $theme->setTitle(' - ' . config('app.name'));
                 $theme->asset()->usepath()->add('public', 'css/public.css');
             },
 

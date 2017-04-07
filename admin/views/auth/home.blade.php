@@ -35,12 +35,12 @@
             </div>
             <div class="clearfix visible-sm-block"></div>
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <a href="{!!URL::to('/admin/news/news')!!}">
+                <a href="{!!URL::to('/admin/revision/activity')!!}">
                     <div class="info-box">
                         <span class="info-box-icon bg-green"><i class="fa fa-newspaper-o"></i></span>
                         <div class="info-box-content">
-                            <span class="info-box-text">News</span>
-                            <span class="info-box-number">{!!News::count('admin.web')!!}</span>
+                            <span class="info-box-text">Activities</span>
+                            <span class="info-box-number">0</span>
                         </div>
                     </div>
                 </a>

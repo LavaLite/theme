@@ -7,9 +7,7 @@ $(function () {
         }
     });
 
- 
-
-     $('input[type="datetime"], .pickdatetime').datetimepicker({
+    $('input[type="datetime"], .pickdatetime').datetimepicker({
         format:'Y-m-d H:i',
     }).prop('type','text');
 
@@ -166,6 +164,39 @@ function sendFile(file, url, editor) {
 
 var app = {
 
+
+    'sendmail' : function(forms) {
+        var form = $(forms);
+
+        if(form.valid() == false) {
+            toastr.error('Please enter valid information.', 'Error');
+            return false;
+        }
+
+        var formData = new FormData($(forms));
+        params   = form.serializeArray();
+
+        $.each(params, function(i, val) {
+            formData.append(val.name, val.value);
+        });
+
+        var url  = form.attr('action');
+
+        $.ajax( {
+            url: url,
+            type: 'POST',
+            data: formData,
+            cache: false,
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            success:function(data, textStatus, jqXHR)
+            {
+                app.load(tag, data.redirect);
+            }
+        });
+    },
+    
     'create' : function(forms, tag, datatable) {
         var form = $(forms);
 
@@ -197,8 +228,7 @@ var app = {
             dataType: 'json',
             success:function(data, textStatus, jqXHR)
             {
-                app.load(tag, data.redirect);
-                /*$(datatable).DataTable().ajax.reload( null, false );*/
+                app.message(jqXHR);
             }
         });
     },
@@ -356,3 +386,63 @@ var app = {
     }
 }
 
+$('contact#submit').click(function() {
+    $("input,textarea").jqBootstrapValidation({
+        preventSubmit: true,
+        submitError: function($form, event, errors) {
+            // additional error messages or events
+        },
+        submitSuccess: function($form, event) {
+            event.preventDefault(); // prevent default submit behaviour
+            // get values from FORM
+            var name = $("input#name").val();
+            var email = $("input#email").val();
+            var subject = $("input#subject").val();
+            var message = $("textarea#message").val();
+            var firstName = name; // For Success/Failure Message
+            // Check for white space in name for Success/Fail message
+            if (firstName.indexOf(' ') >= 0) {
+                firstName = name.split(' ').slice(0, -1).join(' ');
+            }
+            $.ajax({
+                url: "contact/send",
+                type: "POST",
+                dataType: 'json',
+                data: {
+                    name: name,
+                    email: email,
+                    subject: subject,
+                    message: message
+                },
+                cache: false,
+                success: function(data) {
+                    console.log(data)
+                    if (data.message=="error") {
+                        // Fail message
+                        $('#success').html("<div class='alert alert-danger'>");
+                        $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;").append("</button>");
+                        $('#success > .alert-danger').append("<strong>Sorry " + firstName + ", Something is not right. Please try again.");
+                        $('#success > .alert-danger').append('</div>');
+                        //clear all fields
+                        $('#contactForm').trigger("reset");
+                    } else {
+                        // Success message
+                        $('#success').html("<div class='alert alert-success'>");
+                        $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;").append("</button>");
+                        $('#success > .alert-success').append("<strong>Your message has been sent. </strong>");
+                        $('#success > .alert-success').append('</div>');
+                        //clear all fields
+                        $('#contactForm').trigger("reset");
+                    }
+                }
+            })
+        },
+        filter: function() {
+            return $(this).is(":visible");
+        },
+    });
+});
+/*When clicking on Full hide fail/success boxes */
+$('#name').focus(function() {
+    $('#success').html('');
+});

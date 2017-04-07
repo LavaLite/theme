@@ -7,7 +7,7 @@
                         <span class="title">Messages</span>
                     </div>
                     <div class="tile-body clearfix">
-                        <span class="text"><sup></sup>{!!@Message::count('web')!!}</span>
+                        <span class="text">{!!@Message::count('web')!!}</span>
                       <span class="icon"><i class="pe-7s-mail"></i></span>
                     </div>                
                     <hr>
@@ -24,7 +24,7 @@
                         <span class="title">Task</span>
                     </div>
                     <div class="tile-body clearfix">
-                        <span class="text"><sup></sup>{!!Task::count(getenv('guard'))!!}</span>
+                        <span class="text">{!!Task::count(getenv('guard'))!!}</span>
                         <span class="icon"><i class="pe-7s-id"></i></span>
                     </div>                
                     <hr>
@@ -41,7 +41,7 @@
                         <span class="title">Events</span>
                     </div>
                     <div class="tile-body clearfix">
-                        <span class="text"><sup></sup>{!!Calendar::count(getenv('guard'))!!}</span>
+                        <span class="text">{!!Calendar::count(getenv('guard'))!!}</span>
                         <span class="icon"><i class="pe-7s-date"></i></span>
                     </div>
                 
@@ -55,20 +55,19 @@
 
         <div class="col-sm-6 col-md-3">
             <div class="lavalite-info-tile purple">
-                <a href="{!!url(getenv('auth.guard').'/news/news')!!}">
+                <a href="{!!url(getenv('auth.guard').'/revision/activity')!!}">
                     <div class="tile-heading clearfix">
-                        <span class="title">News</span>
+                        <span class="title">Activities</span>
                     </div>
                     <div class="tile-body clearfix">
-                       <span class="text"><sup></sup>{!!News::count(getenv('guard'))!!}</span>
+                       <span class="text">0</span>
                        <span class="icon"><i class="pe-7s-news-paper"></i></span>
                     </div>
                 </a>
                 <hr>
                   
                 <div class="tile-footer clearfix">
-                    <a href="{!!url(getenv('auth.guard').'/news/news')!!}"><span class="text-small">Go to news</span></a>
-                    <a href="{!!url(getenv('auth.guard').'/news/news/create')!!}"><span class="add-icon"><i class="pe-7s-plus"></i></span></a>
+                    <a href="{!!url(getenv('auth.guard').'/revision/activity')!!}"><span class="text-small">Go to activities</span></a>
                 </div>
             </div>
         </div>

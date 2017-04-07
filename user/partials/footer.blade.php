@@ -25,7 +25,7 @@
             </ul>
         </nav>
         <p class="copyright pull-right">
-            Lavalite © 2017 All Rights Reserved. Powered by Renfos Technologies Pvt Ltd.
+            Lavalite © 2017 All Rights Reserved. Powered by <a href="http://renfos.com" target="_blank"> Renfos Technologies Pvt Ltd.</a>
         </p>
     </div>
 </footer>
