@@ -33,7 +33,7 @@
 
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">    
             <div class="col-sm-offset-3 col-sm-6 col-md-offset-3 col-md-6 mt20">
-                {!! $user->fileCropper('photo', $user->defaultImage('md','photo'))!!}
+                {!! $user->files('photo')->cropper($user->defaultImage('md','photo'))!!}
             </div>                                  
         </div>
 

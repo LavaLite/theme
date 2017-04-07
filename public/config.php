@@ -73,12 +73,10 @@ return [
             },
 
             'public'  => function ($theme) {
-                $theme->setTitle(' - ' . config('app.name'));
                 $theme->asset()->usepath()->add('public', 'css/public.css');
             },
 
             'home'    => function ($theme) {
-                $theme->asset()->usepath()->add('home', 'css/home.css');
             },
 
         ],
