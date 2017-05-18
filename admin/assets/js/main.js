@@ -29,6 +29,8 @@ $(function () {
         }
     });
 
+    $('.select2').select2();
+
     $('input[type="datetime"], .pickdatetime').datetimepicker({
         format:'Y-m-d H:i',
     }).prop('type','text');
@@ -119,6 +121,8 @@ $( document ).ajaxComplete(function() {
             app.sendFile(files[0], url, $(this));
         }
     });
+
+    $('.select2').select2();
 
     $('.html-editor-mini').summernote({
         height: "200px",

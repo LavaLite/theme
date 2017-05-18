@@ -63,6 +63,7 @@ return [
             $theme->asset()->usepath()->add('public', 'css/vendor.css');
             $theme->asset()->usepath()->add('main', 'css/main.css');
             $theme->asset()->usepath()->add('jquery', 'packages/jquery/js/jquery.min.js');
+            $theme->asset()->usepath()->add('public', 'js/theme.js');
         },
 
         // Listen on event before render a layout,

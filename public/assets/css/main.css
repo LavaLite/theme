@@ -2438,6 +2438,206 @@ body.modal-open {
     margin-bottom: 3px;
 }
 
+
+
+.profile-wraper {
+    background-color: #f7f7f7;
+    min-height: 850px;
+    padding: 60px 0;
+}
+.profile-wraper .info-box {
+    background-color: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.profile-wraper .info-box .cover-pic {
+    min-height: 140px;
+    position: relative;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+}
+.profile-wraper .info-box .cover-pic::before {
+    background-color: #000;
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 100%;
+    bottom: 0;
+    opacity: 0.3;
+}
+.profile-wraper .info-box .info {
+    position: relative;
+    z-index: 1;
+    padding: 0px 30px 30px 30px;
+}
+.profile-wraper .info-box .img-wrap {
+    border-radius: 50%;
+    height: 130px;
+    margin: -80px auto 0;
+    padding: 4px;
+    position: relative;
+    width: 130px;
+    background: #fff;
+}
+.profile-wraper .info-box .img-wrap img {
+    width: 122px;
+    height: 122px;
+}
+.profile-wraper .info-box .info h3 {
+    color: #666;
+    font-size: 18px;
+}
+.profile-wraper .info-box .info h4 {
+    font-size: 12px;
+    color: #999;
+}
+.profile-wraper .tabs {
+    background-color: #fff;
+    border-radius: 6px;
+}
+.profile-wraper .tabs .nav-tabs {
+    border-bottom: 1px solid #eee;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.profile-wraper .tabs .nav-tabs li {
+    position: relative;
+    text-align: center;
+}
+.profile-wraper .tabs .nav-tabs li::after {
+    background-color: #C93756;
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    bottom: -15px;
+    position: relative;
+    margin: 0 auto;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+}
+.profile-wraper .tabs .nav-tabs li a {
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    padding: 0 15px;
+    color: #333;
+    opacity: 0.5;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+}
+.profile-wraper .tabs .nav-tabs li a i {
+    font-weight: 700;
+    margin-right: 2px;
+    font-size: 12px;
+}
+.profile-wraper .tabs .nav-tabs li.active a {
+    opacity: 1;
+}
+.profile-wraper .tabs .nav-tabs li.active a i {
+    color: #C93756;
+}
+.profile-wraper .tabs .nav-tabs li.active::after {
+    width: calc(100% - 30px);
+}
+.profile-wraper .tabs .tab-content {
+    padding: 15px;
+    color: #666;
+}
+.profile-wraper .tabs .tab-content h3 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.profile-wraper .info-box .social {
+    border-top: 1px solid rgba(33, 33, 33, 0.05);
+    padding: 30px 15px;
+    color: #212121;
+}
+.profile-wraper .info-box .social .counts {
+    font-size: 21px;
+}
+.profile-wraper .info-box .social .block {
+    display: block;
+}
+.profile-wraper .info-box .social .head-font {
+    font-weight: 700;
+    color: #666;
+}
+.profile-wraper .info-box .social .counts-text {
+    color: #999;
+}
+.profile-wraper .info-box .info .btn-social {
+    height: 32px;
+    width: 32px;
+    text-align: center;
+    border-radius: 50%;
+    padding: 6px;
+}
+
+.profile-wraper .info-box .info .btn i {
+    font-size: 16.5px;
+    line-height: 19px;
+}
+.profile-wraper .info-box.stats {
+    padding: 30px;
+}
+.profile-wraper .info-box.stats ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.profile-wraper .info-box.stats ul li {
+    position: relative;
+    margin-bottom: 15px;
+}
+.profile-wraper .info-box.stats ul li:last-child {
+    margin-bottom: 0;
+}
+.profile-wraper .info-box.stats ul li a {
+    color: #0e3655;
+}
+.profile-wraper .info-box.stats ul li a span {
+    float: right;
+    opacity: 0.3;
+}
+.profile-wraper .info-box.stats ul li i {
+    display: inline-block;
+    width: 25px;
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+.sidebar .widget.search form {
+    position: relative;
+}
+.sidebar .widget.search form .form-control {
+    background-color: #fff;
+    border: 1px solid #dedede;
+}
+.sidebar .widget.search form .btn {
+    width: 34px;
+}
+.sidebar .widget.tags ul li {
+    display: inline-block;
+    margin: 0 5px 10px 0px;
+}
+.sidebar .widget.tags ul li a {
+    background-color: #ededed;
+    padding: 5px 10px;
+    border-radius: 20px;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+}
+.sidebar .widget.tags ul li a:hover {
+    background-color: #C93756;
+    color: #fff;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -3213,5 +3413,4 @@ section.contact .sidebar .widget .content p {
 section.contact .sidebar .widget .content p + p {
     margin-top: 0;
 }
-
 
