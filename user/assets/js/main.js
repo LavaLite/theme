@@ -272,7 +272,6 @@ function debounce(func, wait, immediate) {
             return true;
         }
     });
-    $.material.init();
     $('[data-toggle="tooltip"]').tooltip()
     $('.html-editor-mini').summernote({
         height: "200px",
@@ -317,23 +316,6 @@ function debounce(func, wait, immediate) {
     $("#datepicker").datepicker({todayHighlight: true}); 
     $('#datepicker-pastdisabled').datepicker({ todayHighlight: true, startDate: "-3d", endDate: "+3d" });
     
-    toastr.options = {
-      "closeButton": true,
-      "debug": false,
-      "newestOnTop": false,
-      "progressBar": false,
-      "positionClass": "toast-bottom-left",
-      "preventDuplicates": true,
-      "onclick": null,
-      "showDuration": "300",
-      "hideDuration": "1000",
-      "timeOut": "5000",
-      "extendedTimeOut": "1000",
-      "showEasing": "swing",
-      "hideEasing": "linear",
-      "showMethod": "fadeIn",
-      "hideMethod": "fadeOut"
-    };
 
     $.ajaxSetup({
         headers: {

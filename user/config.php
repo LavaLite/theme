@@ -56,11 +56,13 @@ return [
             //You may use this event to set up your assets.
 
             //You may use this event to set up your assets.
-          
-            $theme->asset()->usepath()->add('normalize', 'css/normalize.css');
-            $theme->asset()->usepath()->add('user', 'css/vendor.css');
-            $theme->asset()->usepath()->add('main', 'css/main.css');
-            $theme->asset()->usepath()->add('jquery', 'packages/jquery/js/jquery.min.js');
+            $theme->asset()->usePath()->add('vendor', 'dist/css/styles.css');
+            $theme->asset()->usePath()->add('theme', 'css/theme.css');
+            $theme->asset()->usePath()->add('styles', 'css/styles.css');
+            $theme->asset()->add('jquery', 'assets/vendor/jquery/jquery.min.js');
+
+            $theme->asset()->container('footer')->usepath()->add('app', 'dist/js/app.js');
+            $theme->asset()->container('footer')->usepath()->add('main', 'js/main.js');
         },
 
         // Listen on event before render a layout,

@@ -1,18 +1,14 @@
-<!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-        <li>
-            <a href="#control-sidebar-home-tab" data-toggle="tab">
-            <i class="fa fa-home">
-            </i>
-            </a>
+        <li  class="active">
+            <a href="#control-sidebar-home-tab" ><i class="fa fa-wrench"></i></a>
         </li>
         <li>
-            <a href="#control-sidebar-settings-tab" data-toggle="tab">
-            <i class="fa fa-gears">
-            </i>
-            </a>
+            <a href="#control-sidebar-theme-tab" ><i class="fa fa-gears"></i></a>
+        </li>
+        <li>
+            <a href="#control-sidebar-settings-tab" ><i class="fa fa-home"></i></a>
         </li>
     </ul>
     <!-- Tab panes -->
@@ -115,16 +111,15 @@
                 </li>
             </ul>
             <!-- /.control-sidebar-menu -->
-        </div>
         <!-- /.tab-pane -->
         <!-- Settings tab content -->
-        <div class="tab-pane" id="control-sidebar-settings-tab">
+        <div class="tab-pane active" id="control-sidebar-settings-tab">
             <form method="post">
                 <h3 class="control-sidebar-heading">General Settings</h3>
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
                         Report panel usage
-                        <input type="checkbox" class="pull-right" checked>
+                        <input type="checkbox" class="pull-right" checked="">
                     </label>
                     <p>
                     Some information about this general settings option
@@ -134,7 +129,7 @@
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
                         Allow mail redirect
-                        <input type="checkbox" class="pull-right" checked>
+                        <input type="checkbox" class="pull-right" checked="">
                     </label>
                     <p>
                     Other sets of options are available
@@ -144,7 +139,7 @@
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
                         Expose author name in posts
-                        <input type="checkbox" class="pull-right" checked>
+                        <input type="checkbox" class="pull-right" checked="">
                     </label>
                     <p>
                     Allow the user to show his name in blog posts
@@ -155,7 +150,7 @@
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
                         Show me as online
-                        <input type="checkbox" class="pull-right" checked>
+                        <input type="checkbox" class="pull-right" checked="">
                     </label>
                 </div>
                 <!-- /.form-group -->
@@ -186,3 +181,4 @@
 immediately after the control sidebar -->
 <div class="control-sidebar-bg">
 </div>
+

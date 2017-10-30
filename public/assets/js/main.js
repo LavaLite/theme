@@ -25,36 +25,7 @@ $(function () {
         format:'Y-m-d H:i',
     }).prop('type','text');
 
-    toastr.options = {
-      "closeButton": true,
-      "debug": false,
-      "newestOnTop": false,
-      "progressBar": false,
-      "positionClass": "toast-bottom-left",
-      "preventDuplicates": true,
-      "onclick": null,
-      "showDuration": "300",
-      "hideDuration": "1000",
-      "timeOut": "5000",
-      "extendedTimeOut": "1000",
-      "showEasing": "swing",
-      "hideEasing": "linear",
-      "showMethod": "fadeIn",
-      "hideMethod": "fadeOut"
-    };
 
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-/*
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
-    });
-*/
     $('body').on('click', '[data-action]', function(e) {
         e.preventDefault();
 
@@ -124,13 +95,7 @@ $( document ).ajaxComplete(function() {
         format:'Y-m-d H:i',
     }).prop('type','text');
 
-/*
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
-    });
-*/
+
 });
 
 
@@ -141,26 +106,6 @@ $( document ).ajaxError(function( event, jqxhr, settings, thrownError ) {
 $( document ).ajaxSuccess(function( event, xhr, settings ) {
     app.message(xhr);
 });
-/*
-function sendFile(file, url, editor) {
-    var data = new FormData();
-    data.append("file", file);
-    $.ajax({
-        data: data,
-        type: "POST",
-        url: url,
-        cache: false,
-        contentType: false,
-        processData: false,
-        success: function(objFile) {
-            editor.summernote('insertImage', objFile.folder+objFile.file);
-        },
-        error: function(jqXHR, textStatus, errorThrown)
-        {
-        }
-    });
-}
-*/
 
 var app = {
 
@@ -442,7 +387,4 @@ $('contact#submit').click(function() {
         },
     });
 });
-/*When clicking on Full hide fail/success boxes */
-$('#name').focus(function() {
-    $('#success').html('');
-});
+

@@ -6,7 +6,12 @@ $(function () {
             return true;
         }
     });
-  
+
+    $('.slim-scroll').slimScroll({
+        color: '#dd4b39',
+        height: '100%',
+        alwaysVisible: true
+    });
 
     $("form[id$='-show'] .disabled :input").prop("disabled", true);
 
@@ -22,33 +27,6 @@ $(function () {
           ]
     });
     
-    $('.html-editor').summernote({
-        height: "200px",
-        onImageUpload: function(files, editor, welEditable) {
-            app.sendFile(files[0], editor, welEditable);
-        }
-    });
-
-    $('.select2').select2();
-
-    $('input[type="datetime"], .pickdatetime').datetimepicker({
-        format:'Y-m-d H:i',
-    }).prop('type','text');
-
-    $('input[type="date"], .pickdate').datetimepicker({
-        timepicker:false,
-        format:'Y-m-d',
-    }).prop('type','text');
-
-    $('input[type="time"], .picktime').datetimepicker({
-        datepicker:false,
-        format:'H:i',
-    }).prop('type','text');
-
-    $('input[type="period"], .pickperiod').datetimepicker({
-        format:'Y-m-d H:i',
-    }).prop('type','text');
-
     toastr.options = {
       "closeButton": true,
       "debug": false,
@@ -66,6 +44,78 @@ $(function () {
       "showMethod": "fadeIn",
       "hideMethod": "fadeOut"
     };
+    
+    $('.html-editor').summernote({
+        height: "200px",
+        callbacks: {
+            onImageUpload: function(files, editor, welEditable) {
+                app.sendFile(files[0], editor, welEditable);
+            }
+        }
+    });
+
+    $('.select-search').selectize({
+    valueField: 'title',
+    labelField: 'title',
+    searchField: 'title',
+    options: [],
+    create: false,
+    render: {
+        option: function(item, escape) {
+            var actors = [];
+            for (var i = 0, n = item.abridged_cast.length; i < n; i++) {
+                actors.push('<span>' + escape(item.abridged_cast[i].name) + '</span>');
+            }
+
+            return '<div>' +
+                '<img src="' + escape(item.posters.thumbnail) + '" alt="">' +
+                '<span class="title">' +
+                    '<span class="name">' + escape(item.title) + '</span>' +
+                '</span>' +
+                '<span class="description">' + escape(item.synopsis || 'No synopsis available at this time.') + '</span>' +
+                '<span class="actors">' + (actors.length ? 'Starring ' + actors.join(', ') : 'Actors unavailable') + '</span>' +
+            '</div>';
+        }
+    },
+    load: function(query, callback) {
+        if (!query.length) return callback();
+        $.ajax({
+            url: 'http://api.rottentomatoes.com/api/public/v1.0/movies.json',
+            type: 'GET',
+            dataType: 'jsonp',
+            data: {
+                q: query,
+                page_limit: 10,
+                apikey: 'w82gs68n8m2gur98m6du5ugc'
+            },
+            error: function() {
+                callback();
+            },
+            success: function(res) {
+                callback(res.movies);
+            }
+        });
+    }
+});
+
+    $('input[type="datetime"], .pickdatetime').datetimepicker({
+        viewMode: 'days',
+        format: 'DD MMM YYYY hh:SS A'
+    }).prop('type','text');
+
+    $('input[type="date"], .pickdate').datetimepicker({
+        viewMode: 'days',
+        format: 'DD MMM YYYY'
+    }).prop('type','text');
+
+    $('input[type="time"], .picktime').datetimepicker({
+        format: 'hh:SS A'
+    }).prop('type','text');
+
+    $('input[type="period"], .pickperiod').datetimepicker({
+        viewMode: 'days',
+        format: 'hh:SS A'
+    }).prop('type','text');
 
     $.ajaxSetup({
         headers: {
@@ -73,13 +123,6 @@ $(function () {
         }
     });
 
-/*
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
-    });
-*/
     $('body').on('click', '[data-action]', function(e) {
         e.preventDefault();
 
@@ -116,13 +159,51 @@ $( document ).ajaxComplete(function() {
 
     $('.html-editor').summernote({
         height: "200px",
-        onImageUpload: function(files) {
-            url = $(this).data('upload');
-            app.sendFile(files[0], url, $(this));
+        callbacks: {
+            onImageUpload: function(files) {
+                url = $(this).data('upload');
+                app.sendFile(files[0], url, $(this));
+            }
         }
     });
 
-    $('.select2').select2();
+    $('.select-search').selectize({
+        valueField: 'title',
+        labelField: 'title',
+        searchField: 'title',
+        options: [],
+        render: {
+            option: function(item, escape) {
+                return '<div>' +
+                    '<span class="title">' +
+                        '<span class="name"><i class="icon ' + (item.fork ? 'fork' : 'source') + '"></i>' + escape(item.name) + '</span>' +
+                        '<span class="by">' + escape(item.username) + '</span>' +
+                    '</span>' +
+                    '<span class="description">' + escape(item.description) + '</span>' +
+                    '<ul class="meta">' +
+                        (item.language ? '<li class="language">' + escape(item.language) + '</li>' : '') +
+                        '<li class="watchers"><span>' + escape(item.watchers) + '</span> watchers</li>' +
+                        '<li class="forks"><span>' + escape(item.forks) + '</span> forks</li>' +
+                    '</ul>' +
+                '</div>';
+            }
+        },
+        load: function(query, callback) {
+            if (!query.length) return callback();
+            var url = this.$input.data('url');
+
+            $.ajax({
+                url: url + encodeURIComponent(query),
+                type: 'GET',
+                error: function() {
+                    callback();
+                },
+                success: function(res) {
+                    callback(res.items.slice(0, 10));
+                }
+            });
+        }
+    });
 
     $('.html-editor-mini').summernote({
         height: "200px",
@@ -137,24 +218,23 @@ $( document ).ajaxComplete(function() {
     });
 
     $('input[type="datetime"], .pickdatetime').datetimepicker({
-        format:'Y-m-d H:i',
+        format: 'DD MMM YYYY hh:ss A'
     }).prop('type','text');
 
     $('input[type="date"], .pickdate').datetimepicker({
-        timepicker:false,
-        format:'Y-m-d',
+        viewMode: 'days',
+        format: 'DD MMM YYYY'
     }).prop('type','text');
 
     $('input[type="time"], .picktime').datetimepicker({
-        datepicker:false,
-        format:'H:i',
+        format: 'hh:ss A'
     }).prop('type','text');
 
     $('input[type="period"], .pickperiod').datetimepicker({
-        format:'Y-m-d H:i',
+        viewMode: 'days',
+        format: 'hh:ss A'
     }).prop('type','text');
 
-    $.AdminLTE.boxWidget.activate()
 });
 
 
@@ -198,9 +278,10 @@ var app = {
             processData: false,
             contentType: false,
             dataType: 'json',
+            async: false,
             success:function(data, textStatus, jqXHR)
             {
-                app.load(tag, data.redirect);
+                app.load(tag, data.url);
                 $(datatable).DataTable().ajax.reload( null, false );
             }
         });
@@ -222,7 +303,7 @@ var app = {
         });
 
         $.each($(forms + ' .html-editor'), function(i, val) {
-            formData.append(val.name, $('#'+val.id).code());
+            formData.append(val.name, $('#'+val.id).summernote('code'));
         });
 
         var url  = form.attr('action');
@@ -235,9 +316,10 @@ var app = {
             processData: false,
             contentType: false,
             dataType: 'json',
+            async: false,
             success:function(data, textStatus, jqXHR)
             {
-                app.load(tag, data.redirect);
+                app.load(tag, data.url);
                 $(datatable).DataTable().ajax.reload( null, false );
             }
         });
@@ -256,6 +338,7 @@ var app = {
             processData: false,
             contentType: false,
             dataType: 'json',
+            async: false,
             beforeSend: function() {
                 $('#'+id).prop('disabled',true);
                 $('#'+id+' i').addClass('fa-spinner fa-spin');
@@ -263,7 +346,7 @@ var app = {
             },
             success:function(data, textStatus, jqXHR)
             {
-                app.load(tag, data.redirect);
+                app.load(tag, data.url);
                 $(datatable).DataTable().ajax.reload( null, false );
             }
         });
@@ -286,10 +369,11 @@ var app = {
                 processData: false,
                 contentType: false,
                 dataType: 'json',
+                async: false,
                 success:function(data, textStatus, jqXHR)
                 {
                     swal("Deleted!", data.message, "success");
-                    app.load(tag, data.redirect);
+                    app.load(tag, data.url);
                     $(datatable).DataTable().ajax.reload( null, false );
                 },
                 error:function(data, textStatus, jqXHR)
@@ -307,6 +391,7 @@ var app = {
     'sendFile' : function(file, url, editor) {
         var data = new FormData();
         data.append("file", file);
+        data.append("return_path", 'true');
         $.ajax({
             data: data,
             type: "POST",
@@ -314,8 +399,9 @@ var app = {
             cache: false,
             contentType: false,
             processData: false,
+            async: false,
             success: function(objFile) {
-                editor.summernote('insertImage', objFile.folder+objFile.file);
+                editor.summernote('insertImage', objFile.path);
             },
             error: function(jqXHR, textStatus, errorThrown)
             {
@@ -356,6 +442,7 @@ var app = {
         $.ajax({
             url: target,
             type: method,
+            async: false,
             success:function(data, textStatus, jqXHR)
             {
                 app.message(jqXHR);

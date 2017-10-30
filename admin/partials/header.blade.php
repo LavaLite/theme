@@ -38,29 +38,29 @@
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="{!!user('admin.web')->picture!!}" class="user-image" alt="User Image"/>
-                    <span class="hidden-xs">{!!user('admin.web')->name!!}</span>
+                    <img src="{!!user()->picture!!}" class="user-image" alt="User Image"/>
+                    <span class="hidden-xs">{!!user()->name!!}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="{!!user('admin.web')->picture!!}" class="img-circle" alt="User Image" />
+                            <img src="{!!user()->picture!!}" class="img-circle" alt="User Image" />
                             <p>
-                            {!!user('admin.web')->name!!} - {!!user('admin.web')->designation!!}
-                            <small>Member since {!!user('admin.web')->joined!!}</small>
+                            {!!user()->name!!} - {!!user()->designation!!}
+                            <small>Member since {!!user()->joined!!}</small>
                             </p>
                         </li>
                         <!-- Menu Body -->
                         <li class="user-body">
-                            <a href="#" data-toggle="modal" data-target="#popupTeam" style="color:#000 !important; text-align:center;">Current Team : {!!@user('admin.web')->teams->name!!}</a>
+                            <a href="#" data-toggle="modal" data-target="#popupTeam" style="color:#000 !important; text-align:center;">Current Team : {!!@user()->teams->name!!}</a>
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="{{ URL::to('admin/profile') }}" class="btn btn-default btn-flat">Profile</a>
+                                <a href="{{ trans_url('admin/profile') }}" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="{{ URL::to('logout?role=admin.web') }}" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="{{ trans_url('admin/logout') }}" class="btn btn-default btn-flat">Sign out</a>
                             </div>
                         </li>
                     </ul>

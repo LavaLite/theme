@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="{!!url('favicon.ico')!!}"/>       
         <link rel="apple-touch-icon" href="{{asset('apple-touch-icon.png')}}">
-        <link href="{{ theme_asset('css/vendor.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/vendor.css') }}" rel="stylesheet">
 
         {!! Theme::asset()->styles() !!}
         {!! Theme::asset()->scripts() !!}
@@ -20,8 +20,6 @@
         {!! Theme::partial('header') !!}
         {!! Theme::content() !!}
         {!! Theme::partial('footer') !!}
-        <script src="{{ theme_asset('js/vendor.js') }}"></script>
-        <script src="{{ theme_asset('js/main.js') }}"></script>
         {!! Theme::asset()->container('footer')->scripts() !!}
     </body>
 </html>

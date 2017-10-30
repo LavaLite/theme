@@ -9,7 +9,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="{{asset('apple-touch-icon.png')}}">
         <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet">
-        <link href="{{ theme_asset('css/vendor.css') }}" rel="stylesheet">
 
         {!! Theme::asset()->styles() !!}
         {!! Theme::asset()->scripts() !!}
@@ -28,8 +27,6 @@
                 {!! Theme::partial('footer') !!}
             </div>
         </div>   
-        <script src="{{ theme_asset('js/vendor.js') }}"></script>
-        <script src="{{ theme_asset('js/main.js') }}"></script>
         {!! Theme::asset()->container('footer')->scripts() !!}
         
     </body>
