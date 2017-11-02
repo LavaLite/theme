@@ -21,7 +21,7 @@
                   <i class="fa fa-envelope-o"></i>
                   <span class="label label-success"> {!!Message::count('Inbox')!!}</span>
                 </a>
-                {!! Message::display('drop') !!}
+                {!! Message::gadget('admin.message.drop') !!}
                 </li>
                 <!-- Notifications: style can be found in dropdown.less -->
                 <li class="dropdown notifications-menu">              

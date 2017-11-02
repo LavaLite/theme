@@ -1,6 +1,6 @@
 require('./bootstrap');
 
-require('components-jqueryui/jquery-ui.js');
+require('components-jqueryui/jquery-ui.js'); 
 require('bootstrap/dist/js/bootstrap.js');
 require('datatables.net');
 require('datatables.net-bs');
@@ -15,6 +15,7 @@ require('jstree/dist/jstree.js' );
 require('nestable/jquery.nestable.js' );
 require('selectize/dist/js/selectize.js');
 require('summernote/dist/summernote.js');
+window.swal = require('sweetalert/dist/sweetalert.min.js');
 require('dropzone/dist/dropzone.js');
 require('bootstrap-daterangepicker/daterangepicker.js');
 require('bootstrap-switch/dist/js/bootstrap-switch.js');
