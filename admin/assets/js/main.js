@@ -265,7 +265,7 @@ var app = {
         });
 
         $.each($(forms + ' .html-editor'), function(i, val) {
-            formData.append(val.name, $('#'+val.id).code());
+            formData.append(val.name, $('#'+val.id).summernote('code'));
         });
 
         var url  = form.attr('action');

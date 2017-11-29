@@ -31,6 +31,7 @@
             display: table-cell;
             vertical-align: middle;
             margin: 2em auto;
+            background-image: url('{{theme_asset('img/bg/bg').rand(2,4)}}.jpeg');
         }
 
         h1 {
@@ -70,7 +71,7 @@
 
     </style>
     </head>
-    <body class="blank">
+    <body>
 
         {!! Theme::content() !!}
 

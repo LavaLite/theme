@@ -19,14 +19,14 @@
         <div class="wrapper">
             {!! Theme::partial('header') !!}
             {!! Theme::partial('aside') !!}
-            <div class="main-panel">
+            <div class="main-panel clearfix">
                 <div class="content">
                     <div class="container-fluid">
                     {!! Theme::content() !!}
                     </div>
                 </div>
+                {!! Theme::partial('footer') !!}
             </div>
-            {!! Theme::partial('footer') !!}
         </div>   
         {!! Theme::asset()->container('footer')->scripts() !!}
         {!! Theme::asset()->container('extra')->scripts() !!}

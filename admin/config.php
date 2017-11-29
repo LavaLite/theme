@@ -57,6 +57,10 @@ return [
         // Listen on event before render a layout,
         // this should call to assign style, script for a layout.
         'beforeRenderLayout' => [
+            'auth' => function($theme)
+            {
+                $theme->asset()->usePath()->add('auth', 'css/auth.css');
+            }
 
         ],
     ],

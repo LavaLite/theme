@@ -3114,7 +3114,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 .navbar .navbar-nav>li.list-grid>.dropdown-menu li a {
     text-align: center;
     margin: 0;
-    min-width: 95px;
+    min-width: 94px;
     height: 90px;
     padding: 20px 0;
 }
@@ -7947,9 +7947,6 @@ div.tagsinput div {
     font-size: 18px
 }
 
-.modal {
-    z-index: 9999;
-}
 
 .note-popover .popover-content .btn-group .note-table .note-dimension-picker .note-dimension-picker-mousecatcher, .panel-heading.note-toolbar .btn-group .note-table .note-dimension-picker .note-dimension-picker-mousecatcher {
     position: absolute!important;

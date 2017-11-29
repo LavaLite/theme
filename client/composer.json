@@ -1,0 +1,16 @@
+{
+    "name": "litecms/user",
+    "description": "User theme for lavalite cms.",
+    "keywords": ["Lavalite", "User", "Theme"],
+    "license": "MIT",
+    "type": "lavalite-theme",
+    "require": {
+        "composer/installers": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "Lavalite",
+            "email": "info@lavalite.org"
+        }
+    ]
+}

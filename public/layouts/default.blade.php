@@ -15,6 +15,7 @@
     </head>
     <body>
         <div class="inner-pages">
+        {!! Theme::partial('login') !!}
         {!! Theme::partial('header') !!}
         {!! Theme::content() !!}
         {!! Theme::partial('footer') !!}

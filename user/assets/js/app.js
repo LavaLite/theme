@@ -1,7 +1,7 @@
 require('./bootstrap');
 
-require('components-jqueryui/jquery-ui.js');
 require('bootstrap/dist/js/bootstrap.js');
+require('components-jqueryui/jquery-ui.js');
 require('datatables.net');
 require('datatables.net-bs');
 require('datatables.net-responsive' );

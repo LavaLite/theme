@@ -62,7 +62,9 @@ return [
             $theme->asset()->add('jquery', 'assets/vendor/jquery/jquery.min.js');
 
             $theme->asset()->container('footer')->usepath()->add('app', 'dist/js/app.js');
-            $theme->asset()->container('footer')->usepath()->add('main', 'js/main.js');
+            $theme->asset()->container('footer')->usepath()->add('mm', 'js/material.min.js');
+            $theme->asset()->container('footer')->usepath()->add('md', 'js/material-dashboard.min.js');
+            //$theme->asset()->container('footer')->usepath()->add('main', 'js/main.js');
         },
 
         // Listen on event before render a layout,

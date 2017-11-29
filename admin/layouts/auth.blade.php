@@ -10,8 +10,7 @@
 
     </head>
     <body class="login-page">
-         {!! Theme::content() !!}
+    {!! Theme::content() !!}
     {!! Theme::asset()->container('footer')->scripts() !!}
-    @stack('scripts')
     </body>
 </html>

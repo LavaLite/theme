@@ -1,7 +1,7 @@
         <header class="main-header">
             <div class="logo">
                 <a href="#">
-                    <img src="{{theme_asset('img/logo-color.svg')}}" class="img-responsive center-block" alt="Lavalite Logo">
+                    <img src="{{theme_asset('img/logo/white.svg')}}" class="img-responsive center-block" alt="Lavalite Logo">
                 </a>
             </div>
             
@@ -14,7 +14,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Dashboard</a>
+                        <a class="navbar-brand" href="{{guard_url('/')}}">{{ Theme::getTitle() }}</a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -49,22 +49,22 @@
                                 </ul>
                             </li>
                             <li class="dropdown settings">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                    <i class="material-icons">account_circle</i>
                                    <p class="hidden-lg hidden-md">Profile</p>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <div class="userinfo">
-                                            <span class="avatar"><img class="img-responsive img-circle" src="{{users('picture')}}"></span>
-                                            <span class="name">{{users('name')}}</span>
-                                            <span class="email">{{users('email')}}</span>
+                                            <span class="avatar"><img class="img-responsive img-circle" src="{{user()->picture}}"></span>
+                                            <span class="name">{{user()->name}}</span>
+                                            <span class="email">{{user()->email}}</span>
                                         </div>
                                     </li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="{{guard_url('message')}}">Messages</a></li>
-                                    <li><a href="{{guard_url('help')}}">Help Center</a></li>
-                                    <li><a href="{{guard_url('settings')}}">Settings</a></li>
+                                    <li><a href="{{guard_url('message/message')}}">Messages</a></li>
+                                    <li><a href="http://help.lavalite.org">Help Center</a></li>
+                                    <li><a href="{{guard_url('settings/settings')}}">Settings</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="{{guard_url('lock')}}">Lock</a></li>
                                     <li><a href="{{guard_url('logout')}}">Log Out</a></li>
