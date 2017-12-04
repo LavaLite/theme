@@ -2,11 +2,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-        User Profile
+        <i class="fa fa-user "></i> Profile
         </h1>
         <ol class="breadcrumb">
             <li><a href="{!!url('admin')!!}"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">User Profile</li>
+            <li class="active">Profile</li>
         </ol>
     </section>
     <!-- Main content -->
@@ -16,72 +16,17 @@
                 <!-- Profile Image -->
                 <div class="box box-warning">
                     <div class="box-body box-profile">
-                        <img class="profile-user-img img-responsive img-circle" src="{!!user('admin.web')->picture!!}" alt="User profile picture">
-                        <h3 class="profile-username text-center">{!!user('admin.web')->name!!}</h3>
-                        <p class="text-muted text-center">{!!user('admin.web')->designation!!} - Member Since {!!user('admin.web')->joined!!}</p>
+                        <img class="profile-user-img img-responsive img-circle" src="{!!user()->picture!!}" alt="User profile picture">
+                        <h3 class="profile-username text-center">{!!user()->name!!}</h3>
+                        <p class="text-muted text-center">{!!user()->designation!!} - Member Since {!!user()->joined!!}</p>
                         <button  class="btn btn-primary btn-block"  id="update-profile"><b>Update Profile</b></button>
                         <button  class="btn btn-warning btn-block" id="change-password"><b>Change Password</b></button>
                     </div>
                     <!-- /.box-body -->
                 </div>
                 <!-- /.box -->
-                <!-- About Me Box -->
-                <div class="box box-success">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">About Me <small></small></h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <strong><i class="fa fa-book margin-r-5"></i>  About</strong>
-                        <p class="text-muted">
-                        B.S. in Computer Science from the University of Tennessee at Knoxville
-                        </p>a
-                        <hr>
-                        <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
-                        <p class="text-muted">Malibu, California</p>
-                        <hr>
-                        <strong><i class="fa fa-pencil margin-r-5"></i> Projects</strong>
-                        <p>
-                        <span class="label label-danger">UI Design</span>
-                        <span class="label label-success">Coding</span>
-                        <span class="label label-info">Javascript</span>
-                        <span class="label label-warning">PHP</span>
-                        <span class="label label-primary">Node.js</span>
-                        </p>
-                        <hr>
-                        <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
-                    </div>
-                    <!-- /.box-body -->
-                </div>
+
                 <!-- /.box -->
-            </div>
-            <!-- /.col -->
-            <div id="show-home">
-                <div class="col-md-9">
-                    <div class="nav-tabs-custom">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tasks" data-toggle="tab" aria-expanded="false">Task</a></li>
-                            <li class=""><a href="#calendars" data-toggle="tab" aria-expanded="false">Calendar</a></li>
-                            <li class=""><a href="#settings" data-toggle="tab" aria-expanded="true">Settings</a></li>
-                        </ul>
-                        <div class="tab-content mh500">
-                            <div class="tab-pane active" id="tasks">
-                                {!! @Task::display('profile') !!}
-                            </div>
-                            <!-- /.tab-pane -->
-                            <div class="tab-pane" id="calendars">
-                                {!! @Calendar::display('profile') !!}
-                            </div>
-                            <!-- /.tab-pane -->
-                            <div class="tab-pane" id="settings">
-                                {!! @Settings::display('profile') !!}
-                            </div>
-                            <!-- /.tab-pane -->
-                        </div>
-                        <!-- /.tab-content -->
-                    </div>
-                </div>
             </div>
             
             <div id="show-profile">
@@ -92,9 +37,92 @@
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="profile">
-                                @include('notifications')
-                                {!!@ User::profile('user::admin.auth.edit', 'admin.web') !!}
-                                <button type="button" class="btn btn-primary" id="btn-update-profile">Save changes</button>
+                                 @include('notifications')
+
+
+                                    {!!Form::vertical_open()
+                                    ->id('form-update-profile')
+                                    ->method('POST')
+                                    ->action('admin/profile')
+                                    ->class('update-profile')!!}
+
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        {!! Form::text('name')
+                                        -> label(trans('user::user.label.name'))
+                                        -> placeholder(trans('user::user.placeholder.name'))!!}
+
+                                        {!! Form::date('dob')
+                                        -> label(trans('user::user.label.dob'))
+                                        -> placeholder(trans('user::user.placeholder.dob'))!!}
+
+                                        {!! Form::text('designation')
+                                        -> label(trans('user::user.label.designation'))
+                                        -> placeholder(trans('user::user.placeholder.designation')) !!}
+
+                                        {!! Form::tel('mobile')
+                                        -> label(trans('user::user.label.mobile'))
+                                        -> placeholder(trans('user::user.placeholder.mobile')) !!}  
+                                              
+                                        {!! Form::tel('phone')
+                                        -> label(trans('user::user.label.phone'))
+                                        -> placeholder(trans('user::user.placeholder.phone')) !!}        
+
+                                        </div>
+
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">    
+                                                {!! $user->files('photo')->url($user->getUploadUrl('photo'))->cropper($user->picture)!!}
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        {!! Form::text('address')
+                                        -> label(trans('user::user.label.address'))
+                                        -> placeholder(trans('user::user.placeholder.address')) !!}
+                                        </div>
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        {!! Form::text('street')
+                                        -> label(trans('user::user.label.street'))
+                                        -> placeholder(trans('user::user.placeholder.street')) !!}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        {!! Form::text('city')
+                                        -> label(trans('user::user.label.city'))
+                                        -> placeholder(trans('user::user.placeholder.city')) !!}
+                                        </div>
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        {!! Form::text('district')
+                                        -> label(trans('user::user.label.district'))
+                                        -> placeholder(trans('user::user.placeholder.district')) !!}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        {!! Form::text('state')
+                                        -> label(trans('user::user.label.state'))
+                                        -> placeholder(trans('user::user.placeholder.state')) !!}
+                                        </div>
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        {!! Form::text('country')
+                                        -> label(trans('user::user.label.country'))
+                                        -> placeholder(trans('user::user.placeholder.country')) !!}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        {!! Form::url('web')
+                                        -> label(trans('user::user.label.web'))
+                                        -> placeholder(trans('user::user.placeholder.web')) !!}
+                                        </div>
+                                    </div>
+
+
+                                    {!! Form::close() !!}
+                                    <button type="button" class="btn btn-primary" id="btn-update-profile">Save changes</button>
                                 <button type="button" class="btn btn-default btn-close">Close</button>
                             </div>
                         </div>
@@ -102,22 +130,6 @@
                 </div>
             </div>
 
-            <div id="show-change-password">
-                <div class="col-md-9">
-                    <div class="nav-tabs-custom">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#change-pwd" data-toggle="tab" aria-expanded="false">Change Password</a></li>
-                        </ul>
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="change-pwd">
-                                {!!@ User::password('user::admin.auth.changepassword', 'admin.web') !!}
-                                <button type="button" class="btn btn-primary" id="btn-change-password">Save changes</button>
-                                <button type="button" class="btn btn-default btn-close">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <!-- /.col -->
         </div>
         <!-- /.row -->
@@ -132,60 +144,6 @@
 
 <script type="text/javascript">
 (function ($) {
-
-    $('#show-home').hide();
-    $('#show-profile').show();
-    $('#show-change-password').hide();
-    $('#update-profile').click(function(){
-        $('#show-home').hide();
-        $('#show-change-password').hide();
-        $('#show-profile').show();
-    });
-
-    $('#change-password').click(function(){
-        $('#show-home').hide();
-        $('#show-profile').hide();
-        $('#show-change-password').show();
-    });
-
-    $('.btn-close').click(function(){
-        $('#show-profile').hide();
-        $('#show-change-password').hide();
-        $('#show-home').show();
-    });
-
-    $('#btn-change-password').click(function(){
-        $('#form-change-password').submit();
-    });
-
-    $('#form-change-password')
-    .submit( function( e ) {
-        if($('#form-change-password').valid() == false) {
-            toastr.error('Unprocessable entry.', 'Warning');
-            return false;
-        }
-
-        var url  = $(this).attr('action');
-        var formData = new FormData( this );
-
-        $.ajax( {
-            url: url,
-            type: 'POST',
-            data: formData,
-            processData: false,
-            contentType: false,
-            beforeSend:function()
-            {
-            },
-            success:function(data, textStatus, jqXHR)
-            {
-            },
-            error: function(jqXHR, textStatus, errorThrown)
-            {
-            }
-        });
-        e.preventDefault();
-    });
 
     $('#btn-update-profile').click(function(){
         $('#form-update-profile').submit();

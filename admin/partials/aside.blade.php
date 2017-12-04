@@ -9,7 +9,6 @@
       </div>
       <div class="pull-left info">
         <p>{!!user()->name!!}</p>
-        <a href="#" data-toggle="modal" data-target="#popupTeam"><i class="fa fa-circle text-success"></i> </a>
       </div>
     </div>
     <!-- search form -->

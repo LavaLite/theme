@@ -1,6 +1,7 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
+        <i class="fa fa-dashboard"></i>
         {!!trans('app.dashboard')!!}
         <small>{!!trans('app.version')!!}</small>
         </h1>

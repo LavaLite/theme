@@ -50,17 +50,14 @@
                             <small>Member since {!!user()->joined!!}</small>
                             </p>
                         </li>
-                        <!-- Menu Body -->
-                        <li class="user-body">
-                            <a href="#" data-toggle="modal" data-target="#popupTeam" style="color:#000 !important; text-align:center;">Current Team : {!!@user()->teams->name!!}</a>
-                        </li>
+
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="{{ trans_url('admin/profile') }}" class="btn btn-default btn-flat">Profile</a>
+                                <a href="{{ guard_url('profile') }}" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="{{ trans_url('admin/logout') }}" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="{{ guard_url('logout') }}" class="btn btn-default btn-flat">Sign out</a>
                             </div>
                         </li>
                     </ul>
