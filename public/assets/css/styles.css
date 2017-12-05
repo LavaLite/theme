@@ -3178,20 +3178,21 @@ section.features {
 /* ==========================================================================
    About Us Page
    ========================================================================== */
-section.about-header h1 {
+.page .header h1 {
   font-weight: 700;
 }
-section.about-header p {
+.page .header p {
   color: #eee;
   font-weight: 500;
 }
-section.about {
+
+.page {
   padding: 65px 0;
 }
-section.about .container {
+.page .container {
     width: 970px;
 }
-section.about .count-numerics h2 {
+.page .count-numerics h2 {
     font-size: 28px;
     margin-bottom: 100px;
     margin-top: 0;
@@ -3200,25 +3201,25 @@ section.about .count-numerics h2 {
     font-weight: 500;
     color: #C93756;
 }
-section.about .count-numerics .list-inline figure {
+.page .count-numerics .list-inline figure {
   font-size: 52px;
   color: #C93756;
   display: inline-block;
   margin: 0;
 }
-section.about .count-numerics .list-inline span {
+.page .count-numerics .list-inline span {
   font-size: 30px;
   color: #C93756;
 }
-section.about .count-numerics .list-inline h4 {
+.page .count-numerics .list-inline h4 {
   font-size: 18px;
   color: #8e98a7;
   font-weight: 400;
 }
-section.about .count-numerics .list-inline li {
+.page .count-numerics .list-inline li {
   position: relative;
 }
-section.about .count-numerics .list-inline li:before {
+.page .count-numerics .list-inline li:before {
     position: absolute;
     top: 50%;
     left: 90%;
@@ -3229,26 +3230,26 @@ section.about .count-numerics .list-inline li:before {
     display: block;
     margin-top: -.03125rem;
 }
-section.about .count-numerics .list-inline li:last-child:before {
+.page .count-numerics .list-inline li:last-child:before {
   display: none;
 }
-section.about .promo-section {
+.page .promo-section {
   margin-top: 100px;
   position: relative;
 }
-section.about .promo-section .content-section {
+.page .promo-section .content-section {
   background-image: linear-gradient(145deg,#f164ab 0,#ff5176 100%);
   background-repeat: repeat-x;
   padding: 100px 50px;
       border-radius: 6px 0 0 6px;
 }
-section.about .promo-section .content-section h2 {
+.page .promo-section .content-section h2 {
   color: #fff;
   font-size: 42px;
   margin-top: 0;
   margin-bottom: 30px;
 }
-section.about .promo-section .content-section span {
+.page .promo-section .content-section span {
   color: #fff;
   font-weight: 700;
   font-size: 16px;
@@ -3256,21 +3257,21 @@ section.about .promo-section .content-section span {
   margin-bottom: 20px;
   display: block;
 }
-section.about .promo-section .content-section p {
+.page .promo-section .content-section p {
   color: #fff;
   font-weight: 400;
 }
-section.about .promo-section .content-section p + p {
+.page .promo-section .content-section p + p {
   margin-bottom: 40px;
 }
-section.about .promo-section .content-section h4 {
+.page .promo-section .content-section h4 {
   color: #fff;
   font-family: 'Pacifico', cursive;
   font-size: 24px;
   margin: 0;
 }
-section.about .promo-section .image-section {
-  background-image: url('../../../../img/about.jpg');
+.page .promo-section .image-section {
+  background-image: url('../../../../img/page.jpg');
   -webkit-background-size: cover;
   background-size: cover;
   height: 100%;
@@ -3280,7 +3281,7 @@ section.about .promo-section .image-section {
   border-radius: 0 6px 6px 0;
 }
 
-section.about .features-section {
+.page .features-section {
   margin-top: 100px;
 }
 .hor-centered-row .hor-centered-row-col {
@@ -3288,56 +3289,56 @@ section.about .features-section {
   vertical-align: middle;
   float: none;
 }
-section.about .features-section .exp-num {
+.page .features-section .exp-num {
   width: 100px;
 }
-section.about .features-section .exp-num span {
+.page .features-section .exp-num span {
   text-shadow: 0.1875rem 0.1875rem 0.1875rem rgba(201,55,86,.6);
   color: #C93756;
   font-weight: 700;
   font-size: 150px;
 }
-section.about .features-section .exp-year h4 {
+.page .features-section .exp-year h4 {
   margin-top: 0;
   margin-bottom: 10px;
   color: #363d46;
   font-size: 26px;
   font-weight: 700;
 }
-section.about .features-section .exp-year h4 span {
+.page .features-section .exp-year h4 span {
   display: block;
 }
-section.about .features-section .exp-year p {
+.page .features-section .exp-year p {
   text-transform: uppercase;
 }
-section.about .features-section .feature-item i {
+.page .features-section .feature-item i {
   color: #C93756;
   font-size: 24px;
 }
-section.about .features-section .feature-item h4 {
+.page .features-section .feature-item h4 {
   font-size: 18px;
   color: #363d46;
 }
-section.about .features-section .feature-item p {
+.page .features-section .feature-item p {
   color: #888;
 } 
 @media screen and (max-width: 991px) {
-  section.about .count-numerics .list-inline li:before {
+  .page .count-numerics .list-inline li:before {
         display: none !important;
     }
-    section.about .promo-section .image-section {
+    .page .promo-section .image-section {
         display: none;
     }
-    section.about .promo-section .content-section {
+    .page .promo-section .content-section {
         border-radius: 6px !important;
         display: block;
     }
-    section.about .container {
+    .page .container {
         width: auto !important;
     }
 }
 @media screen and (max-width: 768px) {
-  section.about .features-section .feature-item {
+  .page .features-section .feature-item {
     margin-bottom: 30px;
   }
 }
