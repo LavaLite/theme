@@ -14,7 +14,6 @@
         {!! Theme::asset()->styles() !!}
         {!! Theme::asset()->scripts() !!}
     </head>
-
     <body data-color="red">
         <div class="wrapper">
             {!! Theme::partial('header') !!}
@@ -30,5 +29,6 @@
         </div>   
         {!! Theme::asset()->container('footer')->scripts() !!}
         {!! Theme::asset()->container('extra')->scripts() !!}
+        {!! Theme::partial('modals') !!}
     </body>
 </html>

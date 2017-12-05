@@ -6,7 +6,7 @@ require('datatables.net');
 require('datatables.net-bs');
 require('datatables.net-responsive' );
 require('datatables.net-responsive-bs' );
-window.toastr = require('toastr/toastr.js'); 
+window.toastr = require('toastr/toastr.js');
 window.Sortable = require('sortablejs/Sortable.js' );
 window.moment = require('moment/moment.js');
 require('fullcalendar/dist/fullcalendar.js');
@@ -18,5 +18,5 @@ require('bootstrap-daterangepicker/daterangepicker.js');
 require('bootstrap-switch/dist/js/bootstrap-switch.js');
 require('eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js');
 require('jquery-validation/dist/jquery.validate.js' );
+window.cropper = require('cropper/dist/cropper.js' );
 require('timeago/jquery.timeago.js');
-

@@ -56,10 +56,10 @@
                                 <ul class="dropdown-menu">
                                     <li>
                                         <div class="userinfo">
-                                            <span class="avatar"><img class="img-responsive img-circle" src="{{user()->picture}}"></span>
+                                            <a href="{{guard_url('profile')}}"><span class="avatar"><img class="img-responsive img-circle" src="{{user()->picture}}"></span>
                                             <span class="name">{{user()->name}}</span>
-                                            <span class="email">{{user()->email}}</span>
-                                        </div>
+                                            <span class="email">{{user()->email}}</span></a>
+                                      </div>
                                     </li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="{{guard_url('message/message')}}">Messages</a></li>

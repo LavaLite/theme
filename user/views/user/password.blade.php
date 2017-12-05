@@ -1,6 +1,5 @@
 <div class="content">
     <div class="container-fluid">
-        @include('notifications')
         <div class="row">
             <div class="col-md-6">
                 {!!Form::vertical_open()
@@ -55,7 +54,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-5">
-                                {!! $user->files('photo')->url($user->getUploadUrl('photo'))->cropper($user->picture)!!}
+
                             </div>
                         </div>
 
@@ -178,7 +177,7 @@
                 </div>
                 {!! Form::close() !!}
             </div>
-
+        </div>
         <div class="col-md-6">
             {!!Form::vertical_open()
                 ->id('change-passwprd')
