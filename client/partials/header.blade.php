@@ -1,17 +1,20 @@
-        <nav id="nav" class="navbar navbar-default navbar-full">
-            <div class="container container-nav">
+
+        <nav class="navbar navbar-default">
+            <div class="container">
                 <div class="navbar-header">
-                    <button aria-expanded="false" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="{{guard_url('/')}}"><img src="{{theme_asset('img/logo/logo.svg')}}" class="mt20 mb20" alt="{{__('app.name')}}"></a>
+                    <a class="navbar-brand" href="{{guard_url('/')}}"><img src="{{theme_asset('img/logo/logo.svg')}}" title="{{__('app.name')}}" alt="{{__('app.name')}}"></a>
                 </div>
-                <div style="height: 1px;" role="main" aria-expanded="false" class="navbar-collapse collapse" id="bs">
-                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{guard_url('/')}}"><i class="icon-user icons"></i> My Account</a></li>
-                        <li><a class="signin-button" href="{{guard_url('logout')}}"><i class="icon-logout icons"></i> Logout</a></li>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{guard_url('/')}}"><i class="icon-user icons"></i> {{__('auth.myaccount')}}</a></li>
+                        <li><a href="{{guard_url('logout')}}" class="btn"><i class="icon-logout icons"></i> {{__('auth.logout')}}</a></li>
                     </ul>
                 </div>
             </div>

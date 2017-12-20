@@ -1,29 +1,59 @@
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 text-center">
-                <a href="{{guard_url('/')}}"><img src="{{theme_asset('img/logo/logo.svg')}}" class="mt20 mb20" alt=""></a>
-            <div class="card card-signup mb30">
-                {!!Form::vertical_open()
-                ->id('reset')
-                ->action(guard_url('password/email'))
-                ->method('POST')!!}
-                    <div class="header header-primary text-center" data-background-color="red">
-                        <h2>Forgot Password</h2>
-                        @include('notifications')
 
-                    </div>  
-                    <div class="content mt20 text-left">
-                                {!! Form::email('email')
-                                ->required()!!}
-                    </div>                   
-                    <div class=" text-center mt20">
-                        <button type="submit" class="btn btn-raised btn-danger">Reset Password</button>
+        <section>
+            @include('notifications')
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="wrapper-page">
+                            <div class="account-pages">
+                                <div class="account-box">
+                                    <div class="account-logo-box">
+                                        <a href="{{guard_url('/')}}" class="text-center d-block">
+                                            <span><img src="{{theme_asset('img/logo/logo.svg')}}" alt=""></span>
+                                        </a>
+
+                                        <h4 class="text-uppercase text-center">Reset Password</h4>
+                                        <div class="social-line text-center d-block">
+                                            <a href="{!!guard_url('login/facebook')!!}" class="btn btn-simple btn-just-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                            <a href="{!!guard_url('login/twitter')!!}" class="btn btn-simple btn-just-icon"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                            <a href="{!!guard_url('login/google')!!}" class="btn btn-simple btn-just-icon"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                            <a href="{!!guard_url('login/linkedin')!!}" class="btn btn-simple btn-just-icon"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="account-content">
+                                        {!!Form::vertical_open()
+                                        ->id('reset')
+                                        ->action(guard_url('password/email'))
+                                        ->method('POST')!!}
+
+                                        {!! Form::email('email')
+                                        ->required()
+                                        ->onGroupAddClass('mb-20 row')
+                                        ->placeholder('Email') !!}
+
+                                            <div class="form-group row text-center">
+                                                <button class="btn btn-block theme-btn" type="submit">Send Password</button>
+                                            </div>
+                                        {!! Form::close() !!}
+                                        <div class="row mt-30">
+                                            <div class="col-sm-12 text-center">
+                                                <p class="text-muted">
+                                                Back to <a href="{{guard_url("login")}}" class="mr10">login</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                {!! Form::close() !!}
+                </div>
             </div>
-            <a href="{{guard_url("login")}}" class="mr10">Back to login</a>
-        </div>
-    </div>
-</div>
+        </section>
+        <style>
+            section {
+                background-color: #C93756;
+            }
+        </style>

@@ -1,270 +1,5 @@
 $(function () {
 
-var mobile_menu_visible = 0,
-mobile_menu_initialized = false,
-toggle_initialized = false,
-bootstrap_nav_initialized = false,
-$sidebar,
-isWindows;
-
-$(document).ready(function(){
-
-    window_width = $(window).width();
-    $sidebar = $('.sidebar');
-
-    if($('body').hasClass('sidebar-mini')){
-        lite.misc.sidebar_mini_active = true;
-    }
-    lite.initSidebarsCheck();
-    lite.initMinimizeSidebar();
-});
-
-$(window).resize(function(){
-    lite.initSidebarsCheck();
-});
-
-
-lite = {
-
-    misc:{
-        navbar_menu_visible: 0,
-        active_collapse: true,
-        disabled_collapse_init: 0,
-
-    },
-
-    initSidebarsCheck: function(){
-        if($(window).width() <= 991){
-            if($sidebar.length != 0){
-                lite.initSidebarMenu();
-
-            } else {
-                lite.initBootstrapNavbarMenu();
-            }
-        }
-
-    },
-
-    initMinimizeSidebar: function(){
-        $('.sidebar .collapse').on('show.bs.collapse',function(){
-            if($(window).width() > 991){
-                if(lite.misc.sidebar_mini_active == true){
-                    return false;
-                } else{
-                    return true;
-                }
-            }
-        });
-
-        $('#minimizeSidebar').click(function(){
-            var $btn = $(this);
-
-            if(lite.misc.sidebar_mini_active == true){
-                $('body').removeClass('sidebar-mini');
-                lite.misc.sidebar_mini_active = false;
-
-            }else{
-
-                $('.sidebar .collapse').collapse('hide').on('hidden.bs.collapse',function(){
-                    $(this).css('height','auto');
-                });
-
-
-                setTimeout(function(){
-                    $('body').addClass('sidebar-mini');
-
-                    $('.sidebar .collapse').css('height','auto');
-                    lite.misc.sidebar_mini_active = true;
-                },300);
-            }
-
-            var simulateWindowResize = setInterval(function(){
-                window.dispatchEvent(new Event('resize'));
-            },180);
-
-            setTimeout(function(){
-                clearInterval(simulateWindowResize);
-            },1000);
-        });
-    },
-
-
-    initSidebarMenu: debounce(function(){
-        $sidebar_wrapper = $('.sidebar-wrapper');
-        if(!mobile_menu_initialized){
-            $navbar = $('nav').find('.navbar-collapse').first().clone(true);
-            nav_content = '';
-            mobile_menu_content = '';
-            $navbar.children('ul').each(function(){
-
-                content_buff = $(this).html();
-                nav_content = nav_content + content_buff;
-            });
-
-            nav_content = '<ul class="nav nav-mobile-menu">' + nav_content + '</ul>';
-
-            $navbar_form = $('nav').find('.navbar-form').clone(true);
-
-            $sidebar_nav = $sidebar_wrapper.find(' > .nav');
-
-            $nav_content = $(nav_content);
-            $nav_content.insertBefore($sidebar_nav);
-            $navbar_form.insertBefore($nav_content);
-
-            $(".sidebar-wrapper .dropdown .dropdown-menu > li > a").click(function(event) {
-                event.stopPropagation();
-
-            });
-
-            mobile_menu_initialized = true;
-        } else {
-            console.log('window with:' + $(window).width());
-            if($(window).width() > 991){
-                $sidebar_wrapper.find('.navbar-form').remove();
-                $sidebar_wrapper.find('.nav-mobile-menu').remove();
-                console.log(lite.misc.sidebar_mini_active);
-                mobile_menu_initialized = false;
-            }
-        }
-
-        if(!toggle_initialized){
-            $toggle = $('.navbar-toggle');
-            $toggle.click(function (){
-
-                if(mobile_menu_visible == 1) {
-                    $('html').removeClass('nav-open');
-
-                    $('.close-layer').remove();
-                    setTimeout(function(){
-                        $toggle.removeClass('toggled');
-                    }, 400);
-
-                    mobile_menu_visible = 0;
-                } else {
-                    setTimeout(function(){
-                        $toggle.addClass('toggled');
-                    }, 430);
-
-
-                    main_panel_height = $('.main-panel')[0].scrollHeight;
-                    $layer = $('<div class="close-layer"></div>');
-                    $layer.css('height',main_panel_height + 'px');
-                    $layer.appendTo(".main-panel");
-
-                    setTimeout(function(){
-                        $layer.addClass('visible');
-                    }, 100);
-
-                    $layer.click(function() {
-                        $('html').removeClass('nav-open');
-                        mobile_menu_visible = 0;
-
-                        $layer.removeClass('visible');
-
-                         setTimeout(function(){
-                            $layer.remove();
-                            $toggle.removeClass('toggled');
-
-                         }, 400);
-                    });
-
-                    $('html').addClass('nav-open');
-                    mobile_menu_visible = 1;
-
-                }
-            });
-
-            toggle_initialized = true;
-        }
-    }, 500),
-
-
-    initBootstrapNavbarMenu: debounce(function(){
-
-        if(!bootstrap_nav_initialized){
-            $navbar = $('nav').find('.navbar-collapse').first().clone(true);
-
-            nav_content = '';
-            mobile_menu_content = '';
-
-            //add the content from the regular header to the mobile menu
-            $navbar.children('ul').each(function(){
-                content_buff = $(this).html();
-                nav_content = nav_content + content_buff;
-            });
-
-            nav_content = '<ul class="nav nav-mobile-menu">' + nav_content + '</ul>';
-
-            $navbar.html(nav_content);
-            $navbar.addClass('bootstrap-navbar');
-
-            // append it to the body, so it will come from the right side of the screen
-            $('body').append($navbar);
-
-            $toggle = $('.navbar-toggle');
-
-            $navbar.find('a').removeClass('btn btn-round btn-default');
-            $navbar.find('button').removeClass('btn-round btn-fill btn-info btn-primary btn-success btn-danger btn-warning btn-neutral');
-            $navbar.find('button').addClass('btn-simple btn-block');
-
-            $toggle.click(function (){
-                if(mobile_menu_visible == 1) {
-                    $('html').removeClass('nav-open');
-
-                    $('.close-layer').remove();
-                    setTimeout(function(){
-                        $toggle.removeClass('toggled');
-                    }, 400);
-
-                    mobile_menu_visible = 0;
-                } else {
-                    setTimeout(function(){
-                        $toggle.addClass('toggled');
-                    }, 430);
-
-                    $layer = $('<div class="close-layer"></div>');
-                    $layer.appendTo(".wrapper-full-page");
-
-                    setTimeout(function(){
-                        $layer.addClass('visible');
-                    }, 100);
-
-
-                    $layer.click(function() {
-                        $('html').removeClass('nav-open');
-                        mobile_menu_visible = 0;
-
-                        $layer.removeClass('visible');
-
-                         setTimeout(function(){
-                            $layer.remove();
-                            $toggle.removeClass('toggled');
-
-                         }, 400);
-                    });
-
-                    $('html').addClass('nav-open');
-                    mobile_menu_visible = 1;
-
-                }
-
-            });
-            bootstrap_nav_initialized = true;
-        }
-    }, 500)
-}
-function debounce(func, wait, immediate) {
-    var timeout;
-    return function() {
-        var context = this, args = arguments;
-        clearTimeout(timeout);
-        timeout = setTimeout(function() {
-            timeout = null;
-            if (!immediate) func.apply(context, args);
-        }, wait);
-        if (immediate && !timeout) func.apply(context, args);
-    };
-};
     jQuery.validator.setDefaults({
         debug: true,
         success: "valid",
@@ -272,6 +7,7 @@ function debounce(func, wait, immediate) {
             return true;
         }
     });
+
     $('[data-toggle="tooltip"]').tooltip()
     $('.html-editor-mini').summernote({
         height: "200px",
@@ -284,9 +20,6 @@ function debounce(func, wait, immediate) {
             ['height', ['height']]
           ]
     });
-
-
-
 
     $('.html-editor').summernote({
         height: "200px",
@@ -322,31 +55,47 @@ function debounce(func, wait, immediate) {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-/*
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
-    });
-*/
+
     $('body').on('click', '[data-action]', function(e) {
-        e.preventDefault();
 
         var $tag = $(this);
 
-        if ($tag.data('action') == 'CREATE')
-            return app.create($tag.data('form'), $tag.data('load-to'), $tag.data('datatable'));
+        if ($tag.data('action') == 'CREATE'){
+            e.preventDefault();
+            return app.create($tag);
+        }
 
-        if ($tag.data('action') == 'UPDATE')
-            return app.update($tag.data('form'), $tag.data('load-to'), $tag.data('datatable'));
+        if ($tag.data('action') == 'STORE'){
+            e.preventDefault();
+            return app.store($tag);
+        }
+
+        if ($tag.data('action') == 'EDIT'){
+            e.preventDefault();
+            return app.edit($tag);
+        }
+
+        if ($tag.data('action') == 'UPDATE'){
+            e.preventDefault();
+            return app.update($tag);
+        }
 
         if ($tag.data('action') == 'DELETE'){
-            return app.delete($tag.data('href'), $tag.data('load-to'), $tag.data('datatable'), $tag.data('remove'));
+            e.preventDefault();
+            return app.delete($tag);
         }
-        if ($tag.data('action') == 'REQUEST')
-            return app.makeRequest($tag.data('method'), $tag.data('href'));
 
-        app.load($tag.data('load-to'), $tag.data('href'));
+        if ($tag.data('action') == 'REQUEST'){
+            e.preventDefault();
+            return app.makeRequest($tag);
+        }
+
+        if ($tag.data('action') == 'LOAD'){
+            e.preventDefault();
+            return app.load($tag);
+        }
+
+        
     });
 
     $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
@@ -398,13 +147,6 @@ $( document ).ajaxComplete(function() {
         format:'Y-m-d H:i',
     }).prop('type','text');
 
-/*
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
-    });
-*/
 });
 
 
@@ -415,49 +157,30 @@ $( document ).ajaxError(function( event, jqxhr, settings, thrownError ) {
 $( document ).ajaxSuccess(function( event, xhr, settings ) {
     app.message(xhr);
 });
-/*
-function sendFile(file, url, editor) {
-    var data = new FormData();
-    data.append("file", file);
-    $.ajax({
-        data: data,
-        type: "POST",
-        url: url,
-        cache: false,
-        contentType: false,
-        processData: false,
-        success: function(objFile) {
-            editor.summernote('insertImage', objFile.folder+objFile.file);
-        },
-        error: function(jqXHR, textStatus, errorThrown)
-        {
-        }
-    });
-}
-*/
+
 
 var app = {
 
-    'create' : function(forms, tag, datatable) {
-        var form = $(forms);
+    'store' : function(tag) {
+        var form = tag.data('form');
 
-        if(form.valid() == false) {
+        if($(form).valid() == false) {
             toastr.error('Please enter valid information.', 'Error');
             return false;
         }
 
-        var formData = new FormData($(forms));
-        params   = form.serializeArray();
+        var formData = new FormData();
+        params   = $(form).serializeArray();
 
         $.each(params, function(i, val) {
             formData.append(val.name, val.value);
         });
 
-        $.each($(forms + ' .html-editor'), function(i, val) {
+        $.each($(form + ' .html-editor'), function(i, val) {
             formData.append(val.name, $('#'+val.id).code());
         });
 
-        var url  = form.attr('action');
+        var url  = $(form).attr('action');
 
         $.ajax( {
             url: url,
@@ -469,32 +192,44 @@ var app = {
             dataType: 'json',
             success:function(data, textStatus, jqXHR)
             {
-                app.load(tag, data.redirect);
-                /*$(datatable).DataTable().ajax.reload( null, false );*/
+                $('#modal-entry').modal('hide');
+                $table.bootstrapTable('refresh');
             }
-        });
+        });    
     },
 
-    'update' : function(forms, tag, datatable) {
-        var form = $(forms);
+    'create' : function(tag) {
+        $('#modal-entry').html(modalHtml);
+        $('#modal-entry').load(tag.attr('href'));
+        $('#modal-entry').modal('show');
+    },
 
-        if(form.valid() == false) {
+    'edit' : function(tag) {
+        $('#modal-entry').html(modalHtml);
+        $('#modal-entry').load(tag.attr('href'));
+        $('#modal-entry').modal('show');
+    },
+
+    'update' : function(tag) {
+        var form = tag.data('form');
+
+        if($(form).valid() == false) {
             toastr.error('Please enter valid information.', 'Error');
             return false;
         }
 
-        var formData = new FormData($(forms));
-        params   = form.serializeArray();
+        var formData = new FormData();
+        params   = $(form).serializeArray();
 
         $.each(params, function(i, val) {
             formData.append(val.name, val.value);
         });
 
-        $.each($(forms + ' .html-editor'), function(i, val) {
+        $.each($(form + ' .html-editor'), function(i, val) {
             formData.append(val.name, $('#'+val.id).code());
         });
 
-        var url  = form.attr('action');
+        var url  = $(form).attr('action');
 
         $.ajax( {
             url: url,
@@ -506,13 +241,13 @@ var app = {
             dataType: 'json',
             success:function(data, textStatus, jqXHR)
             {
-                app.load(tag, data.redirect);
-                /*$(datatable).DataTable().ajax.reload( null, false );*/
+                $('#modal-entry').modal('hide');
+                $table.bootstrapTable('refresh');
             }
         });
     },
 
-    'delete' : function(target, tag, datatable, remove) {
+    'delete' : function(tag) {
 
         swal({
             title: "Are you sure?",
@@ -523,6 +258,8 @@ var app = {
             confirmButtonText: "Yes, delete it!",
             closeOnConfirm: false
         }, function(){
+            var target = tag.attr("href");
+            var remove = tag.data("remove");
             var data = new FormData();
             $.ajax({
                 url: target,
@@ -533,17 +270,13 @@ var app = {
                 success:function(data, textStatus, jqXHR)
                 {
                     swal("Deleted!", data.message, "success");
-                    app.load(tag, data.redirect);
-                    /*$(datatable).DataTable().ajax.reload( null, false );*/
-                    location.reload();
-                    $("#"+remove).hide();
+                    $table.bootstrapTable('refresh');
                 },
             });
         });
     },
 
     'load' : function(tag, target) {
-        console.log(tag + ' ' + target);
         $(tag).load(target);
     },
 
@@ -628,3 +361,17 @@ var app = {
     }
 }
 
+var modalHtml = '<div class="modal-dialog  modal-lg">\
+                        <div class="modal-content">\
+                            <div class="modal-header">\
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>\
+                                <h4 class="modal-title"></h4>\
+                            </div>\
+                            <div class="modal-body">\
+                                <p>Loading &hellip;</p>\
+                            </div>\
+                            <div class="modal-footer"> \
+                                \
+                            </div>\
+                        </div>\
+                    </div>';

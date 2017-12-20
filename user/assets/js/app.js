@@ -9,6 +9,7 @@ require('datatables.net-responsive-bs' );
 window.toastr = require('toastr/toastr.js');
 window.Sortable = require('sortablejs/Sortable.js' );
 window.moment = require('moment/moment.js');
+window.swal = require('sweetalert/dist/sweetalert.min.js');
 require('fullcalendar/dist/fullcalendar.js');
 require('jquery-slimscroll/jquery.slimscroll.js');
 require('selectize/dist/js/selectize.js');

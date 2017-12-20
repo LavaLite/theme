@@ -15,6 +15,21 @@ return [
      */
 
     'inherit' => null, //default
+    /*
+    |--------------------------------------------------------------------------
+    | List view for the theme
+    |--------------------------------------------------------------------------
+    |
+    | Here you can specify which view is to be loaded for the list page
+    | this can be 'list', 'grid', 'box' or 'dt' -  for data table.
+    |
+    | You can specify additional views but you have to create it under 
+    | 'patrial/list' folder of each package that uses this theme.
+    |
+     */
+
+    'listView' => 'grid', //default
+
 
     /*
     |--------------------------------------------------------------------------
@@ -35,7 +50,7 @@ return [
         // you want inheriting.
         'before'             => function ($theme) {
             // You can remove this line anytime.
-            //$theme->setTitle(config('app.name'));
+            //$theme->setTitle(__('app.name'));
 
             // Breadcrumb template.
             // $theme->breadcrumb()->setTemplate('

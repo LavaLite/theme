@@ -18,6 +18,22 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | List view for the theme
+    |--------------------------------------------------------------------------
+    |
+    | Here you can specify which view is to be loaded for the list page
+    | this can be 'list', 'grid', 'box' or 'dt' -  for data table.
+    |
+    | You can specify additional views but you have to create it under 
+    | 'patrial/list' folder of each package that uses this theme.
+    |
+     */
+
+    'listView' => 'table', //default
+
+
+    /*
+    |--------------------------------------------------------------------------
     | Listener from events
     |--------------------------------------------------------------------------
     |
@@ -64,7 +80,7 @@ return [
             $theme->asset()->container('footer')->usepath()->add('app', 'dist/js/app.js');
             $theme->asset()->container('footer')->usepath()->add('mm', 'js/material.min.js');
             $theme->asset()->container('footer')->usepath()->add('md', 'js/material-dashboard.min.js');
-            //$theme->asset()->container('footer')->usepath()->add('main', 'js/main.js');
+            $theme->asset()->container('footer')->usepath()->add('main', 'js/main.js');
         },
 
         // Listen on event before render a layout,

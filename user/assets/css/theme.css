@@ -719,7 +719,7 @@ h2.title {
 
 .main-panel>.content {
     padding: 30px 15px;
-    min-height: calc(100% - 123px);
+    min-height: calc(100% - 53px);
 }
 
 .main-panel>.footer {
@@ -1991,10 +1991,10 @@ label.control-label {
     font-size: 11px;
 }
 
-.form-group {
+/*.form-group {
     padding-bottom: 7px;
     margin: 27px 0 0 0;
-}
+}*/
 
 .form-group .form-control {
     margin-bottom: 7px;
@@ -5226,7 +5226,6 @@ footer .btn {
 .fixed-table-toolbar .bars, .fixed-table-toolbar .search, .fixed-table-toolbar .columns {
     position: relative;
     margin-top: 10px;
-    margin-bottom: 10px;
     line-height: 34px;
 }
 
@@ -6030,6 +6029,7 @@ div.fixed-table-scroll-outer {
 .fresh-table .fa {
     min-width: 18px;
 }
+
 
 .fc {
     direction: ltr;

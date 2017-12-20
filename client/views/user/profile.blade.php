@@ -1,12 +1,12 @@
         <div class="card">
-            <h2>Update Profile</h2>
+            <div class="card-block">
+            <h5 class="title">Update Profile</h5>
             @include('notifications')
             {!!Form::vertical_open()
             ->id('form-update-profile')
             ->method('POST')
             ->class('update-profile')!!}
 
-                    <div class="content">
 
                         <div class="row">
                             <div class="col-sm-7">
@@ -156,16 +156,16 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                    <div class="col-md-12 text-right">
-                                        <button type="submit" class="btn theme-btn">Update Info</button>
-                                        <button type="submit" class="btn btn-danger">Cancel</button>
-                                    </div>
-                            </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                                <div class="col-md-12 text-right">
+                                    <button type="submit" class="btn btn-success">Update Info</button>
+                                    <button type="submit" class="btn btn-danger">Cancel</button>
+                                </div>
                         </div>
+                    </div>
                 {!! Form::close() !!}
+            </div>
         </div>
 
 

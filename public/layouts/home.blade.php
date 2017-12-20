@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>{{ Theme::getTitle() }} - {{config('app.name')}}</title>
+        <title>{{ Theme::getTitle() }} - {{__('app.name')}}</title>
         <meta name="description" content="The Lavalite Content Management System">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="{!!url('favicon.ico')!!}"/>       

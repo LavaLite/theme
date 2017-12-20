@@ -18,6 +18,21 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | List view for the theme
+    |--------------------------------------------------------------------------
+    |
+    | Here you can specify which view is to be loaded for the list page
+    | this can be 'list', 'grid', 'box' or 'dt'-for DataTable.
+    |
+    | You can specify additional views but you have to create it under 
+    | 'patrial/list' folder of each package that uses this theme.
+    |
+     */
+
+    'listView' => 'dt', //default
+
+    /*
+    |--------------------------------------------------------------------------
     | Listener from events
     |--------------------------------------------------------------------------
     |
@@ -27,7 +42,7 @@ return [
     | [Notice] these event can be override by package config.
     |
      */
-
+ 
     'events'  => [
 
         // Before event inherit from package config and the theme that call before,
@@ -35,7 +50,7 @@ return [
         // you want inheriting.
         'before'             => function ($theme) {
             // You can remove this line anytime.
-            // $theme->setTitle(config('app.name'));
+            // $theme->setTitle(__('app.name'));
 
         },
 
