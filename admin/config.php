@@ -22,14 +22,14 @@ return [
     |--------------------------------------------------------------------------
     |
     | Here you can specify which view is to be loaded for the list page
-    | this can be 'list', 'grid', 'box' or 'dt'-for DataTable.
+    | this can be 'list', 'grid', 'box', 'bootstrap-table' or 'data-table'
     |
     | You can specify additional views but you have to create it under 
     | 'patrial/list' folder of each package that uses this theme.
     |
      */
 
-    'listView' => 'dt', //default
+    'listView' => 'data-table', //default
 
     /*
     |--------------------------------------------------------------------------
