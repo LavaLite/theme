@@ -7,14 +7,11 @@
                         </div>
                     </div>
                     <div class="row links">
-                        <div class="col-sm-4 social-links">
+                        <div class="col-sm-12 social-links">
                             {!!Menu::menu('social')!!}
                         </div>
-                        <div class="col-sm-4 copyright">
-                            <p>Lavalite &copy; {{date('Y')}} All Rights Reserved. Proudly built with Laravel</p>
-                        </div>
-                        <div class="col-sm-4 navs">
-                            {!!Menu::menu('footer')!!}
+                        <div class="col-sm-12 copyright">
+                            <p>{!!__('app.all.rights')!!}</p>
                         </div>
                     </div>
                 </div>

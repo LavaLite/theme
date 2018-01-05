@@ -14,10 +14,3 @@
     @show
     </section>
 </div>
-@section('script')
-
-@show
-
-@section('style')
-
-@show 

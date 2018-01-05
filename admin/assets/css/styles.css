@@ -281,6 +281,11 @@ box-shadow:1px 1px 0 rgba(255, 255, 255, 0.2) inset;
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
+.image-editor .img-box {
+    margin: 10px;
+    width: 100px;
+    display: inline-block;
+}
 .notification .img-circle{
     width: 40px;
     height: 40px;
@@ -304,6 +309,120 @@ position: relative;
     position: absolute;
     top: 0;
     right: 0;
+}
+.upload-wraper .dropzone {
+    padding: 0;
+    display: inline-block;
+    float: left;
+    min-height: auto;
+}
+.upload-wraper .dropzone{
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 1px dashed #000000;
+    margin: 10px;
+    width:100px;
+    height:80px;
+}
+.upload-wraper .dropzone .dz-message {
+    text-align: center;
+    margin: 1.5em 0;
+}
+
+.upload-wraper .dropzone .addfile {
+    display: inline-block;
+    background-color: #f44336;
+    box-shadow: 0 12px 20px -10px rgba(244, 67, 54, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(244, 67, 54, 0.2);
+    border-radius: 10px;
+    cursor: pointer;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    margin: 10px;
+}
+.upload-wraper .dropzone .addfile .add-file i {
+    font-size: 60px;
+    color: #fff;
+    line-height: 100px;
+}
+.upload-wraper .dropzone .addfile .add-file {
+    margin: 0;
+    display: inline-block;
+}
+
+.upload-wraper .image-editor .img-box {
+    margin: 10px;
+    width: 100px;
+    display: inline-block;
+}
+.upload-wraper .image-editor .img-box .img-container img {
+    border-radius: 10px;
+}
+.upload-wraper .image-editor .img-box .img-container {
+    position: relative;
+}
+.upload-wraper .image-editor .img-box .img-container .btn-container {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    z-index: 999;
+}
+.upload-wraper .image-editor .img-box .img-container .btn-container a {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: 0 14px 26px -12px rgba(0, 188, 212, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 188, 212, 0.2);
+    background-color: #00bcd4;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    line-height: 20px;
+    opacity: 0;
+}
+.upload-wraper .image-editor .img-box .img-container .btn-container a.remove-image {
+    background-color: #f44336;
+    box-shadow: 0 12px 20px -10px rgba(244, 67, 54, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(244, 67, 54, 0.2);
+}
+.upload-wraper .image-editor .img-box .img-container .btn-container a.move-image {
+    background-color: #9c27b0;
+    box-shadow: 0 14px 26px -12px rgba(156, 39, 176, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(156, 39, 176, 0.2);
+}
+.upload-wraper .image-editor .img-box:hover .img-container .btn-container a.move-image {
+    opacity: 1;
+    animation: scaleIn 0.6s;
+}
+.upload-wraper .image-editor .img-box:hover .img-container .btn-container a.edit-image {
+    opacity: 1;
+    animation: scaleIn 0.4s;
+}
+.upload-wraper .image-editor .img-box:hover .img-container .btn-container a.remove-image {
+    opacity: 1;
+    animation: scaleIn 0.2s;
+}
+.upload-wraper .edit-wraper {
+    position: absolute;
+    width: 95%;
+    height: 99%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: white;
+    padding: 10px;
+    z-index: 1001
+}
+.upload-wraper {
+    border-style: dotted;
+    border-width: 1px;
+    min-height: 200px
+}
+.upload-wraper .move-image {
+  cursor: move;
+  cursor: -webkit-grabbing;
+}
+.dropzone .dz-message {
+    text-align: center;
+    margin: 1.5em 0;
 }
 /* ==========================================================================
    Author's custom styles
@@ -1313,7 +1432,6 @@ a:focus {
 }
 .img-container {
   width: 100%;
-  margin-top: 10px;
 }
 .img-container img {
   width: 100%;

@@ -6,11 +6,11 @@
                             <div class="col-md-12">
                                 <div class="intro-well">
                                     <h1>Bootstrapper for Laravel</h1>
-                                    <h3>Content Management System.</h3>
-                                    <a class="btn btn-default btn-round" href="http://www.lavalite.org/package" target="_blabk">
+                                    <h3>Content Management System &amp; Web Application Framework.</h3>
+                                    <a class="btn btn-default btn-round" href="http://www.lavalite.org/packages" target="_blabk">
                                         <i class="fa fa-cubes" aria-hidden="true"></i>Packages
                                     </a>
-                                    <a class="btn btn-default btn-round" href="https://github.com/LavaLite/cms/wiki" target="_blabk">
+                                    <a class="btn btn-default btn-round" href="http://lavalite.org/docs" target="_blabk">
                                         <i class="fa fa-file-text" aria-hidden="true"></i>Documentation
                                     </a>
                                     <a class="btn btn-default btn-round" href="https://github.com/LavaLite/cms/archive/master.zip" target="_blabk">
