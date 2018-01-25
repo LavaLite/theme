@@ -60,6 +60,8 @@
 {!! Form::password('password_confirmation')
 -> label(trans('user::user.label.new_password_confirmation'))
 -> placeholder(trans('user::user.placeholder.new_password_confirmation'))!!}
+<button type="submit" class="btn btn-primary" id="btn-update-profile">{{__('save')}}</button>
+<button type="reset" class="btn btn-default btn-close">{{__('close')}}</button>
 
 {!! Form::close() !!}
                             </div>
@@ -80,42 +82,4 @@
     }
 </style>
 
-<script type="text/javascript">
-(function ($) {
-
-    $('#btn-update-profile').click(function(){
-        $('#form-update-profile').submit();
-    });
-
-    $('#form-update-profile')
-    .submit( function( e ) {
-        if($('#form-update-profile').valid() == false) {
-            toastr.error('Unprocessable entry.', 'Warning');
-            return false;
-        }
-
-        var url  = $(this).attr('action');
-        var formData = new FormData( this );
-
-        $.ajax( {
-            url: url,
-            type: 'POST',
-            data: formData,
-            processData: false,
-            contentType: false,
-            beforeSend:function()
-            {
-            },
-            success:function(data, textStatus, jqXHR)
-            {
-                 location.reload();
-            },
-            error: function(jqXHR, textStatus, errorThrown)
-            {
-            }
-        });
-        e.preventDefault();
-    });
-}(jQuery));
-</script>
 

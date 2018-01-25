@@ -39,7 +39,7 @@ $(document).ready(function() {
         $(this).toggleClass("fa-window-restore");
     });
 
-    $(function() {
+    if ($('#statistics-chart').length) {
         var ctx = document.getElementById('statistics-chart').getContext("2d");
         var greenline = ctx.createLinearGradient(500, 0, 100, 0);
         greenline.addColorStop(0, '#fd93a8');
@@ -121,73 +121,78 @@ $(document).ready(function() {
                 }
             }
         });
-    });
+    }
 
-    var bar_ctx = document.getElementById('process-complience-chart').getContext('2d');
-    var bar_gradient = bar_ctx.createLinearGradient(0, 0, 0, 600);
-    bar_gradient.addColorStop(1, '#56CCF2');
-    bar_gradient.addColorStop(0, '#4099ff');
-    var bar_chart = new Chart(bar_ctx, {
-        type: 'bar',
-        data: {
-            labels: ["", "2016", "2017", "2018", ""],
-            datasets: [{
-                label: '# of Votes',
-                data: [0, 12, 19, 15],
-                backgroundColor: bar_gradient,
-                hoverBackgroundColor: bar_gradient,
-                hoverBorderWidth: 0,
-            }]
-        },
-        options: {
-            legend: {
-                display: false
-            },
-            scales: {
-                yAxes: [{
-                    gridLines: {
-                        display: false,
-                        drawBorder: false
-                    },
-                    ticks: {
-                        display: false,
-                    },
-                }],
-                xAxes: [{
-                    gridLines: {
-                        display: false,
-                        drawBorder: false
-                    }
+    if ($('#process-complience-chart').length) {
+        var bar_ctx = document.getElementById('process-complience-chart').getContext('2d');
+        var bar_gradient = bar_ctx.createLinearGradient(0, 0, 0, 600);
+        bar_gradient.addColorStop(1, '#56CCF2');
+        bar_gradient.addColorStop(0, '#4099ff');
+        var bar_chart = new Chart(bar_ctx, {
+            type: 'bar',
+            data: {
+                labels: ["", "2016", "2017", "2018", ""],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [0, 12, 19, 15],
+                    backgroundColor: bar_gradient,
+                    hoverBackgroundColor: bar_gradient,
+                    hoverBorderWidth: 0,
                 }]
-            }
-        }
-    });
-    var ctx = document.getElementById("feedback-chart").getContext("2d");
-    var config = {
-        type: 'doughnut',
-        data: {
-            datasets: [{
-                data: [83, 17, ],
-                backgroundColor: ["#00b19d", "#ef5350"],
-                label: 'Dataset 1',
-                borderWidth: 0
-            }],
-            labels: ["Positive", "Negative"]
-        },
-        options: {
-            responsive: true,
-            legend: {
-                display: false,
             },
-            title: {
-                display: false,
-                text: 'Chart.js Doughnut Chart'
-            },
-            animation: {
-                animateScale: true,
-                animateRotate: true
+            options: {
+                legend: {
+                    display: false
+                },
+                scales: {
+                    yAxes: [{
+                        gridLines: {
+                            display: false,
+                            drawBorder: false
+                        },
+                        ticks: {
+                            display: false,
+                        },
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            display: false,
+                            drawBorder: false
+                        }
+                    }]
+                }
             }
-        }
-    };
-    window.myDoughnut = new Chart(ctx, config);
+        });
+    }
+
+    if($("#feedback-chart").lenght){
+        var ctx = document.getElementById("feedback-chart").getContext("2d");
+        var config = {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [83, 17, ],
+                    backgroundColor: ["#00b19d", "#ef5350"],
+                    label: 'Dataset 1',
+                    borderWidth: 0
+                }],
+                labels: ["Positive", "Negative"]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    display: false,
+                },
+                title: {
+                    display: false,
+                    text: 'Chart.js Doughnut Chart'
+                },
+                animation: {
+                    animateScale: true,
+                    animateRotate: true
+                }
+            }
+        };
+        window.myDoughnut = new Chart(ctx, config);
+    }
 });

@@ -9,18 +9,16 @@
       </div>
       <div class="pull-left info">
         <p>{!!user()->name!!}</p>
+        <a href="{!!guard_url('profile')!!}"><i class="fa fa-user  text-success"></i> Profile</a>
+        <a href="{!!guard_url('logout')!!}"><i class="fa fa-power-off text-warning"></i> Logout</a>
       </div>
     </div>
     <!-- search form -->
-   
-     <ul class="sidebar-settings">
-        <li ><a href="{!!guard_url('profile')!!}"><i class="fa fa-user "></i> Profile</a></li>
-        <li ><a href="{!!guard_url('logout')!!}"><i class="fa fa-power-off"></i> Logout</a></li>
-    </ul>
+
     
     <!-- /.search form -->
     <!-- sidebar menu: : style can be found in sidebar.less -->
-    <ul class="sidebar-menu">
+    <ul class="sidebar-menu tree" data-widget="tree">
       <li class="header">MAIN NAVIGATION</li>
       {!!Menu::menu('admin', 'menu::menu.admin')!!}
       <li class="header">Masters</li>

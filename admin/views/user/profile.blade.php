@@ -19,8 +19,8 @@
                         <img class="profile-user-img img-responsive img-circle" src="{!!user()->picture!!}" alt="User profile picture">
                         <h3 class="profile-username text-center">{!!user()->name!!}</h3>
                         <p class="text-muted text-center">{!!user()->designation!!} - Member Since {!!user()->joined!!}</p>
-                        <button  class="btn btn-primary btn-block"  id="update-profile"><b>Update Profile</b></button>
-                        <button  class="btn btn-warning btn-block" id="change-password"><b>Change Password</b></button>
+                        <a  href="{{guard_url('profile')}}" class="btn btn-primary btn-block"  id="update-profile"><b>Update Profile</b></a>
+                        <a  href="{{guard_url('password')}}" class="btn btn-warning btn-block" id="change-password"><b>Change Password</b></a>
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -120,10 +120,10 @@
                                         </div>
                                     </div>
 
+                                    <button type="submit" class="btn btn-primary" id="btn-update-profile">Save changes</button>
+                                    <button type="reset" class="btn btn-default btn-close">Close</button>
 
                                     {!! Form::close() !!}
-                                    <button type="button" class="btn btn-primary" id="btn-update-profile">Save changes</button>
-                                <button type="button" class="btn btn-default btn-close">Close</button>
                             </div>
                         </div>
                     </div>
@@ -142,41 +142,3 @@
     }
 </style>
 
-<script type="text/javascript">
-(function ($) {
-
-    $('#btn-update-profile').click(function(){
-        $('#form-update-profile').submit();
-    });
-
-    $('#form-update-profile')
-    .submit( function( e ) {
-        if($('#form-update-profile').valid() == false) {
-            toastr.error('Unprocessable entry.', 'Warning');
-            return false;
-        }
-
-        var url  = $(this).attr('action');
-        var formData = new FormData( this );
-
-        $.ajax( {
-            url: url,
-            type: 'POST',
-            data: formData,
-            processData: false,
-            contentType: false,
-            beforeSend:function()
-            {
-            },
-            success:function(data, textStatus, jqXHR)
-            {
-                 location.reload();
-            },
-            error: function(jqXHR, textStatus, errorThrown)
-            {
-            }
-        });
-        e.preventDefault();
-    });
-}(jQuery));
-</script>

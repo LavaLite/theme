@@ -21,5 +21,6 @@ require('bootstrap-daterangepicker/daterangepicker.js');
 require('bootstrap-switch/dist/js/bootstrap-switch.js');
 require('eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js');
 require('jquery-validation/dist/jquery.validate.js' );
+window.cropper = require('cropper/dist/cropper.js' );
 require('timeago/jquery.timeago.js'); 
 
