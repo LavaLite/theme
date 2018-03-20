@@ -46,7 +46,11 @@
                                 </div>
                             </div>
                             <div class="col-sm-5">
-                                {!! $user->files('photo')->url($user->getUploadUrl('photo'))->cropper($user->picture)!!}
+                                {!! $user->files('photo')
+                                ->url($user
+                                ->getUploadUrl('photo'))
+                                ->cropper($user->picture)
+                                !!}
                             </div>
                         </div>
 

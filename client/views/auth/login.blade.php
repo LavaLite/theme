@@ -1,65 +1,57 @@
 
+        <div class="login-box">
+            <div class="login-logo">
+                <a href="{{guard_url('/')}}"><img src="{{theme_asset('img/logo/logo.svg')}}" class="img-responsive center-block" alt="logo" title="Lavalite"></a>
+            </div>
+            <div class="login-box-body">
+                <h2>Login to your account</h2>
+                    {!!Form::vertical_open()
+                    ->id('login')
+                    ->method('POST')!!}
+                    <div class="form-group has-feedback">
+                        {!! Form::email('email')
+                        ->required()
+                        ->raw() !!}
+                        <span class="fa fa-user-circle form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        
 
 
-        <section>
-            @include('notifications')
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="wrapper-page">
-                            <div class="account-pages">
-                                <div class="account-box">
-                                    <div class="account-logo-box">
-                                        <a href="{{guard_url('/')}}" class="text-center d-block">
-                                            <span><img src="{{theme_asset('img/logo/logo.svg')}}" alt=""></span>
-                                        </a>
-
-                                        <h4 class="text-uppercase text-center">Sign In</h4>
-                                        <div class="social-line text-center d-block">
-                                            <a href="{!!guard_url('login/facebook')!!}" class="btn btn-simple btn-just-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                            <a href="{!!guard_url('login/twitter')!!}" class="btn btn-simple btn-just-icon"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                            <a href="{!!guard_url('login/google')!!}" class="btn btn-simple btn-just-icon"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                            <a href="{!!guard_url('login/linkedin')!!}" class="btn btn-simple btn-just-icon"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="account-content">
-                                        {!!Form::vertical_open()
-                                        ->id('login')
-                                        ->method('POST')!!}
-
-                                        {!! Form::email('email')
-                                        ->required()
-                                        ->onGroupAddClass('mb-20 row')
-                                        ->placeholder('Email') !!}
-
-                                        {!! Form::password('password')
-                                        ->required()
-                                        ->onGroupAddClass('mb-20 row')
-                                        ->placeholder('Password')!!}
-                                        
-                                            <div class="form-group row text-center">
-                                                <button class="btn btn-block theme-btn" type="submit">Sign In</button>
-                                            </div>
-                                        {!! Form::close() !!}
-                                        <div class="row mt-30">
-                                            <div class="col-sm-12 text-center">
-                                                <p class="text-muted">
-                                                <a href="{{guard_url("password/reset")}}" class="ml10">Forgot Password?</a>
-                                                 <br /><br />
-                                                Don't have an account? <a href="{{guard_url("register")}}" class="mr10">Sign Up</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        {!! Form::password('password')
+                        ->required()->raw()!!}
+                        <span class="fa fa-key form-control-feedback"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="checkbox mt-0">
+                                <input id="rememberme" type="checkbox" name="rememberme">
+                                <label for="rememberme">Remember Me</label>
                             </div>
                         </div>
+                        <div class="col-xs-6 text-right">
+                            <a href="{{guard_url("password/reset")}}"> Forgot Password?</a>
+                        </div>
                     </div>
-                </div>
+                    <button type="submit" class="btn theme-btn btn-block mt-20">Sign In</button>
+                    Don't have an account? <a href="{{guard_url("register")}}" class="mr10">Sign Up</a>
+                    {!! Form::close() !!}
             </div>
-        </section>
-        <style>
-            section {
-                background-color: #C93756;
-            }
-        </style>
+            <div class="text-center social-links">
+                <h3><span class="login">social login</span></h3>
+                    <a href="{!!guard_url('login/facebook')!!}" class="btn btn-simple btn-just-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="{!!guard_url('login/twitter')!!}" class="btn btn-simple btn-just-icon"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="{!!guard_url('login/google')!!}" class="btn btn-simple btn-just-icon"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                    <a href="{!!guard_url('login/linkedin')!!}" class="btn btn-simple btn-just-icon"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        <div class="stripes-wraper">
+            <div id="stripes">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+

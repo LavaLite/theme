@@ -361,7 +361,8 @@ var app = {
             confirmButtonColor: "#DD6B55",
             confirmButtonText: "Yes, delete it!",
             closeOnConfirm: false
-        }, function(){
+        }).then((willDelete) => {
+          if (willDelete) {
             var data = new FormData();
             $.ajax({
                 url: target,
@@ -374,6 +375,7 @@ var app = {
                 {
                     swal("Deleted!", data.message, "success");
                     app.load(tag, data.url);
+                    console.log(datatable);
                     $(datatable).DataTable().ajax.reload( null, false );
                 },
                 error:function(data, textStatus, jqXHR)
@@ -381,8 +383,9 @@ var app = {
                     swal("Delete failed!", data.message, "error");
                 },
             });
-        });
-    },
+          } 
+        }
+    )},
 
     'load' : function(tag, target) {
         $(tag).load(target);

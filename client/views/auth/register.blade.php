@@ -27,6 +27,11 @@
                                             ->id('register')
                                             ->method('POST')!!}
 
+                                            {!! Form::text('name')
+                                            ->required()
+                                            ->onGroupAddClass('mb-20 row')
+                                            ->placeholder('Name') !!}
+
                                             {!! Form::email('email')
                                             ->required()
                                             ->onGroupAddClass('mb-20 row')

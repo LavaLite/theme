@@ -10,7 +10,7 @@
         {!! Theme::asset()->scripts() !!}
     </head>
 
-    <body class="sidebar-mini  skin-{{Settings::get('admin.color', 'red')}}" >
+    <body class="sidebar-mini  skin-{{setting('admin.color', 'red')}}" >
         <div class="wrapper">
             {!! Theme::partial('header') !!}
             {!! Theme::partial('aside') !!}

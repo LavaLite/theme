@@ -103,7 +103,6 @@
                         </div>
                     </div>
                     <div class="box-body with-border" style="height: 300px; overflow-y: auto;">
-                        {!!Revision::activity(10,'admin.activity.gadget')!!}
                     </div>
                     <div class="box-footer clearfix">
                         <a href="{!! guard_url('revision/activity') !!}" class="btn btn-sm btn-info btn-flat new-client pull-right">View All Activities</a>
