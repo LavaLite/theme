@@ -2,7 +2,7 @@
    [Theme Stylesheet]
 
     Project              :       Lavalite
-    Version              :       5.5
+    Version              :       5.0
     Author               :       Renfos Technologies
     Author  URl          :       www.renfos.com
     Primary use          :       Lavalite, The Coder's CMS Recipe
@@ -12,7 +12,6 @@
 /* ==========================================================================
    Base styles: opinionated defaults
 ========================================================================== */
-@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500,700');
 
 body {
     color: #99aab5;
@@ -172,6 +171,12 @@ p {
     width: 100%;
     left: 0;
     z-index: 999;
+    background-color: transparent;
+    -o-transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+}
+.main-header.sticky {
     background-color: #ee3a5c;
 }
 .main-header .navbar-default {
@@ -262,10 +267,13 @@ p {
 .main-header .navbar-default .dropdown-menu>.active>a:hover {
     background-color: #f5f5f5;
 }
+.page .main-header {
+    background-color: #ee3a5c;
+}
 .no-overflow {
     overflow: hidden;
 }
-.inner-pages {
+.page {
     padding-top: 66px;
 }
 .btn.theme-btn {
@@ -275,6 +283,12 @@ p {
 }
 .btn.btn-round {
     border-radius: 3.125rem;
+}
+.main-footer {
+    background-color: #282b30;
+}
+.main-footer .container-fluid {
+    max-width: 1600px;
 }
 .main-footer .logo img {
     text-align: center;
@@ -286,9 +300,6 @@ p {
     left: 0;
     right: 0;
     margin: 0 auto;
-}
-.main-footer .links {
-    background-color: #282b30;
 }
 .main-footer .links .social-links {
     padding-top: 40px;
@@ -322,13 +333,13 @@ p {
 .main-footer .logo {
     background-color: transparent;
 }
-.inner-page-title {
+.page section.title {
     padding: 100px 0;
     padding-top: 50px;
     background-color: #ee3a5c;
 }
-.inner-page-title h1 {
-    font-weight: 400;
+.page section.title h1 {
+    font-weight: 700;
     color: #fff;
 }
 .pagination>li>a, .pagination>li>span {
@@ -364,7 +375,7 @@ p {
     width: 30px;
     height: 5px;
     border-radius: 30px;
-    background-color: #4bafd3;
+    background-color: #ea4b66;
     margin-right: 3px;
     display: inline-block;
 }
@@ -648,7 +659,7 @@ body.modal-open {
     padding: 0;
 }
 #registerModal .modal-footer p {
-    margin: 0;
+	margin: 0;
 }
 .search {
     position: relative;
@@ -1394,21 +1405,14 @@ section.features {
 /* ==========================================================================
    About Styles
 ========================================================================== */
-
-section.about-header h1 {
-    font-weight: 700;
-}
-section.about-header p {
+.page section.title p {
     color: #eee;
     font-weight: 500;
 }
-section.about {
+.page .content {
     padding: 65px 0;
 }
-section.about .container {
-    width: 970px;
-}
-section.about .count-numerics h2 {
+.page .content .about .count-numerics h2 {
     font-size: 28px;
     margin-bottom: 100px;
     margin-top: 0;
@@ -1417,25 +1421,25 @@ section.about .count-numerics h2 {
     font-weight: 500;
     color: #C93756;
 }
-section.about .count-numerics .list-inline figure {
+.page .content .about .count-numerics .list-inline figure {
     font-size: 52px;
     color: #C93756;
     display: inline-block;
     margin: 0;
 }
-section.about .count-numerics .list-inline span {
+.page .content .about .count-numerics .list-inline span {
     font-size: 30px;
     color: #C93756;
 }
-section.about .count-numerics .list-inline h4 {
+.page .content .about .count-numerics .list-inline h4 {
     font-size: 18px;
     color: #8e98a7;
     font-weight: 400;
 }
-section.about .count-numerics .list-inline li {
+.page .content .about .count-numerics .list-inline li {
     position: relative;
 }
-section.about .count-numerics .list-inline li:before {
+.page .content .about .count-numerics .list-inline li:before {
     position: absolute;
     top: 50%;
     left: 90%;
@@ -1446,26 +1450,26 @@ section.about .count-numerics .list-inline li:before {
     display: block;
     margin-top: -.03125rem;
 }
-section.about .count-numerics .list-inline li:last-child:before {
+.page .content .about .count-numerics .list-inline li:last-child:before {
     display: none;
 }
-section.about .promo-section {
+.page .content .about .promo-section {
     margin-top: 100px;
     position: relative;
 }
-section.about .promo-section .content-section {
+.page .content .about .promo-section .content-section {
     background-image: linear-gradient(145deg, #f164ab 0, #ff5176 100%);
     background-repeat: repeat-x;
     padding: 100px 50px;
     border-radius: 6px 0 0 6px;
 }
-section.about .promo-section .content-section h2 {
+.page .content .about .promo-section .content-section h2 {
     color: #fff;
     font-size: 42px;
     margin-top: 0;
     margin-bottom: 30px;
 }
-section.about .promo-section .content-section span {
+.page .content .about .promo-section .content-section span {
     color: #fff;
     font-weight: 700;
     font-size: 16px;
@@ -1473,21 +1477,21 @@ section.about .promo-section .content-section span {
     margin-bottom: 20px;
     display: block;
 }
-section.about .promo-section .content-section p {
+.page .content .about .promo-section .content-section p {
     color: #fff;
     font-weight: 400;
 }
-section.about .promo-section .content-section p+p {
+.page .content .about .promo-section .content-section p+p {
     margin-bottom: 40px;
 }
-section.about .promo-section .content-section h4 {
+.page .content .about .promo-section .content-section h4 {
     color: #fff;
     font-family: 'Pacifico', cursive;
     font-size: 24px;
     margin: 0;
 }
-section.about .promo-section .image-section {
-    background-image: url('../img/01.jpg');
+.page .content .about .promo-section .image-section {
+    background-image: url('../../../../assets/img/about.jpg');
     -webkit-background-size: cover;
     background-size: cover;
     height: 100%;
@@ -1496,7 +1500,7 @@ section.about .promo-section .image-section {
     right: 0;
     border-radius: 0 6px 6px 0;
 }
-section.about .features-section {
+.page .content .about .features-section {
     margin-top: 100px;
 }
 .hor-centered-row .hor-centered-row-col {
@@ -1504,104 +1508,97 @@ section.about .features-section {
     vertical-align: middle;
     float: none;
 }
-section.about .features-section .exp-num {
+.page .content .about .features-section .exp-num {
     width: 100px;
 }
-section.about .features-section .exp-num span {
+.page .content .about .features-section .exp-num span {
     text-shadow: 0rem 1rem 1rem rgba(201, 55, 86, .6);
     color: #ee3a5c;
     font-weight: 700;
     font-size: 150px;
 }
-section.about .features-section .exp-year h4 {
+.page .content .about .features-section .exp-year h4 {
     margin-top: 0;
     margin-bottom: 10px;
     color: #363d46;
     font-size: 26px;
     font-weight: 700;
 }
-section.about .features-section .exp-year h4 span {
+.page .content .about .features-section .exp-year h4 span {
     display: block;
 }
-section.about .features-section .exp-year p {
+.page .content .about .features-section .exp-year p {
     text-transform: uppercase;
 }
-section.about .features-section .feature-item i {
+.page .content .about .features-section .feature-item i {
     color: #C93756;
     font-size: 24px;
 }
-section.about .features-section .feature-item h4 {
+.page .content .about .features-section .feature-item h4 {
     font-size: 18px;
     color: #363d46;
 }
-section.about .features-section .feature-item p {
+.page .content .about .features-section .feature-item p {
     color: #888;
 }
 /* ==========================================================================
    Contact Styles
 ========================================================================== */
 
-section.contact-header h1 {
-    font-weight: 700;
-}
-section.contact-header p {
-    color: #eee;
-    font-weight: 500;
-}
-section.contact {
+.page .content .contact {
     padding-top: 100px;
-    background-color: #f7f8fb;
+    padding-bottom: 0;
 }
-section.contact .form {
+.page .content .contact .form {
     background-color: #ededed;
     padding: 50px;
     border-radius: 6px;
 }
-section.contact .title {
+.page .content .contact .title {
     margin-bottom: 30px;
 }
-section.contact .title h3 {
+.page .content .contact .title h3 {
     font-size: 20px;
     font-weight: 400;
     margin: 0;
     color: #0e3655;
 }
-section.contact .form .form-control {
+.page .content .contact .form .form-control {
     min-height: 40px;
     border-radius: 4px;
     border: none;
 }
-section.contact .map #map {
+.page .content .contact .map #map {
     height: 600px;
     overflow: hidden;
     border-radius: 6px;
 }
-section.contact .map {
+.page .content .contact .map {
     margin-top: 70px;
 }
-section.contact .sidebar .widget+.widget {
+.page .content .contact .sidebar .widget+.widget {
     margin-top: 40px;
 }
-section.contact .sidebar .widget .icon {
+.page .content .contact .sidebar .widget .icon {
     width: 15%;
     height: 65px;
     float: left;
     margin-right: 8%;
     display: inline-block;
 }
-section.contact .sidebar .widget .icon i {
+.page .content .contact .sidebar .widget .icon i {
     font-size: 50px;
     color: #c93756;
 }
-section.contact .sidebar .widget .content {
+.page .content .contact .sidebar .widget .icon-content {
     width: 75%;
     display: inline-block;
 }
-section.contact .sidebar .widget .content p {
+.page .content .contact .sidebar .widget .icon-content p {
     color: #0e3655;
     margin-bottom: 0;
 }
-section.contact .sidebar .widget .content p+p {
+.page .content .contact .sidebar .widget .icon-content p+p {
     margin-top: 0;
 }
 .stripes-wraper {

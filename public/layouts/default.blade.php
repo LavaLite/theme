@@ -14,7 +14,7 @@
         {!! Theme::asset()->scripts() !!}
     </head>
     <body>
-        <div class="inner-pages">
+        <div class="page">
         {!! Theme::partial('login') !!}
         {!! Theme::partial('header') !!}
         {!! Theme::content() !!}
