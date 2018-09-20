@@ -2,9 +2,9 @@
     <!-- Logo -->
     <a href="{{ Trans::to('admin') }}" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
-    <span class="logo-mini">{!!trans('app.name.short')!!}</span>
+    <span class="logo-mini"><img src="{!!theme_asset('img/logo/logo-white.svg')!!}" alt=""></span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg">{!!trans('app.name.html')!!}</span>
+    <span class="logo-lg"><img src="{!!theme_asset('img/logo/logo-big-white.svg')!!}" alt=""></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
@@ -54,10 +54,10 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="{{ guard_url('profile') }}" class="btn btn-default btn-flat">Profile</a>
+                                <a href="{{ guard_url('profile') }}" class="btn btn-theme">Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="{{ guard_url('logout') }}" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="{{ guard_url('logout') }}" class="btn btn-theme">Sign out</a>
                             </div>
                         </li>
                     </ul>

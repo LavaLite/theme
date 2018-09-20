@@ -62,6 +62,7 @@ return [
 
             //You may use this event to set up your assets.
             $theme->asset()->usePath()->add('vendor', 'dist/css/styles.css');
+            $theme->asset()->usePath()->add('settings', 'css/settings.css');
             $theme->asset()->usePath()->add('styles', 'css/styles.css');
             $theme->asset()->add('jquery', 'assets/vendor/jquery/jquery.min.js');
 
