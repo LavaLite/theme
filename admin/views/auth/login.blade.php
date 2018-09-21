@@ -1,16 +1,5 @@
-        <div class="alert alert-danger" role="alert">
-            <div class="container">
-                <div class="alert-icon">
-                    <i class="ion-ios-bell-outline"></i>
-                </div>
-                <strong>Oh snap!</strong> Change a few things up and try submitting again.
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">
-                        <i class="ion-ios-close-outline"></i>
-                    </span>
-                </button>
-            </div>
-        </div>
+@include('notifications')
+
         <div class="login-box">
             <div class="logo">
                 <a href="{!! guard_url('/') !!}"><img src="{!!theme_asset('img/logo/logo.svg')!!}" class="img-responsive center-block" alt="logo" title="Lavalite"></a>

@@ -1,20 +1,16 @@
+@include('notifications')
+
+
         <div class="login-box">
             <div class="logo">
                 <a href="{!! guard_url('/') !!}"><img src="{!!theme_asset('img/logo/logo.svg')!!}" class="img-responsive center-block" alt="logo" title="Lavalite"></a>
             </div>
             <div class="body">
                 <h2>Reset Password</h2>
-                @include('notifications')
                 {!! Form::vertical_open()
                 ->method('POST')
                 ->action(guard_url('password/email'))!!}
                 {!! csrf_field() !!}
-                @if (Session::has('status'))
-                <div class="alert alert-info">
-                    <strong>Info!</strong> {!!  Session::pull('status'); !!}
-                </div>
-                @else
-                @endif
                 <div class="form-group has-feedback mt20">
                     {!!Form::text('email', '')!!}
                     <span class="fa fa-envelope form-control-feedback"></span>

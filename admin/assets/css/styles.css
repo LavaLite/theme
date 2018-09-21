@@ -1,30 +1,12 @@
 
-@font-face {
-    font-family: Camphor;
-    font-weight: 300;
-    src: url("../dist/fonts/camphor/300-light.woff2") format("woff2"), url("../dist/fonts/camphor/300-light.woff") format("woff")
-}
-@font-face {
-    font-family: Camphor;
-    font-weight: 400;
-    src: url("../dist/fonts/camphor/400-regular.woff2") format("woff2"), url("../dist/fonts/camphor/400-regular.woff") format("woff")
-}
-@font-face {
-    font-family: Camphor;
-    font-weight: 500;
-    src: url("../dist/fonts/camphor/500-medium.woff2") format("woff2"), url("../dist/fonts/camphor/500-medium.woff") format("woff")
-}
-@font-face {
-    font-family: Camphor;
-    font-weight: 600;
-    src: url("../dist/fonts/camphor/600-bold.woff2") format("woff2"), url("../dist/fonts/camphor/600-bold.woff") format("woff")
-}
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700');
+
 body {
     color: #676767;
-    font-family: 'Camphor', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 }
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-  font-family: 'Camphor', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 .control-label sup {
   color: red;
