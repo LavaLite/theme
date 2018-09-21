@@ -12,7 +12,7 @@
         {!! Theme::asset()->styles() !!}
         {!! Theme::asset()->scripts() !!}
     </head>
-    <body class="login-page">
+    <body class="auth">
 
         {!! Theme::content() !!}
         <div class="footer">

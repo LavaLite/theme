@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="lockscreen">
+<html>
     <head>
         <meta charset="UTF-8">
         <title>{!! Theme::getTitle() !!} :: {{__('app.name')}}</title>
@@ -9,8 +9,16 @@
         {!! Theme::asset()->scripts() !!}
 
     </head>
-    <body class="login-page">
+    <body class="auth">
     {!! Theme::content() !!}
+
     {!! Theme::asset()->container('footer')->scripts() !!}
+    <style>
+        html {
+            display: table;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
     </body>
 </html>

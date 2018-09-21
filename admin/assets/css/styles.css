@@ -1,10 +1,18 @@
-@import 'https://fonts.googleapis.com/css?family=Open+Sans:400,600,700';
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700');
+
+body {
+    color: #676767;
+    font-family: 'Ubuntu', sans-serif;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Ubuntu', sans-serif;
+}
 .control-label sup {
   color: red;
 }
 .form-horizontal .control-label {
     text-align: left;
-    font-family: 'Open Sans', sans-serif;
     color: black;
     padding-top: 4px;
     padding-left: 0px;
@@ -49,11 +57,9 @@
   }
 }
 .title {
-    font-family: 'Lato';
     font-size: 96px;
 }
 .sub-title {
-    font-family: 'Lato';
     font-size: 46px;
 }
 
@@ -1110,6 +1116,7 @@ a:focus {
     border: 1px solid #dbdbdb;
     margin-top: 1px;
     border-radius: 3px;
+    top: -1px;
 }
 .radio-custom.radio-success input[type=radio]:checked + label:before, .checkbox input[type=checkbox]:checked + label:before {
     border-color: #228bdf;
@@ -1130,8 +1137,8 @@ a:focus {
     width: 18px;
     height: 18px;
     position: absolute;
-    left: 2.5px;
-    top: 0.5px;
+    left: 3px;
+    top: 1px;
     font-size: 12px;
     -webkit-transition: all .2s;
     transition: all .2s;
@@ -1485,4 +1492,56 @@ a:focus {
 }
 .mtn {
   margin-top: 0 !important;
+}
+.user-panel>.info>a {
+  font-size: 13px;
+}
+.skin-red .main-header .logo {
+  background: linear-gradient(150deg,#f05138 15%,#ee3a5b 70%,#ed1375 94%);
+}
+.skin-red .main-header .navbar {
+  background-color: #ef4153;
+}
+.main-header .logo .logo-lg img {
+  height: 40px;
+}
+.main-header .logo .logo-mini img {
+  height: 40px;
+}
+.dropdown-menu {
+  border: none;
+      box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+}
+.skin-red .main-header li.user-header {
+  background: linear-gradient(150deg,#f05138 15%,#ee3a5b 70%,#ed1375 94%);
+}
+.btn {
+    border-radius: 100px;
+    padding: 6px 18px;
+    font-weight: 600;
+    font-size: 13px;
+    -webkit-box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+}
+.btn-theme {
+    background: linear-gradient(150deg,#f05138 15%,#ee3a5b 70%,#ed1375 94%);
+    color: #fff;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(244,67,54,.4);
+}
+.btn-theme:hover, .btn-theme:focus, .btn-theme:active {
+    background-color: #f05138;
+    color: #fff;
+    box-shadow: 0 14px 26px -12px rgba(244,67,54,.42), 0 4px 23px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(244,67,54,.2);
+}
+.btn-box-tool {
+  padding: 5px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.btn-box-tool:hover, .btn-box-tool:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.box.box-theme {
+    border-top-color: #f05138;
 }

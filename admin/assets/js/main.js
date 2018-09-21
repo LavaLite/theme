@@ -404,7 +404,7 @@ var app = {
             processData: false,
             async: false,
             success: function(objFile) {
-                editor.summernote('insertImage', objFile.path);
+                editor.summernote('insertImage', objFile.url);
             },
             error: function(jqXHR, textStatus, errorThrown)
             {
