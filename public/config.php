@@ -99,6 +99,10 @@ return [
             'home'    => function ($theme) {
             },
 
+            'blank'    => function ($theme) {
+            $theme->asset()->usePath()->add('install', 'css/install.css');
+            },
+
         ],
 
     ],
