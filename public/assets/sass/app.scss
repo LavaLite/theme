@@ -3,13 +3,13 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700');
 
 // Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "~bootstrap/dist/css/bootstrap.css";
 @import "~fullcalendar/dist/fullcalendar.css";
 @import "~dropzone/dist/dropzone.css";
 @import "~font-awesome/css/font-awesome.min.css";
-@import "~ionicons/dist/css/ionicons-core.css";
-@import "~ionicons/dist/css/ionicons.css";
+@import "~ionicons/dist/css/ionicons.min.css";
+@import "~selectize/dist/css/selectize.bootstrap3.css";
 @import "~simple-line-icons/css/simple-line-icons.css";
+@import "~eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css";
 @import "~summernote/dist/summernote.css";
 @import "~toastr/build/toastr.css";
-@import "~ti-icons/css/themify-icons.css";

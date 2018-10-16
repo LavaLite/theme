@@ -197,6 +197,9 @@ $(function () {
         if ($tag.data('action') == 'DELETE'){
             return app.delete($tag.data('href'), $tag.data('load-to'), $tag.data('datatable'));
         }
+        if ($tag.data('action') == 'REQUEST')
+            return app.makeRequest($tag.data('method'), $tag.data('href'), $tag.data('load-to'), $tag.data('datatable'));
+
         if ($tag.data('action') == 'WORKFLOW')
             return app.workflow($tag.data('href'), $tag.data('load-to'), $tag.data('datatable'), $tag.data('method'), $tag.attr('id') );
 
@@ -562,7 +565,7 @@ var app = {
             aoData.push( { 'name' : 'pageLimit', 'value' : pageLimit } );
     },
 
-    'makeRequest' : function(method, target) {
+    'makeRequest' : function(method, target, tag, datatable) {
         $.ajax({
             url: target,
             type: method,
@@ -570,6 +573,8 @@ var app = {
             success:function(data, textStatus, jqXHR)
             {
                 app.message(jqXHR);
+                app.load(tag, data.url);
+                $(datatable).DataTable().ajax.reload( null, false );
             },
             error: function(jqXHR, textStatus, errorThrown)
             {
