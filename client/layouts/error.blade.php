@@ -4,8 +4,9 @@
         <meta charset="UTF-8">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>{{ Theme::getTitle() }}</title>
-        <meta name="description" content="The Lavalite Content Management System">
+        <title>{{ Theme::getMetaTitle() }} | {{__('app.name')}}</title>
+        <meta name="description" content="{{ Theme::getMetaDesctiption() }}">
+        <meta name="keyword" content="{{ Theme::getMetaKeyword() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="{{asset('apple-touch-icon.png')}}">
         <link href="{{ theme_asset('css/vendor.css') }}" rel="stylesheet">

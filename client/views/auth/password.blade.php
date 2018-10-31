@@ -1,5 +1,4 @@
-            @include('notifications')
-
+        @include('notifications')
         <div class="box">
             <div class="logo">
                 <a href="{{guard_url('/')}}"><img src="{{theme_asset('img/logo/logo.svg')}}" class="img-responsive center-block" alt="logo" title="Lavalite"></a>
@@ -21,7 +20,7 @@
 
                     <button type="submit" class="btn btn-theme btn-block mt-20 mb-20">Send Password</button>
                     <p class="text-center mb-0">Back to <a href="{{guard_url("login")}}" class="mr10">login</a></p>
-                    
+
                     {!! Form::close() !!}
             </div>
             <div class="text-center social-links">
@@ -41,5 +40,3 @@
                 <span></span>
             </div>
         </div>
-
-
