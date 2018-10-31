@@ -284,6 +284,10 @@ p {
 .btn.btn-round {
     border-radius: 3.125rem;
 }
+.features .list-view-item i{
+  color: red;
+  font-size: 50px;  
+}
 .main-footer {
     background-color: #282b30;
 }
@@ -1759,7 +1763,7 @@ body.auth .alert i {
 .page .content .portfolio .cbp-item figure:hover img {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    
+
     zoom: 1;
     filter: alpha(opacity=40);
     -webkit-opacity: .4;
@@ -1837,7 +1841,7 @@ body.auth .alert i {
     margin-bottom: 10px;
     border-radius: 6px;
     overflow: hidden;
-} 
+}
 .page .content .jobs .jobs-table .table-cells {
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -2094,7 +2098,7 @@ body.auth .alert i {
 }
 .page .content .jobs .post-wrapper .details .content ul li + li {
     margin-top: 15px;
-} 
+}
 .page .content .jobs .post-wrapper .details .content ul li::before {
     content: "\e628";
     font-family: 'themify';
@@ -2163,7 +2167,7 @@ body.auth .alert i {
     left: auto;
     margin: 11px 10px 0 0;
     right: 100%;
-} 
+}
 .page .content .jobs .post-wrapper .details .apply-box  p {
     font-size: 12px;
     line-height: 18px;

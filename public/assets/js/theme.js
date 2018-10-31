@@ -1,4 +1,2 @@
 
-$(function () {
-	$( "<div class='separator'><span></span><span></span><span></span></div>" ).insertAfter( $( "h3.border-bottom" ) );
-});
+$(window).scroll(function() { if ($(this).scrollTop() > 1) { $('.main-header').addClass("sticky"); } else { $('.main-header').removeClass("sticky"); } });

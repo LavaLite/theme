@@ -10,7 +10,7 @@
                             {!!Menu::menu('social')!!}
                         </div>
                         <div class="col-sm-4 copyright">
-                            <p>{!!__('app.all.rights')!!}</p>
+                            <p>{!!__('app.rights')!!}</p>
                         </div>
                         <div class="col-sm-4 navs">
                             {!!Menu::menu('footer')!!}
