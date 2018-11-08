@@ -4,9 +4,9 @@
  * Autor: Creative Tim
  * Web-autor: creative.tim
  * Web script: http://creative-tim.com
- * 
+ *
  */
- 
+
 /*  Shake animation  */
 
 @charset "UTF-8";
@@ -123,8 +123,9 @@
 .login .social .circle{
     background-color: #EEEEEE;
     color: #FFFFFF;
-    border-radius: 100px;
+    border-radius: 15px;
     display: inline-block;
+    font-size: large;
     margin: 0 17px;
     padding: 15px;
 }
@@ -135,8 +136,15 @@
     background-color: #455CA8;
     color: #FFFFFF;
 }
+.login .social .twitter{
+    background-color: #00BBFF;
+    color: #FFFFFF;
+}
 .login .social .google{
     background-color: #F74933;
+}
+.login .social .linkedin{
+    background-color: #00BBFF;
 }
 .login .social .github{
     background-color: #403A3A;
@@ -144,10 +152,16 @@
 .login .facebook:hover{
     background-color: #6E83CD;
 }
+.login .twitter:hover{
+    background-color: #6E83CD;
+}
 .login .google:hover{
     background-color: #FF7566;
 }
 .login .github:hover{
+    background-color: #4D4D4d;;
+}
+.login .linkedin:hover{
     background-color: #4D4D4d;;
 }
 .login .forgot {
