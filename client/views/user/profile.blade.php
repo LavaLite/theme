@@ -1,6 +1,8 @@
         <div class="card">
+          <div class="card-header">
+            Update Profile
+          </div>
             <div class="card-block">
-            <h5 class="title">Update Profile</h5>
             @include('notifications')
             {!!Form::vertical_open()
             ->id('form-update-profile')
@@ -41,7 +43,7 @@
                                     </label>
                                     {!! Form::radio('sex')
                                         -> radios(trans('user::user.options.sex'))
-                                        -> inline() 
+                                        -> inline()
                                         -> raw()!!}
                                 </div>
                             </div>
@@ -171,5 +173,3 @@
                 {!! Form::close() !!}
             </div>
         </div>
-
-
