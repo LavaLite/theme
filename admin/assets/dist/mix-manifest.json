@@ -1,5 +1,4 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/styles.css": "/css/styles.css",
-    "/public/assets/vendor/jquery/jquery.min.js": "/public/assets/vendor/jquery/jquery.min.js"
+    "/css/styles.css": "/css/styles.css"
 }
