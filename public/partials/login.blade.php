@@ -1,3 +1,8 @@
+
+		<script type="text/javascript">
+		var login_url = '';
+		var register_url = '';
+		</script>
 		 <div class="modal fade login" id="loginModal">
 		      <div class="modal-dialog login animated">
     		      <div class="modal-content">
@@ -9,15 +14,10 @@
                         <div class="box">
                              <div class="content">
                                 <div class="social">
-                                    <a class="circle github" href="#">
-                                        <i class="fa fa-github fa-fw"></i>
-                                    </a>
-                                    <a id="google_login" class="circle google" href="#">
-                                        <i class="fa fa-google-plus fa-fw"></i>
-                                    </a>
-                                    <a id="facebook_login" class="circle facebook" href="#">
-                                        <i class="fa fa-facebook fa-fw"></i>
-                                    </a>
+																	<a class="circle facebook" href="{!!guard_url('login/facebook')!!}"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
+											            <a class="circle twitter" href="{!!guard_url('login/twitter')!!}"><i class="fab fa-twitter-square" aria-hidden="true"></i></a>
+											            <a class="circle google" href="{!!guard_url('login/google')!!}"><i class="fab fa-google-plus-square" aria-hidden="true"></i></a>
+											            <a class="circle linkedin" href="{!!guard_url('login/linkedin')!!}"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                                 </div>
                                 <div class="division">
                                     <div class="line l"></div>
@@ -26,10 +26,10 @@
                                 </div>
                                 <div class="error"></div>
                                 <div class="form loginBox">
-                                    <form method="" action="" accept-charset="UTF-8">
-                                    <input id="email" class="form-control" type="text" placeholder="Email" name="email">
-                                    <input id="password" class="form-control" type="password" placeholder="Password" name="password">
-                                    <input class="btn btn-default btn-login" type="button" value="Login" onclick="loginAjax()">
+                                    <form method="POST" action="{{guard_url('login')}}" data-redirect-to="{{guard_url('/')}}" accept-charset="UTF-8" id='form_login'>
+                                    <input id="login_email" class="form-control mb-10" type="text" placeholder="Email / Username" name="email">
+                                    <input id="login_password" class="form-control mb-10" type="password" placeholder="Password" name="password">
+                                    <input class="btn btn-default btn-login mb-10" type="submit" value="Login">
                                     </form>
                                 </div>
                              </div>
@@ -37,11 +37,12 @@
                         <div class="box">
                             <div class="content registerBox" style="display:none;">
                              <div class="form">
-                                <form method="" html="{:multipart=>true}" data-remote="true" action="" accept-charset="UTF-8">
-                                <input id="email" class="form-control" type="text" placeholder="Email" name="email">
-                                <input id="password" class="form-control" type="password" placeholder="Password" name="password">
-                                <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
-                                <input class="btn btn-default btn-register" type="button" value="Create account" name="commit">
+                                <form method="POST" data-remote="true" action="{{guard_url('register')}}" data-redirect-to="{{guard_url('/')}}" accept-charset="UTF-8" id='form_register'>
+																<input id="register_name" class="form-control mb-10" type="text" placeholder="Name" name="Name">
+																<input id="register_email" class="form-control mb-10" type="text" placeholder="Email" name="email">
+																<input id="register_password" class="form-control mb-10" type="password" placeholder="Password" name="password">
+																<input id="register_password_confirmation" class="form-control mb-10" type="password" placeholder="Password" name="password_confirmation">
+                                <input class="btn btn-default btn-register mb-10" type="submit" value="Create account">
                                 </form>
                                 </div>
                             </div>

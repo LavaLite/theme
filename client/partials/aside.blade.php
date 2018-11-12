@@ -1,14 +1,13 @@
-        <aside class="sidebar">
-            <div class="user-profile">
-                <a href="">
-                    <img src="{{user()->picture}}" alt="">
-                </a>
-                <h3>{{user()->name}}<span>{{user()->email}}</span></h3>
-                <p>
-                    <a href="{{guard_url('profile')}}"><i class="icon-settings icons"></i>{{__('app.settings')}}</a>
-                    <a href="{{guard_url('password')}}"><i class="icon-key icons"></i>{{__('app.password')}}</a>
-                </p>
-                <a href="#" class="btn theme-btn btn-block">My Advts</a>
-                <a href="#" class="btn theme-btn btn-block">Add New Advts</a>
-            </div>
-        </aside>
+<aside class="sidebar">
+    <div class="user-profile">
+        <div class="list-group">
+            <a href="{{guard_url('/')}}" class="list-group-item"><i class="fas fa-tachometer-alt"></i> {{__('app.dashboard')}}</a>
+            <a href="{{guard_url('messages')}}" class="list-group-item"><i class="far fa-envelope"></i> Message</a>
+            <a href="#" class="list-group-item"><i class="fas fa-shopping-cart"></i> Marketplace</a>
+            <a href="#" class="list-group-item"><i class="fas fa-layer-group"></i> Orders</a>
+            <a href="#" class="list-group-item"><i class="fas fa-bullhorn"></i> Sales</a>
+            <a href="#" class="list-group-item"><i class="far fa-hdd"></i> Advts</a>
+        </div>
+
+    </div>
+</aside>

@@ -35,15 +35,39 @@
     @endif
 @endif
 
+
 @if (Session::has('errors'))
-        <div class="alert alert-danger">
-            <button type="button" aria-hidden="true" class="close"  data-dismiss="alert" aria-label="close">
-                <i class="icon-close"></i>
-            </button>
+        <div class="alert alert-danger alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <b> Error </b>
             <ul>
-              @foreach(session('errors')->all() as $message)
+              @foreach(Session::get('errors')->all() as $message)
               <li>{{$message}} </li>
               @endforeach
             </ul>
+        </div>
+@endif
+
+@if (Session::has('success'))
+        <div class="alert alert-success alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <b> Success </b>
+            <div>{{Session::get('success')}}</div>
+        </div>
+@endif
+
+@if (Session::has('success'))
+        <div class="alert alert-success alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <b> Success </b>
+            <div>{{Session::get('success')}}</div>
+        </div>
+@endif
+
+@if (Session::has('status'))
+        <div class="alert alert-success alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <b> Info </b>
+            <div>{{Session::get('status')}}</div>
         </div>
 @endif
