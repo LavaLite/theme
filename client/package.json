@@ -1,0 +1,51 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "npm run development -- --watch",
+        "watch-poll": "npm run watch -- --watch-poll",
+        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "npm run production",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    },
+    "devDependencies": {
+        "axios": "^0.18",
+        "bootstrap": "^3.0",
+        "cross-env": "^5.1",
+        "jquery": "^3.2",
+        "laravel-mix": "^2.0",
+        "lodash": "^4.17.5",
+        "popper.js": "^1.12",
+        "vue": "^2.5.7"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.4.1",
+        "codemirror": "^5.33",
+        "cropper": "^3.1",
+        "datatables.net": "^1.10",
+        "dropzone": "^5.3",
+        "eonasdan-bootstrap-datetimepicker": "^4.17",
+        "fullcalendar": "^3.8",
+        "jquery-validation": "^1.17",
+        "summernote": "^0.8",
+        "sweetalert": "^2.1.0",
+        "timeago": "^1.6",
+        "toastr": "^2.1.4",
+        "bootstrap-daterangepicker": "^2.1",
+        "datatables.net-bs": "^1.10",
+        "datatables.net-dt": "^1.10",
+        "datatables.net-responsive": "^2.2",
+        "datatables.net-responsive-bs": "^2.2",
+        "fs": "0.0.1-security",
+        "mustache": "^2.3",
+        "node-sass": "^4.7",
+        "postcss-loader": "^2.0.10",
+        "sortable": "^2.0",
+        "sortablejs": "^1.7",
+        "waves": "^0.1",
+        "webpack": "^3.10",
+        "chart.js": "^2.7.3",
+        "selectize": "^0.12.6"
+    }
+}
