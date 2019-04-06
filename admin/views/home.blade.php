@@ -13,30 +13,30 @@
     <section class="content">
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <a href="{!!guard_url('page/page')!!}">
+                <a href="#">
                     <div class="info-box">
                         <span class="info-box-icon bg-aqua"><i class="fa fa-book"></i></span>
                         <div class="info-box-content">
                             <span class="info-box-text">Pages</span>
-                            <span class="info-box-number">{!!Page::count()!!}</span>
+                            <span class="info-box-number">4</span>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <a href="{!!guard_url('calendar/calendar')!!}">
+                <a href="#">
                     <div class="info-box">
                         <span class="info-box-icon bg-red"><i class="fa fa-calendar"></i></span>
                         <div class="info-box-content">
                             <span class="info-box-text">Events</span>
-                            <span class="info-box-number">{!!Calendar::count()!!}</span>
+                            <span class="info-box-number">0</span>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="clearfix visible-sm-block"></div>
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <a href="{!!guard_url('revision/activity')!!}">
+                <a href="#">
                     <div class="info-box">
                         <span class="info-box-icon bg-green"><i class="fa fa-newspaper-o"></i></span>
                         <div class="info-box-content">
@@ -47,12 +47,12 @@
                 </a>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <a href="{!!guard_url('user/user')!!}">
+                <a href="#">
                     <div class="info-box">
                         <span class="info-box-icon bg-yellow"><i class="fa fa-users"></i></span>
                         <div class="info-box-content">
                             <span class="info-box-text">Users</span>
-                            <span class="info-box-number"></span>
+                            <span class="info-box-number">5</span>
                         </div>
                     </div>
                 </a>
@@ -68,11 +68,11 @@
                             <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                         </div>
                     </div>
-                    <div class="box-body">
-                        {!!Calendar::gadget('admin.calendar.gadget')!!}
+                    <div class="box-body with-border" style="height: 300px; overflow-y: auto;">
+                        
                     </div>
                     <div class="box-footer clearfix">
-                        <a href="{!! guard_url('calendar/calendar') !!}" class="btn btn-sm btn-info btn-flat new-client pull-right">View All Events</a>
+                        <a href="#" class="btn btn-sm btn-info btn-flat new-client pull-right">View All Events</a>
                     </div>
                 </div>
             </div>
@@ -86,17 +86,17 @@
                         </div>
                     </div>
                     <div class="box-body with-border" style="height: 300px; overflow-y: auto;">
-                        {!!Task::gadget('admin.task.gadget',10)!!}
+                        
                     </div>
                     <div class="box-footer clearfix">
-                        <a href="{!! guard_url('task/task') !!}" class="btn btn-sm btn-info btn-flat new-client pull-right">View All Tasks</a>
+                        <a href="#" class="btn btn-sm btn-info btn-flat new-client pull-right">View All Tasks</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Activities</h3>
+                        <h3 class="box-title">Gadget</h3>
                         <div class="box-tools pull-right">
                             <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                             <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -105,15 +105,15 @@
                     <div class="box-body with-border" style="height: 300px; overflow-y: auto;">
                     </div>
                     <div class="box-footer clearfix">
-                        <a href="{!! guard_url('revision/activity') !!}" class="btn btn-sm btn-info btn-flat new-client pull-right">View All Activities</a>
+                        <a href="#" class="btn btn-sm btn-info btn-flat new-client pull-right">View All</a>
                     </div>
                 </div>
             </div>
             
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Notifications</h3>
+                        <h3 class="box-title">Gadget</h3>
                         <div class="box-tools pull-right">
                             <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                             <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -123,7 +123,25 @@
                         
                     </div>
                     <div class="box-footer clearfix">
-                            <a href="{!! guard_url('alert/notification') !!}" class="btn btn-sm btn-info btn-flat new-client pull-right">View All Notifications</a>
+                            <a href="#" class="btn btn-sm btn-info btn-flat new-client pull-right">View All</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Gadget</h3>
+                        <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                            <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body with-border" style="height: 300px; overflow-y: auto;">
+                        
+                    </div>
+                    <div class="box-footer clearfix">
+                            <a href="#" class="btn btn-sm btn-info btn-flat new-client pull-right">View All </a>
                     </div>
                 </div>
             </div>

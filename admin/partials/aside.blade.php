@@ -22,7 +22,7 @@
       <li class="header">MAIN NAVIGATION</li>
       {!!Menu::menu('admin', 'menu::menu.admin')!!}
       <li class="header">Masters</li>
-      <li><a href="{{ guard_url('settings/setting') }}"><i class="fa fa-sliders text-red"></i> <span>Settings</span></a></li>
+      <li><a href="{{ guard_url('settings') }}"><i class="fa fa-sliders text-red"></i> <span>Settings</span></a></li>
       <li><a href="{{ guard_url('masters') }}"><i class="fa fa-circle-o text-yellow"></i> <span>Masters</span></a></li>
       <li><a href="{{ guard_url('reports') }}"><i class="fa fa-bar-chart text-aqua"></i> <span>Reports</span></a></li>
     </ul>
