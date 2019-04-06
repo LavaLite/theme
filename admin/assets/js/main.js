@@ -54,128 +54,8 @@ $(function () {
         }
     });
 
-    $('.select-search').selectize({
-        valueField: 'title',
-        labelField: 'title',
-        searchField: 'title',
-        options: [],
-        create: false,
-        render: {
-            option: function(item, escape) {
-                var actors = [];
-                for (var i = 0, n = item.abridged_cast.length; i < n; i++) {
-                    actors.push('<span>' + escape(item.abridged_cast[i].name) + '</span>');
-                }
+    app.formatDT();
 
-                return '<div>' +
-                    '<img src="' + escape(item.posters.thumbnail) + '" alt="">' +
-                    '<span class="title">' +
-                        '<span class="name">' + escape(item.title) + '</span>' +
-                    '</span>' +
-                    '<span class="description">' + escape(item.synopsis || 'No synopsis available at this time.') + '</span>' +
-                    '<span class="actors">' + (actors.length ? 'Starring ' + actors.join(', ') : 'Actors unavailable') + '</span>' +
-                '</div>';
-            }
-        },
-        load: function(query, callback) {
-            if (!query.length) return callback();
-            $.ajax({
-                url: 'http://api.rottentomatoes.com/api/public/v1.0/movies.json',
-                type: 'GET',
-                dataType: 'jsonp',
-                data: {
-                    q: query,
-                    page_limit: 10,
-                    apikey: 'w82gs68n8m2gur98m6du5ugc'
-                },
-                error: function() {
-                    callback();
-                },
-                success: function(res) {
-                    callback(res.movies);
-                }
-            });
-        }
-    });
-
-    $('input[type="datetime"], .pickdatetime')
-    .prop('type','text')
-    .after(function(){
-        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
-    })
-    .val(function(index, currentvalue){
-        currentvalue = $(this).prop("defaultValue");
-        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('DD MMM YYYY hh:mm A');
-    })
-    .datetimepicker({
-        viewMode: 'days',
-        format: 'DD MMM YYYY hh:mm A'
-    })
-    .on('dp.change', function(){
-        currentvalue = $(this).val();
-        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
-        alt = "#alt" + $(this).attr('name');
-        $(alt).val(currentvalue);
-    });
-
-    $('input[type="date"], .pickdate')
-    .prop('type','text')
-    .after(function(){
-        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
-    })
-    .val(function(index, currentvalue){
-        currentvalue = $(this).prop("defaultValue");
-        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('DD MMM YYYY');
-    })
-    .datetimepicker({
-        viewMode: 'days',
-        format: 'DD MMM YYYY',
-    })
-    .on('dp.change', function(){
-        currentvalue = $(this).val();
-        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
-        alt = "#alt" + $(this).attr('name');
-        $(alt).val(currentvalue);
-    });
-
-    $('input[type="time"], .picktime')
-    .prop('type','text')
-    .after(function(){
-        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
-    })
-    .val(function(index, currentvalue){
-        currentvalue = $(this).prop("defaultValue");
-        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('hh:SS A');
-    })
-    .datetimepicker({
-        format: 'hh:SS A'
-    })
-    .on('dp.change', function(){
-        currentvalue = $(this).val();
-        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
-        alt = "#alt" + $(this).attr('name');
-        $(alt).val(currentvalue);
-    });
-
-    $('input[type="period"], .pickperiod')
-    .prop('type','text')
-    .after(function(){
-        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
-    })
-    .val(function(index, currentvalue){
-        currentvalue = $(this).prop("defaultValue");
-        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('hh:SS A');
-    })
-    .datetimepicker({
-        viewMode: 'days',
-        format: 'hh:SS A'
-    })
-    .on('dp.change', function(){
-        currentvalue = $(this).val();
-        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
-        alt = "#alt" + $(this).attr('name');
-        $(alt).val(currentvalue);
-    });
 
     $.ajaxSetup({
         headers: {
@@ -279,85 +159,7 @@ $( document ).ajaxComplete(function() {
             ['height', ['height']]
           ]
     });
-
-    $('input[type="datetime"], .pickdatetime')
-    .prop('type','text')
-    .after(function(){
-        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
-    })
-    .val(function(index, currentvalue){
-        currentvalue = $(this).prop("defaultValue");
-        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('DD MMM YYYY hh:mm A');
-    })
-    .datetimepicker({
-        viewMode: 'days',
-        format: 'DD MMM YYYY hh:mm A'
-    })
-    .on('dp.change', function(){
-        currentvalue = $(this).val();
-        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
-        alt = "#alt" + $(this).attr('name');
-        $(alt).val(currentvalue);
-    });
-
-    $('input[type="date"], .pickdate')
-    .prop('type','text')
-    .after(function(){
-        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
-    })
-    .val(function(index, currentvalue){
-        currentvalue = $(this).prop("defaultValue");
-        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('DD MMM YYYY');
-    })
-    .datetimepicker({
-        viewMode: 'days',
-        format: 'DD MMM YYYY'
-    })
-    .on('dp.change', function(){
-        currentvalue = $(this).val();
-        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
-        alt = "#alt" + $(this).attr('name');
-        $(alt).val(currentvalue);
-    });
-
-    $('input[type="time"], .picktime')
-    .prop('type','text')
-    .after(function(){
-        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
-    })
-    .val(function(index, currentvalue){
-        currentvalue = $(this).prop("defaultValue");
-        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('hh::mm.ss');
-    })
-    .datetimepicker({
-        format: 'hh:SS A'
-    })
-    .on('dp.change', function(){
-        currentvalue = $(this).val();
-        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
-        alt = "#alt" + $(this).attr('name');
-        $(alt).val(currentvalue);
-    });
-
-    $('input[type="period"], .pickperiod')
-    .prop('type','text')
-    .after(function(){
-        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
-    })
-    .val(function(index, currentvalue){
-        currentvalue = $(this).prop("defaultValue");
-        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('DD MMM YYYY');
-    })
-    .datetimepicker({
-        viewMode: 'days',
-        format: 'hh:SS A'
-    })
-    .on('dp.change', function(){
-        currentvalue = $(this).val();
-        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
-        alt = "#alt" + $(this).attr('name');
-        $(alt).val(currentvalue);
-    });
+    app.formatDT();
 
 });
 
@@ -625,6 +427,86 @@ $( document ).ajaxSuccess(function( event, xhr, settings ) {
                 toastr[msgType](msgText, msgTitle);
 
             return true;
+        },
+        'formatDT' : function(){
+            $('input[type="datetime"], .pickdatetime')
+            .prop('type','text')
+            .after(function(){
+                return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
+            })
+            .val(function(index, currentvalue){
+                currentvalue = $(this).prop("defaultValue");
+                return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('DD MMM YYYY hh:mm A');
+            })
+            .datetimepicker({
+                viewMode: 'days',
+                format: 'DD MMM YYYY hh:mm A'
+            })
+            .on('dp.change', function(){
+                currentvalue = $(this).val();
+                currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
+                alt = "#alt" + $(this).attr('name');
+                $(alt).val(currentvalue);
+            });
+
+            $('input[type="date"], .pickdate')
+            .prop('type','text')
+            .after(function(){
+                return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
+            })
+            .val(function(index, currentvalue){
+                currentvalue = $(this).prop("defaultValue");
+                return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('DD MMM YYYY');
+            })
+            .datetimepicker({
+                viewMode: 'days',
+                format: 'DD MMM YYYY'
+            })
+            .on('dp.change', function(){
+                currentvalue = $(this).val();
+                currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
+                alt = "#alt" + $(this).attr('name');
+                $(alt).val(currentvalue);
+            });
+
+            $('input[type="time"], .picktime')
+            .prop('type','text')
+            .after(function(){
+                return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
+            })
+            .val(function(index, currentvalue){
+                currentvalue = $(this).prop("defaultValue");
+                return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('hh::mm.ss');
+            })
+            .datetimepicker({
+                format: 'hh:SS A'
+            })
+            .on('dp.change', function(){
+                currentvalue = $(this).val();
+                currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
+                alt = "#alt" + $(this).attr('name');
+                $(alt).val(currentvalue);
+            });
+
+            $('input[type="period"], .pickperiod')
+            .prop('type','text')
+            .after(function(){
+                return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
+            })
+            .val(function(index, currentvalue){
+                currentvalue = $(this).prop("defaultValue");
+                return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('DD MMM YYYY');
+            })
+            .datetimepicker({
+                viewMode: 'days',
+                format: 'hh:SS A'
+            })
+            .on('dp.change', function(){
+                currentvalue = $(this).val();
+                currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
+                alt = "#alt" + $(this).attr('name');
+                $(alt).val(currentvalue);
+            });
         }
     }
 
