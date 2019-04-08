@@ -40,7 +40,7 @@
             <a href="{!!guard_url('login/facebook')!!}"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
             <a href="{!!guard_url('login/twitter')!!}"><i class="fab fa-twitter-square" aria-hidden="true"></i></a>
             <a href="{!!guard_url('login/google')!!}"><i class="fab fa-google-plus-square" aria-hidden="true"></i></a>
-            <a href="{!!guard_url('login/linkedin')!!}"><i class="fab fa-linkedin-square" aria-hidden="true"></i></a>
+            <a href="{!!guard_url('login/linkedin')!!}"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
     </div>
 </div>
 <div class="stripes-wraper">

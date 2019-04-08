@@ -17,23 +17,45 @@
             <ul class="nav navbar-nav">
                 <!-- Messages: style can be found in dropdown.less-->
                 <li class="dropdown messages-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-envelope-o"></i>
-                  <span class="label label-success"> {!!Message::count('Inbox')!!}</span>
-                </a>
-                {!! Message::gadget('admin.message.drop') !!}
-                </li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <i class="fa fa-envelope-o"></i>
+                      <span class="label label-success"> 12 </span>
+                    </a>
+                    <ul class="dropdown-menu notification">
+                        <li class="header">   You have 4 messages</li>
+                        <li>
+                        <!-- inner menu: contains the actual data -->
+                        </li>
+                        <li class="footer"><a href="#">View all</a></li>
+                    </ul>
+                  </li>
                 <!-- Notifications: style can be found in dropdown.less -->
                 <li class="dropdown notifications-menu">              
-                        {!! Calendar::display('drop',50) !!}
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <i class="fa fa-calendar"></i>
+                      <span class="label label-danger"> 20 </span>
+                    </a>
+                    <ul class="dropdown-menu notification">
+                        <li class="header">   You have 5 events</li>
+                        <li>
+                        <!-- inner menu: contains the actual data -->
+                        
+                        </li>
+                        <li class="footer"><a href="#">View all</a></li>
+                    </ul>                
                 </li>
                 <!-- Tasks: style can be found in dropdown.less -->
                 <li class="dropdown tasks-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-flag-o"></i>
-                  <span class="label label-danger">  {!!count(Task::tasks())!!}</span>
-                </a>
-                {!! Task::display('drop') !!}
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-flag-o"></i>
+                        <span class="label label-danger">  5</span>
+                    </a>
+                    <ul class="dropdown-menu notification">
+                        <li class="header">   You have 4 Tasks</li>
+                        <li>
+                        </li>
+                        <li class="footer"><a href="#">View all</a></li>
+                    </ul>                
                 </li>
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">

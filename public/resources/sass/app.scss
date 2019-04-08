@@ -1,0 +1,24 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+@import '~bootstrap/dist/css//bootstrap.css';
+@import "~fullcalendar/dist/fullcalendar.css";
+@import "~dropzone/dist/dropzone.css";
+@import "~@fortawesome/fontawesome-free/css/all.css";
+@import "~summernote/dist/summernote.css";
+@import "~toastr/build/toastr.css";
+@import "../css/install.css";
+@import "../css/login-register.css";
+@import "../css/settings.css";
+@import "../css/styles.css";
