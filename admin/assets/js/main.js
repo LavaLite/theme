@@ -54,128 +54,8 @@ $(function () {
         }
     });
 
-    $('.select-search').selectize({
-        valueField: 'title',
-        labelField: 'title',
-        searchField: 'title',
-        options: [],
-        create: false,
-        render: {
-            option: function(item, escape) {
-                var actors = [];
-                for (var i = 0, n = item.abridged_cast.length; i < n; i++) {
-                    actors.push('<span>' + escape(item.abridged_cast[i].name) + '</span>');
-                }
+    app.formatDT();
 
-                return '<div>' +
-                    '<img src="' + escape(item.posters.thumbnail) + '" alt="">' +
-                    '<span class="title">' +
-                        '<span class="name">' + escape(item.title) + '</span>' +
-                    '</span>' +
-                    '<span class="description">' + escape(item.synopsis || 'No synopsis available at this time.') + '</span>' +
-                    '<span class="actors">' + (actors.length ? 'Starring ' + actors.join(', ') : 'Actors unavailable') + '</span>' +
-                '</div>';
-            }
-        },
-        load: function(query, callback) {
-            if (!query.length) return callback();
-            $.ajax({
-                url: 'http://api.rottentomatoes.com/api/public/v1.0/movies.json',
-                type: 'GET',
-                dataType: 'jsonp',
-                data: {
-                    q: query,
-                    page_limit: 10,
-                    apikey: 'w82gs68n8m2gur98m6du5ugc'
-                },
-                error: function() {
-                    callback();
-                },
-                success: function(res) {
-                    callback(res.movies);
-                }
-            });
-        }
-    });
-
-    $('input[type="datetime"], .pickdatetime')
-    .prop('type','text')
-    .after(function(){
-        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
-    })
-    .val(function(index, currentvalue){
-        currentvalue = $(this).prop("defaultValue");
-        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('DD MMM YYYY hh:mm A');
-    })
-    .datetimepicker({
-        viewMode: 'days',
-        format: 'DD MMM YYYY hh:mm A'
-    })
-    .on('dp.change', function(){
-        currentvalue = $(this).val();
-        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
-        alt = "#alt" + $(this).attr('name');
-        $(alt).val(currentvalue);
-    });
-
-    $('input[type="date"], .pickdate')
-    .prop('type','text')
-    .after(function(){
-        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
-    })
-    .val(function(index, currentvalue){
-        currentvalue = $(this).prop("defaultValue");
-        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('DD MMM YYYY');
-    })
-    .datetimepicker({
-        viewMode: 'days',
-        format: 'DD MMM YYYY',
-    })
-    .on('dp.change', function(){
-        currentvalue = $(this).val();
-        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
-        alt = "#alt" + $(this).attr('name');
-        $(alt).val(currentvalue);
-    });
-
-    $('input[type="time"], .picktime')
-    .prop('type','text')
-    .after(function(){
-        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
-    })
-    .val(function(index, currentvalue){
-        currentvalue = $(this).prop("defaultValue");
-        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('hh:SS A');
-    })
-    .datetimepicker({
-        format: 'hh:SS A'
-    })
-    .on('dp.change', function(){
-        currentvalue = $(this).val();
-        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
-        alt = "#alt" + $(this).attr('name');
-        $(alt).val(currentvalue);
-    });
-
-    $('input[type="period"], .pickperiod')
-    .prop('type','text')
-    .after(function(){
-        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
-    })
-    .val(function(index, currentvalue){
-        currentvalue = $(this).prop("defaultValue");
-        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('hh:SS A');
-    })
-    .datetimepicker({
-        viewMode: 'days',
-        format: 'hh:SS A'
-    })
-    .on('dp.change', function(){
-        currentvalue = $(this).val();
-        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
-        alt = "#alt" + $(this).attr('name');
-        $(alt).val(currentvalue);
-    });
 
     $.ajaxSetup({
         headers: {
@@ -279,85 +159,7 @@ $( document ).ajaxComplete(function() {
             ['height', ['height']]
           ]
     });
-
-    $('input[type="datetime"], .pickdatetime')
-    .prop('type','text')
-    .after(function(){
-        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
-    })
-    .val(function(index, currentvalue){
-        currentvalue = $(this).prop("defaultValue");
-        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('DD MMM YYYY hh:mm A');
-    })
-    .datetimepicker({
-        viewMode: 'days',
-        format: 'DD MMM YYYY hh:mm A'
-    })
-    .on('dp.change', function(){
-        currentvalue = $(this).val();
-        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
-        alt = "#alt" + $(this).attr('name');
-        $(alt).val(currentvalue);
-    });
-
-    $('input[type="date"], .pickdate')
-    .prop('type','text')
-    .after(function(){
-        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
-    })
-    .val(function(index, currentvalue){
-        currentvalue = $(this).prop("defaultValue");
-        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('DD MMM YYYY');
-    })
-    .datetimepicker({
-        viewMode: 'days',
-        format: 'DD MMM YYYY'
-    })
-    .on('dp.change', function(){
-        currentvalue = $(this).val();
-        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
-        alt = "#alt" + $(this).attr('name');
-        $(alt).val(currentvalue);
-    });
-
-    $('input[type="time"], .picktime')
-    .prop('type','text')
-    .after(function(){
-        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
-    })
-    .val(function(index, currentvalue){
-        currentvalue = $(this).prop("defaultValue");
-        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('hh::mm.ss');
-    })
-    .datetimepicker({
-        format: 'hh:SS A'
-    })
-    .on('dp.change', function(){
-        currentvalue = $(this).val();
-        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
-        alt = "#alt" + $(this).attr('name');
-        $(alt).val(currentvalue);
-    });
-
-    $('input[type="period"], .pickperiod')
-    .prop('type','text')
-    .after(function(){
-        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
-    })
-    .val(function(index, currentvalue){
-        currentvalue = $(this).prop("defaultValue");
-        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('DD MMM YYYY');
-    })
-    .datetimepicker({
-        viewMode: 'days',
-        format: 'hh:SS A'
-    })
-    .on('dp.change', function(){
-        currentvalue = $(this).val();
-        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
-        alt = "#alt" + $(this).attr('name');
-        $(alt).val(currentvalue);
-    });
+    app.formatDT();
 
 });
 
@@ -370,263 +172,341 @@ $( document ).ajaxSuccess(function( event, xhr, settings ) {
     app.message(xhr);
 });
 
+    app = {
+        'create' : function(forms, tag, datatable) {
+            var form = $(forms);
 
-var app = {
-
-    'create' : function(forms, tag, datatable) {
-        var form = $(forms);
-
-        if(form.valid() == false) {
-            toastr.error('Please enter valid information.', 'Error');
-            return false;
-        }
-
-        var formData = new FormData();
-        params   = form.serializeArray();
-
-        $.each(params, function(i, val) {
-            formData.append(val.name, val.value);
-        });
-
-        $.each($(forms + ' .html-editor'), function(i, val) {
-            formData.append(val.name, $('#'+val.id).summernote('code'));
-        });
-
-        var url  = form.attr('action');
-
-        $.ajax( {
-            url: url,
-            type: 'POST',
-            data: formData,
-            cache: false,
-            processData: false,
-            contentType: false,
-            dataType: 'json',
-            async: false,
-            success:function(data, textStatus, jqXHR)
-            {
-                app.load(tag, data.url);
-                $(datatable).DataTable().ajax.reload( null, false );
+            if(form.valid() == false) {
+                toastr.error('Please enter valid information.', 'Error');
+                return false;
             }
-        });
-    },
 
-    'update' : function(forms, tag, datatable) {
-        var form = $(forms);
+            var formData = new FormData();
+            params   = form.serializeArray();
 
-        if(form.valid() == false) {
-            toastr.error('Please enter valid information.', 'Error');
-            return false;
-        }
+            $.each(params, function(i, val) {
+                formData.append(val.name, val.value);
+            });
 
-        var formData = new FormData();
-        params   = form.serializeArray();
+            $.each($(forms + ' .html-editor'), function(i, val) {
+                formData.append(val.name, $('#'+val.id).summernote('code'));
+            });
 
-        $.each(params, function(i, val) {
-            formData.append(val.name, val.value);
-        });
+            var url  = form.attr('action');
 
-        $.each($(forms + ' .html-editor'), function(i, val) {
-            formData.append(val.name, $('#'+val.id).summernote('code'));
-        });
-
-        var url  = form.attr('action');
-
-        $.ajax( {
-            url: url,
-            type: 'POST',
-            data: formData,
-            cache: false,
-            processData: false,
-            contentType: false,
-            dataType: 'json',
-            async: false,
-            success:function(data, textStatus, jqXHR)
-            {
-                app.load(tag, data.url);
-                $(datatable).DataTable().ajax.reload( null, false );
-            }
-        });
-    },
-
-    'workflow' : function(url, tag, datatable, method, id) {
-        var formData = new FormData();
-        $.each($('.workflow_data'), function(i, val) {
-            formData.append(val.name, $(this).val());
-        });
-        $.ajax( {
-            url: url,
-            type: "POST",
-            data: formData,
-            cache: false,
-            processData: false,
-            contentType: false,
-            dataType: 'json',
-            async: false,
-            beforeSend: function() {
-                $('#'+id).prop('disabled',true);
-                $('#'+id+' i').addClass('fa-spinner fa-spin');
-                $('.btn-workflow i').addClass('fa-spinner fa-spin');
-            },
-            success:function(data, textStatus, jqXHR)
-            {
-                app.load(tag, data.url);
-                $(datatable).DataTable().ajax.reload( null, false );
-            }
-        });
-    },
-
-    'delete' : function(target, tag, datatable) {
-        swal({
-            title: "Are you sure?",
-            text: "You will not be able to recover this data!",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#DD6B55",
-            confirmButtonText: "Yes, delete it!",
-            closeOnConfirm: false
-        }).then((willDelete) => {
-          if (willDelete) {
-            var data = new FormData();
-            $.ajax({
-                url: target,
-                type: 'DELETE',
+            $.ajax( {
+                url: url,
+                type: 'POST',
+                data: formData,
+                cache: false,
                 processData: false,
                 contentType: false,
                 dataType: 'json',
                 async: false,
                 success:function(data, textStatus, jqXHR)
                 {
-                    swal("Deleted!", data.message, "success");
                     app.load(tag, data.url);
-                    console.log(datatable);
+                    $(datatable).DataTable().ajax.reload( null, false );
+                }
+            });
+        },
+
+        'update' : function(forms, tag, datatable) {
+            var form = $(forms);
+
+            if(form.valid() == false) {
+                toastr.error('Please enter valid information.', 'Error');
+                return false;
+            }
+
+            var formData = new FormData();
+            params   = form.serializeArray();
+
+            $.each(params, function(i, val) {
+                formData.append(val.name, val.value);
+            });
+
+            $.each($(forms + ' .html-editor'), function(i, val) {
+                formData.append(val.name, $('#'+val.id).summernote('code'));
+            });
+
+            var url  = form.attr('action');
+
+            $.ajax( {
+                url: url,
+                type: 'POST',
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+                dataType: 'json',
+                async: false,
+                success:function(data, textStatus, jqXHR)
+                {
+                    app.load(tag, data.url);
+                    $(datatable).DataTable().ajax.reload( null, false );
+                }
+            });
+        },
+
+        'workflow' : function(url, tag, datatable, method, id) {
+            var formData = new FormData();
+            $.each($('.workflow_data'), function(i, val) {
+                formData.append(val.name, $(this).val());
+            });
+            $.ajax( {
+                url: url,
+                type: "POST",
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+                dataType: 'json',
+                async: false,
+                beforeSend: function() {
+                    $('#'+id).prop('disabled',true);
+                    $('#'+id+' i').addClass('fa-spinner fa-spin');
+                    $('.btn-workflow i').addClass('fa-spinner fa-spin');
+                },
+                success:function(data, textStatus, jqXHR)
+                {
+                    app.load(tag, data.url);
+                    $(datatable).DataTable().ajax.reload( null, false );
+                }
+            });
+        },
+
+        'delete' : function(target, tag, datatable) {
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this data!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it!",
+                closeOnConfirm: false
+            }).then((willDelete) => {
+              if (willDelete) {
+                var data = new FormData();
+                $.ajax({
+                    url: target,
+                    type: 'DELETE',
+                    processData: false,
+                    contentType: false,
+                    dataType: 'json',
+                    async: false,
+                    success:function(data, textStatus, jqXHR)
+                    {
+                        swal("Deleted!", data.message, "success");
+                        app.load(tag, data.url);
+                        console.log(datatable);
+                        $(datatable).DataTable().ajax.reload( null, false );
+                    },
+                    error:function(data, textStatus, jqXHR)
+                    {
+                        swal("Delete failed!", data.message, "error");
+                    },
+                });
+              } 
+            }
+        )},
+
+        'load' : function(tag, target) {
+            $(tag).load(target);
+        },
+
+        'sendFile' : function(file, url, editor) {
+            var data = new FormData();
+            data.append("file", file);
+            data.append("return_path", 'true');
+            $.ajax({
+                data: data,
+                type: "POST",
+                url: url,
+                cache: false,
+                contentType: false,
+                processData: false,
+                async: false,
+                success: function(objFile) {
+                    editor.summernote('insertImage', objFile.url);
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                }
+            });
+        },
+        
+        'dataTable' : function(aoData) {
+                var iSortBy = jQuery.grep(aoData, function(n , i){
+                    return (n.name == 'iSortCol_0');
+                });
+
+                sSortBy = jQuery.grep(aoData, function(n , i){
+                    return (n.name == 'mDataProp_' + iSortBy[0].value);
+                });
+                aoData.push( { 'name' : 'sortBy', 'value' : sSortBy[0].value } );
+
+                iSortOrder = jQuery.grep(aoData, function(n , i){
+                    return (n.name == 'sSortDir_0');
+                });
+                aoData.push( { 'name' : 'sortOrder', 'value' : iSortOrder[0].value } );
+
+                page = jQuery.grep(aoData, function(n , i){
+                    return (n.name == 'iDisplayStart');
+                });
+                page = page[0].value;
+
+                pageLimit = jQuery.grep(aoData, function(n , i){
+                    return (n.name == 'iDisplayLength');
+                });
+                pageLimit = pageLimit[0].value;
+
+                aoData.push( { 'name' : 'page', 'value' : (page/pageLimit)+1 } );
+                aoData.push( { 'name' : 'pageLimit', 'value' : pageLimit } );
+        },
+
+        'makeRequest' : function(method, target, tag, datatable) {
+            $.ajax({
+                url: target,
+                type: method,
+                async: false,
+                success:function(data, textStatus, jqXHR)
+                {
+                    app.message(jqXHR);
+                    app.load(tag, data.url);
                     $(datatable).DataTable().ajax.reload( null, false );
                 },
-                error:function(data, textStatus, jqXHR)
+                error: function(jqXHR, textStatus, errorThrown)
                 {
-                    swal("Delete failed!", data.message, "error");
-                },
+                    app.message(jqXHR);
+                }
             });
-          } 
-        }
-    )},
+        },
 
-    'load' : function(tag, target) {
-        $(tag).load(target);
-    },
+        'message' : function(info){
 
-    'sendFile' : function(file, url, editor) {
-        var data = new FormData();
-        data.append("file", file);
-        data.append("return_path", 'true');
-        $.ajax({
-            data: data,
-            type: "POST",
-            url: url,
-            cache: false,
-            contentType: false,
-            processData: false,
-            async: false,
-            success: function(objFile) {
-                editor.summernote('insertImage', objFile.url);
-            },
-            error: function(jqXHR, textStatus, errorThrown)
-            {
+            if (info.status == 200) {
+                return true;
             }
-        });
-    },
-    
-    'dataTable' : function(aoData) {
-            var iSortBy = jQuery.grep(aoData, function(n , i){
-                return (n.name == 'iSortCol_0');
-            });
 
-            sSortBy = jQuery.grep(aoData, function(n , i){
-                return (n.name == 'mDataProp_' + iSortBy[0].value);
-            });
-            aoData.push( { 'name' : 'sortBy', 'value' : sSortBy[0].value } );
+            var msgTyp;
+            var msgTitle;
+            var msgText = '';
 
-            iSortOrder = jQuery.grep(aoData, function(n , i){
-                return (n.name == 'sSortDir_0');
-            });
-            aoData.push( { 'name' : 'sortOrder', 'value' : iSortOrder[0].value } );
-
-            page = jQuery.grep(aoData, function(n , i){
-                return (n.name == 'iDisplayStart');
-            });
-            page = page[0].value;
-
-            pageLimit = jQuery.grep(aoData, function(n , i){
-                return (n.name == 'iDisplayLength');
-            });
-            pageLimit = pageLimit[0].value;
-
-            aoData.push( { 'name' : 'page', 'value' : (page/pageLimit)+1 } );
-            aoData.push( { 'name' : 'pageLimit', 'value' : pageLimit } );
-    },
-
-    'makeRequest' : function(method, target, tag, datatable) {
-        $.ajax({
-            url: target,
-            type: method,
-            async: false,
-            success:function(data, textStatus, jqXHR)
-            {
-                app.message(jqXHR);
-                app.load(tag, data.url);
-                $(datatable).DataTable().ajax.reload( null, false );
-            },
-            error: function(jqXHR, textStatus, errorThrown)
-            {
-                app.message(jqXHR);
+            if (info.status == 201) {
+                msgTitle   = 'Success';
+                msgType    = 'success';
+                response   = jQuery.parseJSON(info.responseText);
+                msgText    = response.message;
+            }else if (info.status == 422) {
+                msgType    = 'warning';
+                msgTitle   = info.statusText;
+                response   = jQuery.parseJSON(info.responseText);
+                $.each(response, function(key, val){
+                    msgText    += val + "<br>";
+                });
+            }else if (info.status >= 100 && info.status <= 199){
+                msgTitle   = 'Info';
+                msgType    = 'info';
+                msgText    = info.statusText;
+            }else if (info.status >= 202 && info.status <= 299){
+                msgTitle   = 'Success';
+                msgType    = 'success';
+                msgText    = info.statusText;
+            }else if (info.status >= 400 && info.status <= 499){
+                msgTitle   = 'Warning';
+                msgType    = 'warning';
+                msgText    = info.statusText;
+            }else if (info.status >= 500 && info.status <= 599){
+                msgType    = 'error';
+                msgTitle   = 'Error';
+                msgText    = info.statusText;
             }
-        });
-    },
 
-    'message' : function(info){
+            if (msgType != undefined)
+                toastr[msgType](msgText, msgTitle);
 
-        if (info.status == 200) {
             return true;
-        }
-
-        var msgTyp;
-        var msgTitle;
-        var msgText = '';
-
-        if (info.status == 201) {
-            msgTitle   = 'Success';
-            msgType    = 'success';
-            response   = jQuery.parseJSON(info.responseText);
-            msgText    = response.message;
-        }else if (info.status == 422) {
-            msgType    = 'warning';
-            msgTitle   = info.statusText;
-            response   = jQuery.parseJSON(info.responseText);
-            $.each(response, function(key, val){
-                msgText    += val + "<br>";
+        },
+        'formatDT' : function(){
+            $('input[type="datetime"], .pickdatetime')
+            .prop('type','text')
+            .after(function(){
+                return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
+            })
+            .val(function(index, currentvalue){
+                currentvalue = $(this).prop("defaultValue");
+                return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('DD MMM YYYY hh:mm A');
+            })
+            .datetimepicker({
+                viewMode: 'days',
+                format: 'DD MMM YYYY hh:mm A'
+            })
+            .on('dp.change', function(){
+                currentvalue = $(this).val();
+                currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
+                alt = "#alt" + $(this).attr('name');
+                $(alt).val(currentvalue);
             });
-        }else if (info.status >= 100 && info.status <= 199){
-            msgTitle   = 'Info';
-            msgType    = 'info';
-            msgText    = info.statusText;
-        }else if (info.status >= 202 && info.status <= 299){
-            msgTitle   = 'Success';
-            msgType    = 'success';
-            msgText    = info.statusText;
-        }else if (info.status >= 400 && info.status <= 499){
-            msgTitle   = 'Warning';
-            msgType    = 'warning';
-            msgText    = info.statusText;
-        }else if (info.status >= 500 && info.status <= 599){
-            msgType    = 'error';
-            msgTitle   = 'Error';
-            msgText    = info.statusText;
+
+            $('input[type="date"], .pickdate')
+            .prop('type','text')
+            .after(function(){
+                return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
+            })
+            .val(function(index, currentvalue){
+                currentvalue = $(this).prop("defaultValue");
+                return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('DD MMM YYYY');
+            })
+            .datetimepicker({
+                viewMode: 'days',
+                format: 'DD MMM YYYY'
+            })
+            .on('dp.change', function(){
+                currentvalue = $(this).val();
+                currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
+                alt = "#alt" + $(this).attr('name');
+                $(alt).val(currentvalue);
+            });
+
+            $('input[type="time"], .picktime')
+            .prop('type','text')
+            .after(function(){
+                return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
+            })
+            .val(function(index, currentvalue){
+                currentvalue = $(this).prop("defaultValue");
+                return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('hh::mm.ss');
+            })
+            .datetimepicker({
+                format: 'hh:SS A'
+            })
+            .on('dp.change', function(){
+                currentvalue = $(this).val();
+                currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
+                alt = "#alt" + $(this).attr('name');
+                $(alt).val(currentvalue);
+            });
+
+            $('input[type="period"], .pickperiod')
+            .prop('type','text')
+            .after(function(){
+                return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
+            })
+            .val(function(index, currentvalue){
+                currentvalue = $(this).prop("defaultValue");
+                return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('DD MMM YYYY');
+            })
+            .datetimepicker({
+                viewMode: 'days',
+                format: 'hh:SS A'
+            })
+            .on('dp.change', function(){
+                currentvalue = $(this).val();
+                currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
+                alt = "#alt" + $(this).attr('name');
+                $(alt).val(currentvalue);
+            });
         }
-
-        if (msgType != undefined)
-            toastr[msgType](msgText, msgTitle);
-
-        return true;
     }
-}
 

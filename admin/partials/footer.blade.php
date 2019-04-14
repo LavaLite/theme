@@ -1,3 +1,3 @@
       <footer class="main-footer">
-        <strong>{!!trans('app.all.rights')!!}
+        <strong>{!!trans('app.rights')!!}
       </footer>

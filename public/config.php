@@ -74,16 +74,12 @@ return [
 
             //You may use this event to set up your assets.
 
-            $theme->asset()->usePath()->add('vendor', 'dist/css/styles.css');
-            $theme->asset()->usePath()->add('settings', 'css/settings.css');
-            $theme->asset()->usePath()->add('styles', 'css/styles.css');
-            $theme->asset()->usePath()->add('login-register', 'css/login-register.css');
-            $theme->asset()->add('jquery', 'assets/vendor/jquery/jquery.min.js');
+            $theme->asset()->usePath()->add('app', 'css/app.css');
+            $theme->asset()->usePath()->add('jquery', 'js/jquery.min.js');
 
-            $theme->asset()->container('footer')->usepath()->add('app', 'dist/js/app.js');
-            $theme->asset()->container('footer')->usepath()->add('main', 'js/main.js');
-            $theme->asset()->container('footer')->usepath()->add('login-register', 'js/login-register.js');
-            $theme->asset()->usepath()->add('public', 'js/theme.js');
+            $theme->asset()->container('footer')->usepath()->add('manifest', 'js/manifest.js');
+            $theme->asset()->container('footer')->usepath()->add('vendor', 'js/vendor.js');
+            $theme->asset()->container('footer')->usepath()->add('app', 'js/app.js');
         },
 
         // Listen on event before render a layout,

@@ -61,22 +61,16 @@ return [
             //You may use this event to set up your assets.
 
             //You may use this event to set up your assets.
-            $theme->asset()->usePath()->add('vendor', 'dist/css/styles.css');
-            $theme->asset()->usePath()->add('settings', 'css/settings.css');
-            $theme->asset()->usePath()->add('styles', 'css/styles.css');
-            $theme->asset()->add('jquery', 'assets/vendor/jquery/jquery.min.js');
+            $theme->asset()->usePath()->add('app', 'css/app.css');
+            $theme->asset()->usePath()->add('jquery', 'js/jquery.min.js');
 
-            $theme->asset()->container('footer')->usepath()->add('app', 'dist/js/app.js');
+            $theme->asset()->container('footer')->usepath()->add('app', 'js/app.js');
             $theme->asset()->container('footer')->usepath()->add('main', 'js/main.js');
         },
 
         // Listen on event before render a layout,
         // this should call to assign style, script for a layout.
         'beforeRenderLayout' => [
-            'auth' => function($theme)
-            {
-                $theme->asset()->usePath()->add('auth', 'css/auth.css');
-            }
 
         ],
     ],
