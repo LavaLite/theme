@@ -16,7 +16,8 @@
             </div>
             <div class="form-group has-feedback">
                 {!! Form::password('password')
-                ->required()->raw()!!}
+                ->required()
+                ->raw()!!}
                 <span class="fa fa-key form-control-feedback"></span>
             </div>
             <div class="row">

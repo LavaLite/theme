@@ -20,9 +20,9 @@
                 <ul class="nav navbar-nav navbar-right hidden-sm hidden-xs">
                     <li><a href="https://twitter.com/lavalitecms" target="_blank" class="social-icons"><i class="fab fa-twitter"></i></a></li>
                     <li><a href="https://www.facebook.com/lavalite" target="_blank" class="social-icons"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="https://github.com/lavalite" target="_blank" class="social-icons"><i class="fab fa-github"></i></a></li>
-            @if(!user_check('client.web'))
-                    <li><a href="#" data-toggle="modal" data-target="#loginModal" class="btn">Login</a></li>
+                    <li><a href="https://github.com/lavalite/cms" target="_blank" class="social-icons"><i class="fab fa-github"></i></a></li>
+            @if(!auth('client.web')->check())
+                    <li><a href="{{trans_url('client')}}" class="btn">Login</a></li>
             @else
                     <li><a href="{{trans_url('client')}}" class="btn">{{users('name', 'client.web')}}</a></li>
                     <li><a href="{{trans_url('client/logout')}}" class="btn">Logout</a></li>
@@ -31,7 +31,7 @@
             </div>
         </div>
     </nav>
-    @if(!user_check('client.web'))
+    @if(!auth('client.web')->check())
     <a href="{{trans_url('client/login')}}" class="login_btn btn hidden-md hidden-lg">Login</a>
     @else
     <a href="{{trans_url('client')}}" class="login_btn btn hidden-md hidden-lg">{{users('name', 'client.web')}}</a>
