@@ -4,9 +4,6 @@
     "keywords": ["Lavalite", "Public", "Theme"],
     "license": "MIT",
     "type": "lavalite-theme",
-    "require": {
-        "composer/installers": "dev-master"
-    },
     "authors": [
         {
             "name": "Lavalite",
