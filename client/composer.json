@@ -1,7 +1,7 @@
 {
-    "name": "litecms/user",
+    "name": "litecms/client",
     "description": "User and client theme for lavalite cms.",
-    "keywords": ["Lavalite", "User", "Theme"],
+    "keywords": ["Lavalite", "Client", "User", "Theme"],
     "license": "MIT",
     "type": "lavalite-theme",
     "authors": [
