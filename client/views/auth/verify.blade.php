@@ -6,17 +6,15 @@
                 <div class="card-header">{{ __('Verify Your Email Address') }}</div>
 
                 <div class="card-body">
-                {{ __('Before proceeding, please check your email for a verification link.') }}
-                {{ __('If you did not receive the email') }},
+                    @if (session('resent'))
+                        <div class="alert alert-success" role="alert">
+                            {{ __('A fresh verification link has been sent to your email address.') }}
+                        </div>
+                    @endif
 
-                <form class="d-inline" method="POST"
-                    action="{{ route('guard.verification.resend', ['guard' => 'client']) }}">
-                    @csrf
-
-                    <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
-                        {{ __('click here to request another') }}
-                    </button>.
-                </form>
+                    {{ __('Before proceeding, please check your email for a verification link.') }}
+                    {{ __('If you did not receive the email') }}, <a href="{{ route('verification.resend') }}">{{ __('click here to request another') }}</a>.
+                </div>
             </div>
         </div>
     </div>
