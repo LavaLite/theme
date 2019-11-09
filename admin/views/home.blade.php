@@ -1,9 +1,9 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-        <i class="fa fa-dashboard"></i>
-        {!!trans('app.dashboard')!!}
-        <small>{!!trans('app.version')!!}</small>
+            <i class="fa fa-dashboard"></i>
+            {!!trans('app.dashboard')!!}
+            <small>{!!trans('app.version')!!}</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="{!!guard_url('/')!!}"><i class="fa fa-dashboard"></i> {!!trans('app.home')!!}</a></li>
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="box-body with-border" style="height: 300px; overflow-y: auto;">
-                        
+
                     </div>
                     <div class="box-footer clearfix">
                         <a href="#" class="btn btn-sm btn-info btn-flat new-client pull-right">View All Events</a>
@@ -86,7 +86,7 @@
                         </div>
                     </div>
                     <div class="box-body with-border" style="height: 300px; overflow-y: auto;">
-                        
+
                     </div>
                     <div class="box-footer clearfix">
                         <a href="#" class="btn btn-sm btn-info btn-flat new-client pull-right">View All Tasks</a>
@@ -109,7 +109,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-md-4">
                 <div class="box box-info">
                     <div class="box-header with-border">
@@ -120,10 +120,10 @@
                         </div>
                     </div>
                     <div class="box-body with-border" style="height: 300px; overflow-y: auto;">
-                        
+
                     </div>
                     <div class="box-footer clearfix">
-                            <a href="#" class="btn btn-sm btn-info btn-flat new-client pull-right">View All</a>
+                        <a href="#" class="btn btn-sm btn-info btn-flat new-client pull-right">View All</a>
                     </div>
                 </div>
             </div>
@@ -138,16 +138,15 @@
                         </div>
                     </div>
                     <div class="box-body with-border" style="height: 300px; overflow-y: auto;">
-                        
+
                     </div>
                     <div class="box-footer clearfix">
-                            <a href="#" class="btn btn-sm btn-info btn-flat new-client pull-right">View All </a>
+                        <a href="#" class="btn btn-sm btn-info btn-flat new-client pull-right">View All </a>
                     </div>
                 </div>
             </div>
 
-            
+
         </div>
     </section>
 </div>
-

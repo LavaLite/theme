@@ -17,20 +17,20 @@ mix.webpackConfig({
  |
  */
 
-mix.copy('./node_modules/jquery/dist/jquery.min.js', './assets/js/jquery.min.js');
+mix.copy('./node_modules/jquery/dist/jquery.min.js', './assets/dist/js/jquery.min.js');
 
-mix.js('resources/js/app.js', 'assets/js')
-   .extract(['axios', 'bootstrap', 'components-jqueryui', 'popper.js', 'vue', 
+mix.js('resources/js/app.js', 'assets/dist/js')
+   .extract(['bootstrap', 'components-jqueryui', 'popper.js', 
    	'bootstrap-daterangepicker', 'codemirror', 'datatables.net', 'datatables.net-bs',  
    	'datatables.net-dt', 'datatables.net-responsive', 'datatables.net-responsive-bs', 
    	'dropzone', 'eonasdan-bootstrap-datetimepicker', 'fullcalendar', 'jquery-validation', 
    	'mustache', 'summernote', 'sweetalert', 'timeago', 'toastr'])
-   .sass('resources/sass/app.scss', 'assets/css');
+   .sass('resources/sass/app.scss', 'assets/dist/css');
 
-mix.copyDirectory('./node_modules/font-awesome/fonts', './assets/fonts')
-   .copyDirectory('./node_modules/ionicons/dist/fonts', './assets/fonts')
-   .copyDirectory('./node_modules/bootstrap/dist/fonts', './assets/fonts')
-   .copyDirectory('./node_modules/summernote/dist/font', './assets/css/font');
+mix.copyDirectory('./node_modules/font-awesome/fonts', './assets/dist/fonts')
+   .copyDirectory('./node_modules/ionicons/dist/fonts', './assets/dist/fonts')
+   .copyDirectory('./node_modules/bootstrap/dist/fonts', './assets/dist/fonts')
+   .copyDirectory('./node_modules/summernote/dist/font', './assets/dist/css/font');
 
 
     

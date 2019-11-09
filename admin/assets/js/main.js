@@ -67,7 +67,6 @@ $(function () {
         e.preventDefault();
 
         var $tag = $(this);
-
         if ($tag.data('action') == 'CREATE')
             return app.create($tag.data('form'), $tag.data('load-to'), $tag.data('datatable'));
 
@@ -82,6 +81,7 @@ $(function () {
 
         if ($tag.data('action') == 'WORKFLOW')
             return app.workflow($tag.data('href'), $tag.data('load-to'), $tag.data('datatable'), $tag.data('method'), $tag.attr('id') );
+console.log($tag.data('load-to'), $tag.data('href'));
 
         app.load($tag.data('load-to'), $tag.data('href'));
     });
