@@ -30,6 +30,3 @@ window.Dropzone = require('dropzone/dist/dropzone.js');
 require('timeago/jquery.timeago.js');
 require('jquery-validation/dist/jquery.validate.js' );
 require('eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js');
-require('./scripts/login-register.js');
-require('./scripts/main.js');
-require('./scripts/theme.js');
