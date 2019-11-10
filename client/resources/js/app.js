@@ -39,5 +39,4 @@ require('eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min
 require('jquery-validation/dist/jquery.validate.js' );
 window.cropper = require('cropper/dist/cropper.js' );
 require('timeago/jquery.timeago.js');
-require('./scripts/main.js');
-require('./scripts/theme.js');
+

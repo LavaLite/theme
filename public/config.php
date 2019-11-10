@@ -23,13 +23,12 @@ return [
     | Here you can specify which view is to be loaded for the list page
     | this can be 'list', 'grid', 'box', 'bootstrap-table' or 'data-table'
     |
-    | You can specify additional views but you have to create it under 
+    | You can specify additional views but you have to create it under
     | 'patrial/list' folder of each package that uses this theme.
     |
      */
 
     'listView' => 'grid', //default
-
 
     /*
     |--------------------------------------------------------------------------
@@ -43,12 +42,12 @@ return [
     |
      */
 
-    'events'  => [
+    'events' => [
 
         // Before event inherit from package config and the theme that call before,
         // you can use this event to set meta, breadcrumb template or anything
         // you want inheriting.
-        'before'             => function ($theme) {
+        'before' => function ($theme) {
             // You can remove this line anytime.
             //$theme->setTitle(__('app.name'));
 
@@ -69,17 +68,23 @@ return [
         // Listen on event before render a theme,
         // this event should call to assign some assets,
         // breadcrumb template.
-        'beforeRenderTheme'  => function ($theme) {
+        'beforeRenderTheme' => function ($theme) {
             //You may use this event to set up your assets.
 
             //You may use this event to set up your assets.
 
-            $theme->asset()->usePath()->add('app', 'css/app.css');
-            $theme->asset()->usePath()->add('jquery', 'js/jquery.min.js');
+            $theme->asset()->usePath()->add('app', 'dist/css/app.css');
+            $theme->asset()->usePath()->add('install', 'css/install.css');
+            $theme->asset()->usePath()->add('styles', 'css/styles.css');
+            $theme->asset()->usePath()->add('settings', 'css/settings.css');
+            $theme->asset()->usePath()->add('jquery', 'dist/js/jquery.min.js');
 
-            $theme->asset()->container('footer')->usepath()->add('manifest', 'js/manifest.js');
-            $theme->asset()->container('footer')->usepath()->add('vendor', 'js/vendor.js');
-            $theme->asset()->container('footer')->usepath()->add('app', 'js/app.js');
+            $theme->asset()->container('footer')->usepath()->add('manifest', 'dist/js/manifest.js');
+            $theme->asset()->container('footer')->usepath()->add('vendor', 'dist/js/vendor.js');
+            $theme->asset()->container('footer')->usepath()->add('app', 'dist/js/app.js');
+            $theme->asset()->container('footer')->usepath()->add('main', 'js/main.js');
+            $theme->asset()->container('footer')->usepath()->add('theme', 'js/theme.js');
+            $theme->asset()->container('footer')->usepath()->add('login-register', 'js/login-register.js');
         },
 
         // Listen on event before render a layout,
@@ -89,10 +94,10 @@ return [
             'default' => function ($theme) {
             },
 
-            'public'  => function ($theme) {
+            'public' => function ($theme) {
             },
 
-            'home'    => function ($theme) {
+            'home' => function ($theme) {
             },
 
         ],

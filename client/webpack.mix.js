@@ -17,13 +17,13 @@ mix.webpackConfig({
  |
  */
 
-mix.copy('./node_modules/jquery/dist/jquery.min.js', './assets/js/jquery.min.js');
+mix.copy('./node_modules/jquery/dist/jquery.min.js', './assets/dist/js/jquery.min.js');
 
-mix.js('resources/js/app.js', 'assets/js')
+mix.js('resources/js/app.js', 'assets/dist/js')
    .extract(['axios', 'bootstrap' ,  'jquery', 'popper.js' , 'vue', '@fortawesome/fontawesome-free', 'bootstrap-daterangepicker', 'codemirror', 'datatables.net', 'datatables.net-bs',  'datatables.net-dt', 'datatables.net-responsive', 'datatables.net-responsive-bs', 'dropzone', 'eonasdan-bootstrap-datetimepicker', 'fullcalendar', 'jquery-validation', 'mustache', 'summernote', 'sweetalert', 'timeago', 'toastr'])
-   .sass('resources/sass/app.scss', 'assets/css');
+   .sass('resources/sass/app.scss', 'assets/dist/css');
 
-mix.copyDirectory('./node_modules/@fortawesome/fontawesome-free/webfonts', './assets/webfonts')
-   .copyDirectory('./node_modules/summernote/dist/font', './assets/css/font');
+mix.copyDirectory('./node_modules/@fortawesome/fontawesome-free/webfonts', './assets/dist/webfonts')
+   .copyDirectory('./node_modules/summernote/dist/font', './assets/dist/css/font');
 
     
