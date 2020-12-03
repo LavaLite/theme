@@ -3,7 +3,5 @@
 #
 
 ./git-subsplit.sh init git@github.com:lavalite/themes.git
-./git-subsplit.sh publish  --heads="master" --tags="v5.1.3" admin:git@github.com:Litecms/Admin.git
-./git-subsplit.sh publish  --heads="master" --tags="v5.1.3"  public:git@github.com:Litecms/Public.git
-./git-subsplit.sh publish  --heads="master" --tags="v5.1.3"  client:git@github.com:Litecms/Client.git
+./git-subsplit.sh publish  --heads="develop master" --tags="v7.0.0" admin:git@github.com:Litecms/theme-default.git
 rm -rf .subsplit/
