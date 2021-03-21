@@ -82,7 +82,6 @@ return [
             $theme->asset()->container('footer')->usepath()->add('vendor', 'dist/js/vendor.js');
             $theme->asset()->container('footer')->usepath()->add('app', 'dist/js/app.js');
             $theme->asset()->container('footer')->usepath()->add('main', 'js/main.js');
-            $theme->asset()->container('footer')->usepath()->add('login-register', 'js/login-register.js');
         },
 
         // Listen on event before render a layout,

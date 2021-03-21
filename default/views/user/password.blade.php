@@ -32,8 +32,8 @@
                 ->class('change-password')!!}
                 <div class="profile-edit-card-section">
                     <div class="form-group row">
-                        <label for="full-name" class="col-sm-2 col-form-label text-sm-right">Old Password</label>
-                        <div class="col-sm-10">
+                        <label for="full-name" class="col-sm-3 col-form-label text-sm-right">Old Password</label>
+                        <div class="col-sm-9">
                             {!! Form::password('old_password')
                             -> label(trans('user::user.label.current_password'))
                             -> placeholder(trans('user::user.placeholder.current_password'))
@@ -41,17 +41,17 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="designation" class="col-sm-2 col-form-label text-sm-right">Password</label>
-                        <div class="col-sm-10">
+                        <label for="designation" class="col-sm-3 col-form-label text-sm-right">New Password</label>
+                        <div class="col-sm-9">
                             {!! Form::password('password')
                             -> label(trans('user::user.label.current_password'))
-                            -> placeholder(trans('user::user.placeholder.current_password'))
+                            -> placeholder(trans('user::user.placeholder.new_password'))
                             ->raw()!!}
                         </div>
                     </div>
                     <div class="form-group row mb-0">
-                        <label for="email" class="col-sm-2 col-form-label text-sm-right">Confirm password</label>
-                        <div class="col-sm-10">
+                        <label for="email" class="col-sm-3 col-form-label text-sm-right">Confirm Password</label>
+                        <div class="col-sm-9">
                             {!! Form::password('password_confirmation')
                             -> label(trans('user::user.label.new_password_confirmation'))
                             -> placeholder(trans('user::user.placeholder.new_password_confirmation'))

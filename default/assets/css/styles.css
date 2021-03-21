@@ -79,12 +79,16 @@ select.form-control {
     -moz-appearance: none;
     appearance: none;
     padding-right: 20px;
-    background-image: url(../img/down-arrow.svg);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
     background-position: center right 15px;
     background-repeat: no-repeat;
     -webkit-background-size: 10px;
     background-size: 10px;
     height: 35px !important;
+}
+select.form-control[multiple] {
+    padding-right: .75rem;
+    background-image: none;
 }
 .tooltip .tooltip-inner {
     background-color: #374048;
@@ -2118,6 +2122,12 @@ select.form-control {
 }
 .site-wrapper .feature-section .feature-card-wrapper {
     padding-right: 40px;
+}
+.site-wrapper .feature-section .feature-card-wrapper .section-header {
+    color: white;
+}
+.site-wrapper .feature-section .feature-card-wrapper .section-header a{
+    color: white;
 }
 .site-wrapper .feature-section .feature-card-wrapper .feature-card {
     padding: 25px 30px 12px;

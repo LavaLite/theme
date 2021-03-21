@@ -1,11 +1,24 @@
-$(document).ready(function() {
-  $('[data-toggle="tooltip"]').tooltip();
-});
 
+/* ====== Document ready ======= */
 $(function () {
-  if(typeof module_link !== "undefined"){
-    app.load("#app-entry", module_link + "/0");
-  }
+  $('[data-toggle="tooltip"]').tooltip();
+  toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-bottom-left",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "2000",
+    "extendedTimeOut": "2000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  };
   $.ajaxSetup({
     headers: {
       "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -46,10 +59,11 @@ $(function () {
   $(".html-editor-mini").summernote({
     height: "200px",
     toolbar: [
-      ["style", ["bold", "italic", "underline", "clear"]],
+      ["style", ["bold", "italic", "underline"]],
       ["fontsize", ["fontsize"]],
       ["color", ["color"]],
       ["para", ["ul", "ol", "paragraph"]],
+      ['view', ['fullscreen', 'codeview']],
     ],
   });
 
@@ -63,46 +77,33 @@ $(function () {
   $("body").on("click", "[data-action]", function (e) {
     e.preventDefault();
     e.stopPropagation();
-    var $tag = $(this);
+    var tag = $(this);
 
     console.log(e);
 
-    if ($tag.data("action") == "SHOW")
-      return app.load($tag.data("load-to"), $tag.data("url"));
+    if (tag.data("action") == "SHOW")
+      return app.load(tag.data("load-to"), tag.data("url"));
 
-    if ($tag.data("action") == "CREATE")
-      return app.load($tag.data("load-to"), $tag.data("url"));
+    if (tag.data("action") == "CREATE")
+      return app.load(tag.data("load-to"), tag.data("url"));
 
-    if ($tag.data("action") == "STORE")
-      return app.store(
-        $tag.data("form"),
-        $tag.data("load-to"),
-        $tag.data("list")
-      );
+    if (tag.data("action") == "STORE")
+      return app.store(tag);
 
-    if ($tag.data("action") == "EDIT")
-      return app.load($tag.data("load-to"), $tag.data("url"));
+    if (tag.data("action") == "EDIT")
+      return app.load(tag.data("load-to"), tag.data("url"));
 
-    if ($tag.data("action") == "UPDATE")
-      return app.update(
-        $tag.data("form"),
-        $tag.data("load-to"),
-        $tag.data("list")
-      );
+    if (tag.data("action") == "UPDATE")
+      return app.update(tag);
 
-    if ($tag.data("action") == "DELETE") {
-      return app.delete(
-        $tag.data("href"),
-        $tag.data("load-to"),
-        $tag.data("list"),
-        $tag.data("remove")
-      );
+    if (tag.data("action") == "DELETE") {
+      return app.delete(tag);
     }
 
-    if ($tag.data("action") == "REQUEST")
-      return app.makeRequest($tag.data("method"), $tag.data("href"));
+    if (tag.data("action") == "REQUEST")
+      return app.makeRequest(tag.data("method"), tag.data("href"));
 
-    app.load($tag.data("load-to"), $tag.data("href"));
+    app.load(tag.data("load-to"), tag.data("href"));
   });
 
 
@@ -111,11 +112,23 @@ $(function () {
       event.stopPropagation();
       $($(this).attr('href')).collapse('toggle');
   });
-  var ps = new PerfectScrollbar(".main-nav-wrap", {
-      wheelSpeed: 2,
-      wheelPropagation: true,
-      minScrollbarLength: 5
-  });
+
+  if($(".main-nav-wrap").length){
+    var ps = new PerfectScrollbar(".main-nav-wrap", {
+        wheelSpeed: 2,
+        wheelPropagation: true,
+        minScrollbarLength: 5
+    });
+  }
+
+  if($(".perfect-scroll").length){
+    var ps = new PerfectScrollbar(".perfect-scroll", {
+        wheelSpeed: 2,
+        wheelPropagation: true,
+        minScrollbarLength: 5
+    });
+  }
+
   var dropdownMenu;
   $(window).on('show.bs.dropdown', function (e) {
       dropdownMenu = $(e.target).find('.main-nav-dropdown');
@@ -133,6 +146,8 @@ $(function () {
   });
 });
 
+
+/* ====== Ajax complete ======= */
 $(document).ajaxComplete(function () {
   $("body")
     .off()
@@ -140,8 +155,6 @@ $(document).ajaxComplete(function () {
       e.preventDefault();
       e.stopPropagation();
       var tag = $(this);
-
-      console.log(e);
 
       if (tag.data("action") == "SHOW")
         return app.load(tag.data("load-to"), tag.data("url"));
@@ -151,8 +164,6 @@ $(document).ajaxComplete(function () {
 
       if (tag.data("action") == "STORE") {
         return app.store(tag);
-        tag.data("load-to");
-        tag.data("list");
       }
 
       if (tag.data("action") == "EDIT") {
@@ -193,14 +204,19 @@ $(document).ajaxComplete(function () {
   });
 });
 
+/* ====== Ajax error ======= */
 $(document).ajaxError(function (event, jqxhr, settings, thrownError) {
   app.message(jqxhr);
 });
 
+
+/* ====== Ajax success ======= */
 $(document).ajaxSuccess(function (event, xhr, settings) {
   app.message(xhr);
 });
 
+
+/* ====== Application Object ======= */
 class myApp {
   constructor() {}
   async sendmail(forms) {
@@ -422,6 +438,7 @@ class myApp {
 
 var app = new myApp();
 
+/* ====== Window Scroll ======= */
 $(window)
   .scroll(function () {
     var scrollDistance = $(window).scrollTop();

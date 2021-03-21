@@ -19,6 +19,7 @@
                         <p>View Profile</p>
                     </span>
                 </a>
+                @if(user()->isAdmin())
                 <div class="dropdown-divider"></div>
                 <div class="dropdown has-child">
                     <a class="dropdown-item has-child" data-toggle="collapse" href="#userCollapse" role="button" aria-expanded="true" aria-controls="userCollapse"><i class="las la-user-circle"></i>Users</a>
@@ -34,6 +35,7 @@
                 <a class="dropdown-item" href="{{url('admin/settings')}}"><i class="las la-cog"></i>Settings</a>
                 <a class="dropdown-item" href="{{url('admin/masters')}}"><i class="las la-dice-d20"></i>Masters</a>
                 <a class="dropdown-item" href="{{url('admin/menu/menu')}}"><i class="las la-stream"></i>Menus</a>
+                @endif
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{guard_url('logout')}}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
