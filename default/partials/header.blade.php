@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="{{url('/')}}">
-                <img src="{{theme_asset('img/logo/logo.svg')}}" class="img-fluid" alt="">
+                <img src="{{theme_asset('img/logo/public.svg')}}" class="img-fluid" alt="">
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
