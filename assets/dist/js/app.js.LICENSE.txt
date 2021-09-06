@@ -23,15 +23,32 @@
  */
 
 /*!
+ * Infinite Scroll PACKAGED v3.0.6
+ * Automatically add next page
+ *
+ * Licensed GPLv3 for open source use
+ * or Infinite Scroll Commercial License for commercial use
+ *
+ * https://infinite-scroll.com
+ * Copyright 2018 Metafizzy
+ */
+
+/*!
+ * imagesLoaded v4.1.4
+ * JavaScript is all like "You images are done yet or what?"
+ * MIT License
+ */
+
+/*!
  * perfect-scrollbar v1.5.0
  * Copyright 2020 Hyunje Jun, MDBootstrap and Contributors
  * Licensed under MIT
  */
 
 /*!
-FullCalendar v5.3.2
+FullCalendar v5.8.0
 Docs & License: https://fullcalendar.io/
-(c) 2020 Adam Shaw
+(c) 2021 Adam Shaw
 */
 
 /*! *****************************************************************************
@@ -56,6 +73,13 @@ Docs & License: https://fullcalendar.io/
 * @license: Licensed under the MIT license. See http://www.opensource.org/licenses/mit-license.php
 * @website: http://www.daterangepicker.com/
 */
+
+/**!
+ * Sortable 1.14.0
+ * @author	RubaXa   <trash@rubaxa.org>
+ * @author	owenm    <owen23355@gmail.com>
+ * @license MIT
+ */
 
 //! moment.js
 

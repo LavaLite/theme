@@ -32,8 +32,8 @@
 				->class('update-profile')!!}
 				<div class="profile-edit-card-section">
 					<div class="form-group row">
-						<label for="full-name" class="col-sm-2 col-form-label text-sm-right">Full Name</label>
-						<div class="col-sm-10">
+						<label for="full-name" class="col-sm-3 col-form-label text-sm-right">Full Name</label>
+						<div class="col-sm-9">
 							{!! Form::text('name')
 							-> label(trans('user::user.label.name'))
 							-> placeholder(trans('user::user.placeholder.name'))
@@ -41,29 +41,26 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="designation" class="col-sm-2 col-form-label text-sm-right">Designation</label>
-						<div class="col-sm-10">
+						<label for="designation" class="col-sm-3 col-form-label text-sm-right">Designation</label>
+						<div class="col-sm-9">
 							{!! Form::text('designation')
 							-> label(trans('user::user.label.designation'))
 							-> placeholder(trans('user::user.placeholder.designation'))
 							->raw() !!}
 						</div>
 					</div>
-					<div class="form-group row mb-0">
-						<label for="email" class="col-sm-2 col-form-label text-sm-right">Email</label>
-						<div class="col-sm-10">
+					<div class="form-group row">
+						<label for="email" class="col-sm-3 col-form-label text-sm-right">Email</label>
+						<div class="col-sm-9">
 							{!! Form::tel('email')
 							-> label(trans('user::user.label.email'))
 							-> placeholder(trans('user::user.placeholder.email'))
 							->raw() !!}
-
 						</div>
 					</div>
-				</div>
-				<div class="profile-edit-card-section">
-					<label for="email" class="d-block text-sm-center mb-15">Date of Birth</label>
-					<div class="row justify-content-center">
-						<div class="col-md-7">
+					<div class="form-group row mb-0">
+						<label for="email" class="col-sm-3 col-form-label text-sm-right">Date of Birth</label>
+						<div class="col-sm-9">
 							{!! Form::date('dob')
 							-> label(trans('user::user.label.dob'))
 							-> placeholder(trans('user::user.placeholder.dob'))
