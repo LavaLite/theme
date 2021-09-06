@@ -1,26 +1,17 @@
 {
-    "name": "lavalite/theme",
-    "description": "The lavalite theme",
-    "keywords": ["Theme", "Lavalite"],
+    "name": "litecms/default",
+    "description": "Deafalut theme for lavalite cms.",
+    "keywords": ["Lavalite", "Public", "Theme"],
     "license": "MIT",
-    "homepage": "http://lavalite.org",
     "type": "lavalite-theme",
     "authors": [
         {
-            "name": "Renfos Technologies",
-            "email": "info@renfos.com"
-        },
-        {
-            "name": "George John",
-            "email": "george@renfos.com"
+            "name": "Lavalite",
+            "email": "info@lavalite.org"
         }
     ],
     "require": {
-        "php": "^7.2"
-    },
-    "replace": {
-        "litecms/admin": "self.version",
-        "litecms/user": "self.version",
-        "litecms/public": "self.version"
+        "php": "^7.2.5|^8.0",
+        "composer/installers": "~1.9"
+      }
     }
-}

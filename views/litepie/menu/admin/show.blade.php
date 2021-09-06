@@ -1,4 +1,4 @@
-@if($menu->key==null)
+@if($menu->key == null)
 @include('litepie.menu.admin.new')
 @else
 <div class="app-entry-form-wrap">
